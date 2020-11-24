@@ -31,14 +31,14 @@
                       <children>
                           <TextField prefHeight="31.0" prefWidth="426.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
                           <ComboBox prefHeight="31.0" prefWidth="214.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="222.0" stylesheets="@../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
+                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="222.0" stylesheets="@../../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
                               <font>
                                   <Font size="14.0" />
                               </font>
                               <graphic>
                                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                       <image>
-                                          <Image url="@../static/img/search.png" />
+                                          <Image url="@../../static/img/search.png" />
                                       </image>
                                   </ImageView>
                               </graphic>
