@@ -45,8 +45,10 @@
                 </HBox>
             <TableView prefHeight="502.0" prefWidth="782.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="155.99997234344482" text="ID Gia Đình" />
+                <TableColumn prefWidth="231.99998474121094" text="Địa chỉ" />
+                  <TableColumn prefWidth="204.0" text="Tên chủ hộ" />
+                  <TableColumn prefWidth="191.199951171875" text="SĐT" />
               </columns>
             </TableView>
             </children>

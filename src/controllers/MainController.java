@@ -13,18 +13,16 @@ public class MainController {
     @FXML
     private BorderPane mainpane;
 
-
-    public void handleThieunhi(ActionEvent event) {
-        Pane view = getPage("ThieuNhi/thieunhi");
-        mainpane.setCenter(view);
-    }
-
     public void handleHogiadinh(ActionEvent event) {
         Pane view = getPage("HoGiaDinh/hogiadinh");
         mainpane.setCenter(view);
     }
-    public void handlePhatqua(ActionEvent event) {
-        Pane view = getPage("PhatQua/phatqua");
+    public void handlePhatquaThieunhi(ActionEvent event) {
+        Pane view = getPage("PhatQua/phatquaThieunhi");
+        mainpane.setCenter(view);
+    }
+    public void handlePhatquaHocsinh(ActionEvent event) {
+        Pane view = getPage("PhatQua/phatquaHocsinh");
         mainpane.setCenter(view);
     }
     public void handleThongke(ActionEvent event) {
