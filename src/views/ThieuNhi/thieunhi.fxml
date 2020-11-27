@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" style="-fx-background-color: #E6F2F9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" style="-fx-background-color: #E6F2F9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thieuNhiController">
     <children>
           <GridPane layoutX="10.0" layoutY="1.0" prefHeight="651.0" prefWidth="782.0">
               <columnConstraints>
@@ -29,9 +29,9 @@
               <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                       <children>
-                          <TextField prefHeight="31.0" prefWidth="426.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
-                          <ComboBox prefHeight="31.0" prefWidth="214.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="222.0" stylesheets="@../../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
+                          <TextField prefHeight="31.0" prefWidth="320.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
+                          <ComboBox prefHeight="31.0" prefWidth="162.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
+                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
                               <font>
                                   <Font size="14.0" />
                               </font>
@@ -42,6 +42,11 @@
                                       </image>
                                   </ImageView>
                               </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Sửa" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
                       </children>
                   </HBox>
