@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" style="-fx-background-color: #E6F2F9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thieuNhiController">
+    <children>
+          <GridPane layoutX="10.0" layoutY="1.0" prefHeight="651.0" prefWidth="782.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="63.2" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="536.3999862670898" minHeight="10.0" prefHeight="528.8" vgrow="SOMETIMES" />
+              </rowConstraints>
+              <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
+                      <children>
+                          <TextField prefHeight="31.0" prefWidth="320.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
+                          <ComboBox prefHeight="31.0" prefWidth="162.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
+                          <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                              <graphic>
+                                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/img/search.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Sửa" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                      </children>
+                  </HBox>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
+              <tabs>
+                <Tab text="Thiếu nhi">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView prefHeight="494.0" prefWidth="782.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Tên" />
+                                  <TableColumn prefWidth="75.0" text="Con chủ hộ" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Học sinh">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView prefHeight="494.0" prefWidth="784.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Tên" />
+                                  <TableColumn prefWidth="75.0" text="Trường" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+              </children>
+          </GridPane>
+    </children>
+</AnchorPane>
