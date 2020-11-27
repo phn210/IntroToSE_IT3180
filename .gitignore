@@ -1,3 +1,6 @@
 # Intellij IDE
 .idea/
 out/
+
+# Connect to local DB Server
+controllers/DBConnection
