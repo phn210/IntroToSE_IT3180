@@ -29,6 +29,9 @@ public class MainController {
         Pane view = getPage("thongKe/thongke");
         mainpane.setCenter(view);
     }
+    public void handleLogin(ActionEvent event){
+
+    }
     public Pane getPage(String fileName){
         Pane view = new Pane();
         try {
@@ -36,6 +39,7 @@ public class MainController {
             if(fileName == null){
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
+
             view = new FXMLLoader().load(fileUrl);
         } catch (Exception e) {
             System.out.println("No page" +fileName+ " please check FxmlLoader");

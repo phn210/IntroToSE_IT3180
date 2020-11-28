@@ -99,3 +99,10 @@
 {
     -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
 }
+.login{
+    -fx-font-family: Helvetica, Arial, sans-serif;
+}
+#login_button{
+    -fx-font-family: inherit;
+    -fx-border-radius: 50px;
+}
