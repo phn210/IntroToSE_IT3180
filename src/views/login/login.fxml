@@ -14,22 +14,22 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="37.0" layoutY="141.0" prefHeight="58.0" prefWidth="374.0" promptText="Mật khẩu" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css">
+      <PasswordField id="login" layoutX="37.0" layoutY="141.0" prefHeight="58.0" prefWidth="374.0" promptText="Mật khẩu" stylesheets="@../../static/css/fullpackstyling.css">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </PasswordField>
-      <Button id="login_button" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="374.0" style="-fx-background-color: #4267b2;" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css" text="Đăng nhập" textFill="#fafafa">
+      <Button id="login" alignment="CENTER" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" onMouseMoved="#login_button_dangnhap" prefHeight="50.0" prefWidth="374.0" style="-fx-background-color: #4267b2;" stylesheets="@../../static/css/fullpackstyling.css" text="Đăng nhập" textFill="#fafafa">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Hyperlink alignment="TOP_CENTER" layoutX="37.0" layoutY="310.0" prefHeight="26.0" prefWidth="374.0" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css" text="Quên mật khẩu?">
+      <Hyperlink id="login" alignment="TOP_CENTER" layoutX="37.0" layoutY="310.0" prefHeight="26.0" prefWidth="374.0" stylesheets="@../../static/css/fullpackstyling.css" text="Quên mật khẩu?">
          <font>
             <Font name="SansSerif Regular" size="15.0" />
          </font>
       </Hyperlink>
-      <Button alignment="TOP_CENTER" layoutX="110.0" layoutY="364.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: #42b72a;" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css" text="Tạo tài khoản mới" textFill="#fafafa">
+      <Button id="login" alignment="CENTER" layoutX="110.0" layoutY="364.0" mnemonicParsing="false" onTouchReleased="#login_button_taotaikhoan" prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: #42b72a;" stylesheets="@../../static/css/fullpackstyling.css" text="Tạo tài khoản mới" textAlignment="CENTER" textFill="#fafafa">
          <font>
             <Font size="18.0" />
          </font>

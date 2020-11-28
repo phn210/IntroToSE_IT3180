@@ -102,7 +102,3 @@
 .login{
     -fx-font-family: Helvetica, Arial, sans-serif;
 }
-#login_button{
-    -fx-font-family: inherit;
-    -fx-border-radius: 50px;
-}
