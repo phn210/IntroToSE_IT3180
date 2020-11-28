@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" style="-fx-background-color: #E6F2F9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ThieuNhiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ThieuNhiController">
     <children>
         <GridPane layoutX="10.0" layoutY="1.0" prefHeight="638.0" prefWidth="782.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <columnConstraints>
@@ -26,16 +26,16 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                     <children>
-                  <ComboBox prefHeight="31.0" prefWidth="94.0" promptText="Năm" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                        <ComboBox prefHeight="31.0" prefWidth="231.0" promptText="Dịp đặc biệt" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                        <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
+                  <ComboBox prefHeight="40.0" prefWidth="106.0" promptText="Năm" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
+                        <ComboBox prefHeight="39.0" prefWidth="239.0" promptText="Dịp đặc biệt" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
+                        <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" styleClass="linear-grad" stylesheets="@../../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
                             <font>
-                                <Font size="14.0" />
+                                <Font size="18.0" />
                             </font>
                         </Button>
-                  <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" stylesheets="@../../static/css/fullpackstyling.css" text="Tạo mới dịp" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#suaThieuNhi" prefHeight="31.0" prefWidth="138.0" styleClass="linear-grad" stylesheets="@../../static/css/fullpackstyling.css" text="Tạo mới dịp" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="18.0" />
                      </font>
                   </Button>
                     </children>
