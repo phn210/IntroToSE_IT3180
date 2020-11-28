@@ -6,10 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
     private static Connection connection;
-    private static String connectionURL = "jdbc:sqlserver://localhost:59628;" +
-            "databaseName=QLBongDa;";
-    private static String user = "huy";
-    private static String password = "123456";
+    private static String connectionURL = "jdbc:sqlserver://THINKPAD;database=QuanLyCapPhanThuong;";
+    private static String user = "xanh";
+    private static String password = "jaunebleu";
 
     public static void main(String[] args){
         try {
