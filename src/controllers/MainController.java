@@ -14,19 +14,19 @@ public class MainController {
     private BorderPane mainpane;
 
     public void handleHogiadinh(ActionEvent event) {
-        Pane view = getPage("HoGiaDinh/hogiadinh");
+        Pane view = getPage("hogiadinh/hogiadinh");
         mainpane.setCenter(view);
     }
     public void handlePhatquaThieunhi(ActionEvent event) {
-        Pane view = getPage("PhatQua/phatquaThieunhi");
+        Pane view = getPage("phatqua/phatquaThieunhi");
         mainpane.setCenter(view);
     }
     public void handlePhatquaHocsinh(ActionEvent event) {
-        Pane view = getPage("PhatQua/phatquaHocsinh");
+        Pane view = getPage("phatqua/phatquaHocsinh");
         mainpane.setCenter(view);
     }
     public void handleThongke(ActionEvent event) {
-        Pane view = getPage("ThongKe/thongke");
+        Pane view = getPage("thongKe/thongke");
         mainpane.setCenter(view);
     }
     public Pane getPage(String fileName){

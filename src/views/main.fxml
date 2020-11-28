@@ -32,7 +32,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handlePhatquaThieunhi" prefHeight="61.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
