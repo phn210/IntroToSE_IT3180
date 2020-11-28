@@ -3,10 +3,14 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import views.Main;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class MainController {
@@ -26,11 +30,15 @@ public class MainController {
         mainpane.setCenter(view);
     }
     public void handleThongke(ActionEvent event) {
-        Pane view = getPage("thongKe/thongke");
+        Pane view = getPage("thongke/thongke");
         mainpane.setCenter(view);
     }
-    public void handleLogin(ActionEvent event){
-
+    public void handleLogin(ActionEvent event) throws IOException {
+        Main.primaryStage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(Main.class.getResource("main_board/main.fxml"));
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
     public Pane getPage(String fileName){
         Pane view = new Pane();

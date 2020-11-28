@@ -4,35 +4,34 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="449.0" stylesheets="@../../static/css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="450.0" stylesheets="@../../static/css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
-      <TextField layoutX="37.0" layoutY="69.0" prefHeight="57.0" prefWidth="374.0" promptText="Email hoặc số điện thoại" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css">
+      <TextField layoutX="38.0" layoutY="81.0" prefHeight="57.0" prefWidth="374.0" promptText="Số CMND" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </TextField>
-      <PasswordField id="login" layoutX="37.0" layoutY="141.0" prefHeight="58.0" prefWidth="374.0" promptText="Mật khẩu" stylesheets="@../../static/css/fullpackstyling.css">
+      <PasswordField layoutX="38.0" layoutY="154.0" prefHeight="58.0" prefWidth="374.0" promptText="Mật khẩu" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </PasswordField>
-      <Button id="login" alignment="CENTER" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" onMouseMoved="#login_button_dangnhap" prefHeight="50.0" prefWidth="374.0" style="-fx-background-color: #4267b2;" stylesheets="@../../static/css/fullpackstyling.css" text="Đăng nhập" textFill="#fafafa">
+      <Button id="login_button" alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="30.0" prefWidth="374.0" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css" text="Đăng nhập" textAlignment="CENTER" textFill="#fafafa">
          <font>
-            <Font name="SansSerif Regular" size="20.0" />
+            <Font name="Berlin Sans FB Bold" size="24.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <Hyperlink id="login" alignment="TOP_CENTER" layoutX="37.0" layoutY="310.0" prefHeight="26.0" prefWidth="374.0" stylesheets="@../../static/css/fullpackstyling.css" text="Quên mật khẩu?">
+      <Hyperlink alignment="TOP_CENTER" layoutX="165.0" layoutY="311.0" prefHeight="22.0" prefWidth="119.0" styleClass="login" stylesheets="@../../static/css/fullpackstyling.css" text="Quên mật khẩu?">
          <font>
             <Font name="SansSerif Regular" size="15.0" />
          </font>
       </Hyperlink>
-      <Button id="login" alignment="CENTER" layoutX="110.0" layoutY="364.0" mnemonicParsing="false" onTouchReleased="#login_button_taotaikhoan" prefHeight="44.0" prefWidth="227.0" style="-fx-background-color: #42b72a;" stylesheets="@../../static/css/fullpackstyling.css" text="Tạo tài khoản mới" textAlignment="CENTER" textFill="#fafafa">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

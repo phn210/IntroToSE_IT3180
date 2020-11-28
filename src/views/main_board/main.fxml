@@ -18,11 +18,11 @@
                   <children>
                       <VBox layoutY="121.0" prefHeight="530.0" prefWidth="272.0">
                           <children>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleHogiadinh" prefHeight="61.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Hộ gia đình" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleHogiadinh" prefHeight="61.0" prefWidth="272.0" stylesheets="@../../static/css/fullpackstyling.css" text="Hộ gia đình" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../static/img/hogiadinh.png" />
+                                    <Image url="@../../static/img/hogiadinh.png" />
                                  </image></ImageView>
                            </graphic>
                            <font>
@@ -32,11 +32,11 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="61.0" prefWidth="272.0" stylesheets="@../../static/css/fullpackstyling.css" text="Phát quà" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../static/img/qua.png" />
+                                    <Image url="@../../static/img/qua.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -47,11 +47,11 @@
                               <Insets left="50.0" />
                            </padding>
                         </Button>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handlePhatquaThieunhi" prefHeight="33.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Thiếu nhi" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handlePhatquaThieunhi" prefHeight="33.0" prefWidth="272.0" stylesheets="@../../static/css/fullpackstyling.css" text="Thiếu nhi" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="19.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../static/img/thieunhi.png" />
+                                    <Image url="@../../static/img/thieunhi.png" />
                                  </image></ImageView>
                            </graphic>
                            <font>
@@ -64,11 +64,11 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handlePhatquaHocsinh" prefHeight="33.0" prefWidth="280.0" stylesheets="@../static/css/fullpackstyling.css" text="Học sinh" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handlePhatquaHocsinh" prefHeight="33.0" prefWidth="280.0" stylesheets="@../../static/css/fullpackstyling.css" text="Học sinh" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="19.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../static/img/hocsinh.png" />
+                                    <Image url="@../../static/img/hocsinh.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -82,11 +82,11 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleThongke" prefHeight="61.0" prefWidth="272.0" stylesheets="@../static/css/fullpackstyling.css" text="Thống kê" textFill="WHITE">
+                        <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleThongke" prefHeight="61.0" prefWidth="272.0" stylesheets="@../../static/css/fullpackstyling.css" text="Thống kê" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../static/img/statistics.png" />
+                                    <Image url="@../../static/img/statistics.png" />
                                  </image>
                               </ImageView>
                            </graphic>
