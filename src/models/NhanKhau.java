@@ -1,18 +1,22 @@
 package models;
 
+import java.sql.Date;
+
 public class NhanKhau {
     private int ID;
     private String ten;
     private String gioiTinh;
-    private String ngaySinh;
+    private Date ngaySinh;
     private String ngheNghiep;
+    private int IDGiaDinh;
 
-    public NhanKhau(int ID, String ten, String gioiTinh, String ngaySinh, String ngheNghiep) {
+    public NhanKhau(int ID, String ten, String gioiTinh, Date ngaySinh, String ngheNghiep, int IDGiaDinh) {
         this.ID = ID;
         this.ten = ten;
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;
         this.ngheNghiep = ngheNghiep;
+        this.IDGiaDinh = IDGiaDinh;
     }
 
     public int getID() {
@@ -39,11 +43,11 @@ public class NhanKhau {
         this.gioiTinh = gioiTinh;
     }
 
-    public String getNgaySinh() {
+    public Date getNgaySinh() {
         return ngaySinh;
     }
 
-    public void setNgaySinh(String ngaySinh) {
+    public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
 
@@ -54,4 +58,8 @@ public class NhanKhau {
     public void setNgheNghiep(String ngheNghiep) {
         this.ngheNghiep = ngheNghiep;
     }
+
+    public int getIDGiaDinh() { return IDGiaDinh; }
+
+    public void setIDGiaDinh() { this.IDGiaDinh = IDGiaDinh; }
 }
