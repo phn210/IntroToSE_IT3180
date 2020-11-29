@@ -1,18 +1,18 @@
 .button{
     -fx-background-color : #1E8CCE;
+    -fx-font-family: Helvetica, Arial, sans-serif;
 }
 
 .button:hover{
+    -fx-transition-duration: 1s;
     -fx-background-color : #B4D8EE ;
+    -fx-font-family: Helvetica, Arial, sans-serif;
 }
 
 .button:pressed{
+    -fx-transition-duration: 1s;
     -fx-background-color : #E6F2F9 ;
-}
-
-.linear-grad
-{
-    -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
+    -fx-font-family: Helvetica, Arial, sans-serif;
 }
 
 .login{
@@ -20,18 +20,13 @@
 }
 
 #login_button.button{
-    -fx-font-family: Helvetica, Arial, sans-serif;
     -fx-font-size: 24px, bold;
 }
 
 #login_button.button:hover{
-    -fx-font-family: Helvetica, Arial, sans-serif;
-    -fx-transition-duration: 2s;
     -fx-font-size: 24px, bold;
 }
 
 #login_button.button:pressed{
-    -fx-font-family: Helvetica, Arial, sans-serif;
-    -fx-transition-duration: 2s;
     -fx-font-size: 24px, bold;
 }
