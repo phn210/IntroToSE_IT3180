@@ -1,22 +1,25 @@
+.pane{
+    -fx-background-radius: 10px;
+}
+
 .button{
-    -fx-background-color : #1E8CCE;
-    -fx-font-family: Helvetica, Arial, sans-serif;
+    -fx-background-color : #ffce44;
+    -fx-background-radius: 10px;
 }
 
 .button:hover{
     -fx-transition-duration: 1s;
     -fx-background-color : #B4D8EE ;
-    -fx-font-family: Helvetica, Arial, sans-serif;
 }
 
 .button:pressed{
     -fx-transition-duration: 1s;
     -fx-background-color : #E6F2F9 ;
-    -fx-font-family: Helvetica, Arial, sans-serif;
 }
 
 .login{
     -fx-font-family: Helvetica, Arial, sans-serif;
+    -fx-background-radius: 10px;
 }
 
 #login_button.button{

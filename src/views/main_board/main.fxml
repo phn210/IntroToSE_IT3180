@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1074.0" style="-fx-background-color: #E6F2F9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
       <BorderPane fx:id="mainpane" prefHeight="200.0" prefWidth="200.0">
          <left>
-              <AnchorPane prefHeight="651.0" prefWidth="272.0" style="-fx-background-color: #1E8CCE;" BorderPane.alignment="CENTER">
+              <AnchorPane prefHeight="651.0" prefWidth="272.0" style="-fx-background-color: #ffce44;" BorderPane.alignment="CENTER">
                   <children>
-                      <VBox layoutY="121.0" prefHeight="530.0" prefWidth="272.0">
+                      <VBox layoutY="121.0" prefHeight="530.0" prefWidth="272.0" style="-fx-background-color: #ffce44;">
                           <children>
                         <Button id="button1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleHogiadinh" prefHeight="61.0" prefWidth="272.0" stylesheets="@../../static/css/fullpackstyling.css" text="Hộ gia đình" textFill="WHITE">
                            <graphic>
