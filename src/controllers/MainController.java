@@ -1,10 +1,15 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
@@ -13,10 +18,11 @@ import views.Main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController{
     @FXML
-    private BorderPane mainpane;
+    private BorderPane mainPane;
     private Stage primaryStage;
 
     public MainController(){
@@ -26,19 +32,27 @@ public class MainController {
 
     public void handleHogiadinh(ActionEvent event) {
         Pane view = getPage("hogiadinh/hogiadinh");
-        mainpane.setCenter(view);
+        mainPane.setCenter(view);
     }
-    public void handlePhatquaThieunhi(ActionEvent event) {
-        Pane view = getPage("phatqua/phatquaThieunhi");
-        mainpane.setCenter(view);
+    public void handlePhatqua(ActionEvent event) {
+        Pane view = getPage("phatqua/phatqua");
+        mainPane.setCenter(view);
     }
-    public void handlePhatquaHocsinh(ActionEvent event) {
-        Pane view = getPage("phatqua/phatquaHocsinh");
-        mainpane.setCenter(view);
+    public void handlePhatquaThieunhi(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/phatquaThieunhi.fxml"));
+        this.primaryStage.close();
+        this.primaryStage.setScene(new Scene(root));
+        this.primaryStage.show();
+    }
+    public void handlePhatquaHocsinh(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/hocsinh/phatquaHocsinh.fxml"));
+        this.primaryStage.close();
+        this.primaryStage.setScene(new Scene(root));
+        this.primaryStage.show();
     }
     public void handleThongke(ActionEvent event) {
         Pane view = getPage("thongke/thongke");
-        mainpane.setCenter(view);
+        mainPane.setCenter(view);
     }
     public void handleLogin(ActionEvent event) throws IOException {
         Main.primaryStage.close();
@@ -60,4 +74,5 @@ public class MainController {
         }
         return view;
     }
+
 }

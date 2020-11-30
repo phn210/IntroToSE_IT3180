@@ -1,25 +1,33 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class ThieuNhiController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ThieuNhiController implements Initializable {
+
     @FXML
-    void suaThieuNhi(ActionEvent event){
-        try{
-            Parent book = FXMLLoader.load(getClass().getResource("/views/thieunhi/suaThieunhi.fxml"));
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("Thieu Nhi");
-            stage.setScene(new Scene(book));
-            stage.resizableProperty().setValue(false);
-            stage.show();
-        }catch (Exception e){
-            System.out.println(e);
-        }
+    private ComboBox namThieuNhi;
+
+    @FXML
+    private  ComboBox dipThieuNhi;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020");
+        namThieuNhi.setItems(nam);
+        ObservableList<String> dip = FXCollections.observableArrayList("Tết Nguyên Đán", "Trung Thu", "Quốc tế thiếu nhi", "Thôi nôi");
+        dipThieuNhi.setItems(dip);
     }
 }
