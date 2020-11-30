@@ -18,6 +18,7 @@
 }
 
 .login{
+    -fx-font-size: 24px, bold;
     -fx-font-family: Helvetica, Arial, sans-serif;
     -fx-background-radius: 10px;
 }
