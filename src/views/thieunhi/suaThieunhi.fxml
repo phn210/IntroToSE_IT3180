@@ -37,7 +37,7 @@
             <Label text="Thành tích học tập:" GridPane.rowIndex="4" />
             <TextField prefHeight="26.0" prefWidth="305.0" text="Học sinh giỏi toán cấp Làng Nà Cạn" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Minh chứng:" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" stylesheets="@../../static/css/fullpackstyling.css" text="Thêm minh chứng" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" stylesheets="@../../static/css/main.css" text="Thêm minh chứng" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

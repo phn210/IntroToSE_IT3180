@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -16,6 +17,12 @@ import java.net.URL;
 public class MainController {
     @FXML
     private BorderPane mainpane;
+    private Stage primaryStage;
+
+    public MainController(){
+        this.primaryStage = new Stage();
+        this.primaryStage.getIcons().add(new Image("/static/img/bieutuong.png"));
+    }
 
     public void handleHogiadinh(ActionEvent event) {
         Pane view = getPage("hogiadinh/hogiadinh");
@@ -35,10 +42,9 @@ public class MainController {
     }
     public void handleLogin(ActionEvent event) throws IOException {
         Main.primaryStage.close();
-        Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(Main.class.getResource("main_board/main.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        this.primaryStage.setScene(new Scene(root));
+        this.primaryStage.show();
     }
     public Pane getPage(String fileName){
         Pane view = new Pane();

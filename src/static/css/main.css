@@ -3,24 +3,33 @@
 }
 
 .button{
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
     -fx-background-color : #ffce44;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 20px;
 }
 
 .button:hover{
     -fx-transition-duration: 1s;
     -fx-background-color : #B4D8EE ;
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
 }
 
 .button:pressed{
     -fx-transition-duration: 1s;
-    -fx-background-color : #E6F2F9 ;
+    -fx-background-color : #E6F2F9;
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+    -fx-border-width: 2px;
 }
 
 .login{
     -fx-font-size: 24px, bold;
     -fx-font-family: Helvetica, Arial, sans-serif;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 20px;
 }
 
 #login_button.button{

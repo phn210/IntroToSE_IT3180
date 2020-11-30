@@ -29,7 +29,7 @@
                     <children>
                         <TextField prefHeight="31.0" prefWidth="385.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
                         <ComboBox prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" stylesheets="@../../static/css/fullpackstyling.css" text="Search" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" stylesheets="@../../static/css/main.css" text="Search" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
