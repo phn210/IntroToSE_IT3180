@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="660.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <ImageView fitHeight="651.0" fitWidth="802.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../static/img/bkgr.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
