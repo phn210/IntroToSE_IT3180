@@ -1,7 +1,7 @@
 package models;
 
 public class HoGiaDinh {
-    public static int IDGiaDinh;
+    private int IDGiaDinh;
     private String diaChi;
     private String chuHo;
     private String SDT;

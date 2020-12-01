@@ -27,9 +27,9 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                     <children>
-                        <TextField prefHeight="31.0" prefWidth="385.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
-                        <ComboBox prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" stylesheets="@../../static/css/main.css" text="Search" textFill="WHITE">
+                        <TextField fx:id="textSearch" prefHeight="31.0" prefWidth="385.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
+                        <ComboBox fx:id="comboBoxHoGiaDinh" onAction="#comboBoxSelect" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
+                        <Button mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="184.0" stylesheets="@../../static/css/main.css" text="Search" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
