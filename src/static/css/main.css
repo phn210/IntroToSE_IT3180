@@ -3,6 +3,7 @@
 }
 
 .button{
+    -fx-font-weight: bold;
     -fx-border-color: black;
     -fx-border-radius: 20px;
     -fx-border-width: 2px;
@@ -11,6 +12,7 @@
 }
 
 .button:hover{
+    -fx-font-weight: bold;
     -fx-transition-duration: 1s;
     -fx-background-color : #B4D8EE ;
     -fx-border-color: black;
@@ -19,6 +21,7 @@
 }
 
 .button:pressed{
+    -fx-font-weight: bold;
     -fx-transition-duration: 1s;
     -fx-background-color : #E6F2F9;
     -fx-border-color: black;
@@ -26,20 +29,41 @@
     -fx-border-width: 2px;
 }
 
+.search{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.small_button{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-font-family: Helvetica, Arial, sans-serif;
+    -fx-background-radius: 20px;
+}
+
+.small_button:hover{
+    -fx-font-size: 14px;
+}
+
+.small_button:pressed{
+    -fx-font-size: 14px;
+}
+
 .login{
-    -fx-font-size: 24px, bold;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
     -fx-font-family: Helvetica, Arial, sans-serif;
     -fx-background-radius: 20px;
 }
 
 #login_button.button{
-    -fx-font-size: 24px, bold;
+    -fx-font-size: 24px;
 }
 
 #login_button.button:hover{
-    -fx-font-size: 24px, bold;
+    -fx-font-size: 24px;
 }
 
 #login_button.button:pressed{
-    -fx-font-size: 24px, bold;
+    -fx-font-size: 24px;
 }

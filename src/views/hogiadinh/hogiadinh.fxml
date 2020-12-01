@@ -5,8 +5,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -27,20 +25,28 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                     <children>
-                        <TextField fx:id="textSearch" prefHeight="31.0" prefWidth="385.0" promptText="Search" style="-fx-border-color: #1E8CCE;" />
-                        <ComboBox fx:id="comboBoxHoGiaDinh" onAction="#comboBoxSelect" prefHeight="31.0" prefWidth="195.0" style="-fx-background-color: #ffffff; -fx-border-color: #1E8CCE;" />
-                        <Button mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="184.0" stylesheets="@../../static/css/main.css" text="Search" textFill="WHITE">
+                        <TextField fx:id="textSearch" prefHeight="47.0" prefWidth="230.0" promptText="Tìm kiếm gia đình" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
+                        <ComboBox fx:id="comboBoxHoGiaDinh" onAction="#comboBoxSelect" prefHeight="47.0" prefWidth="114.0" promptText="ID" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tìm kiếm" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
-                            <graphic>
-                                <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../static/img/search.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
                         </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Undo" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
                     </children>
                 </HBox>
             <TableView fx:id="hoGiaDinhTable" prefHeight="502.0" prefWidth="782.0" GridPane.rowIndex="1">
