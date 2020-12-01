@@ -5,18 +5,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import views.Main;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 
 public class MainController{
     @FXML
     private BorderPane mainPane;
+
     private Stage primaryStage;
 
     public MainController(){
@@ -54,6 +59,47 @@ public class MainController{
         this.primaryStage.setScene(new Scene(root));
         this.primaryStage.show();
     }
+    public void showBackGR(MouseEvent mouseEvent) {
+        Pane view = getPage("main_board/back_gr");
+        mainPane.setCenter(view);
+    }
+    public void handleLinkToFB(MouseEvent mouseEvent) {
+        try {
+            Desktop desktop = java.awt.Desktop.getDesktop();
+            URI oURL = new URI("https://www.facebook.com/lkp.tda.cs");
+            desktop.browse(oURL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleLinkToGit(MouseEvent mouseEvent) {
+        try {
+            Desktop desktop = java.awt.Desktop.getDesktop();
+            URI oURL = new URI("https://github.com/phn210/IntroToSE_IT3180");
+            desktop.browse(oURL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleLinkToGG(MouseEvent mouseEvent) {
+        try {
+            Desktop desktop = java.awt.Desktop.getDesktop();
+            URI oURL = new URI("http://www.google.com");
+            desktop.browse(oURL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void hanldeCheckInfo(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("info/info.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+        stage.show();
+    }
+    public void handleLogOut(ActionEvent event) {
+        System.exit(0);
+    }
     public Pane getPage(String fileName){
         Pane view = new Pane();
         try {
@@ -64,7 +110,7 @@ public class MainController{
 
             view = new FXMLLoader().load(fileUrl);
         } catch (Exception e) {
-            System.out.println("No page" +fileName+ " please check FxmlLoader");
+            System.out.println("No page " +fileName+ " please check FxmlLoader");
         }
         return view;
     }

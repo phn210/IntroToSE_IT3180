@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showBackGR" prefHeight="651.0" prefWidth="1074.0" style="visibility: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
       <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="810.8" AnchorPane.topAnchor="0.0">
-         <bottom>
+         <left>
               <AnchorPane minHeight="-Infinity" prefHeight="652.0" prefWidth="263.0" style="-fx-background-color: #ffce44; -fx-border-color: black;" BorderPane.alignment="CENTER">
                   <children>
                   <Button id="button1" alignment="BASELINE_LEFT" layoutX="6.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleHogiadinh" prefHeight="62.0" prefWidth="250.0" stylesheets="@../../static/css/main.css" text="Hộ gia đình" textFill="WHITE">
@@ -59,7 +59,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <Button id="button1" alignment="BASELINE_LEFT" contentDisplay="RIGHT" layoutX="41.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleThongke" prefHeight="62.0" prefWidth="181.0" stylesheets="@../../static/css/main.css" text="Đăng xuất" textAlignment="CENTER" textFill="WHITE">
+                  <Button id="button1" alignment="BASELINE_LEFT" contentDisplay="RIGHT" layoutX="41.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="62.0" prefWidth="181.0" stylesheets="@../../static/css/main.css" text="Đăng xuất" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -67,29 +67,29 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="22.0" onMouseClicked="#hanldeCheckInfo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/logo.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="84.0" fitWidth="71.0" layoutX="21.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="84.0" fitWidth="71.0" layoutX="21.0" layoutY="533.0" onMouseClicked="#handleLinkToFB" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/facebook.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="100.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="64.0" fitWidth="66.0" layoutX="100.0" layoutY="536.0" onMouseClicked="#handleLinkToGit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/github.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="171.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="171.0" layoutY="533.0" onMouseClicked="#handleLinkToGG" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/gmail.png" />
                      </image>
                   </ImageView>
                   </children>
               </AnchorPane>
-         </bottom>
+         </left>
       </BorderPane>
     </children>
 </AnchorPane>
