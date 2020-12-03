@@ -71,7 +71,7 @@ public class HoGiaDinhController implements Initializable{
             hoGiaDinhTable.getItems().clear();
             String hang = textSearch.getText();
             Connection conn = DBConnection.getConnection();
-            ResultSet rs = DBConnection.getData("select * from HoGiaDinh where " + cot + "=" +"N'"+hang+"'", conn);
+            ResultSet rs = DBConnection.getData("select * from HoGiaDinh where " + cot + " LIKE " +"N'%"+hang+"%'", conn);
 
             while(rs.next()){
                 tableOblist.add(new HoGiaDinh(rs.getInt("IDGiaDinh"), rs.getString("DiaChi"),
