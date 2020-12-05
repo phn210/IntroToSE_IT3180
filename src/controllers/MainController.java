@@ -29,39 +29,35 @@ public class MainController{
         this.primaryStage.getIcons().add(new Image("/static/img/bieutuong.png"));
     }
 
-    public void handleHogiadinh(ActionEvent event) {
-        Pane view = getPage("hogiadinh/hogiadinh");
+    public void handleHoGiaDinh(ActionEvent event) {
+        Pane view = getPage("hogiadinh/HoGiaDinh");
         mainPane.setCenter(view);
     }
-    public void handlePhatqua(ActionEvent event) {
-        Pane view = getPage("phatqua/phatqua");
+    public void handlePhatQua(ActionEvent event) {
+        Pane view = getPage("phatqua/PhatQua");
         mainPane.setCenter(view);
     }
-    public void handlePhatquaThieunhi(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/phatquaThieunhi.fxml"));
+    public void handleThieuNhi(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThieuNhi.fxml"));
         this.primaryStage.close();
         this.primaryStage.setScene(new Scene(root));
         this.primaryStage.show();
     }
-    public void handlePhatquaHocsinh(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/hocsinh/phatquaHocsinh.fxml"));
+    public void handleHocSinh(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/hocsinh/HocSinh.fxml"));
         this.primaryStage.close();
         this.primaryStage.setScene(new Scene(root));
         this.primaryStage.show();
     }
-    public void handleThongke(ActionEvent event) {
-        Pane view = getPage("thongke/thongke");
+    public void handleThongKe(ActionEvent event) {
+        Pane view = getPage("thongke/ThongKe");
         mainPane.setCenter(view);
     }
     public void handleLogin(ActionEvent event) throws IOException {
         Main.primaryStage.close();
-        Parent root = FXMLLoader.load(Main.class.getResource("main_board/main.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("main_board/Main.fxml"));
         this.primaryStage.setScene(new Scene(root));
         this.primaryStage.show();
-    }
-    public void showBackGR(MouseEvent mouseEvent) {
-        Pane view = getPage("main_board/back_gr");
-        mainPane.setCenter(view);
     }
     public void handleLinkToFB(MouseEvent mouseEvent) {
         try {
@@ -91,7 +87,7 @@ public class MainController{
         }
     }
     public void hanldeCheckInfo(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("info/info.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("infomation/Infomation.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.getIcons().add(new Image("/static/img/bieutuong.png"));

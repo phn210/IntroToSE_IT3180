@@ -49,7 +49,7 @@
                   </Button>
                     </children>
                 </HBox>
-            <TableView fx:id="hoGiaDinhTable" prefHeight="502.0" prefWidth="782.0" GridPane.rowIndex="1">
+            <TableView fx:id="hoGiaDinhTable" prefHeight="502.0" prefWidth="782.0" stylesheets="@../../static/css/main.css" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="col_IDGiaDinh" prefWidth="155.99997234344482" text="ID Gia Đình" />
                 <TableColumn fx:id="col_DiaChi" prefWidth="231.99998474121094" text="Địa chỉ" />

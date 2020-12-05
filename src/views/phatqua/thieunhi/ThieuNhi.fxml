@@ -22,26 +22,26 @@
                 <RowConstraints maxHeight="563.3999969482422" minHeight="10.0" prefHeight="556.2" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="782.0" spacing="10.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="782.0" spacing="10.0">
                     <children>
-                  <ComboBox fx:id="namThieuNhi" prefHeight="42.0" prefWidth="94.0" promptText="Năm" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                        <ComboBox fx:id="dipThieuNhi" prefHeight="42.0" prefWidth="198.0" promptText="Dịp đặc biệt" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tìm kiếm" textFill="WHITE">
+                  <ComboBox fx:id="namThieuNhi" prefHeight="42.0" prefWidth="94.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                        <ComboBox fx:id="dipThieuNhi" prefHeight="42.0" prefWidth="198.0" promptText="Dịp đặc biệt" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                        <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="106.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="133.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tạo mới dịp" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thống kê" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

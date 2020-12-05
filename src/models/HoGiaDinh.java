@@ -13,6 +13,9 @@ public class HoGiaDinh {
         this.SDT = SDT;
     }
 
+    public HoGiaDinh() {
+    }
+
     public int getIDGiaDinh() {
         return IDGiaDinh;
     }

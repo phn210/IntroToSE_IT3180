@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showBackGR" prefHeight="651.0" prefWidth="1074.0" style="visibility: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
       <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="810.8" AnchorPane.topAnchor="0.0">
          <left>
               <AnchorPane minHeight="-Infinity" prefHeight="652.0" prefWidth="263.0" style="-fx-background-color: #ffce44; -fx-border-color: black;" BorderPane.alignment="CENTER">
                   <children>
-                  <Button alignment="BASELINE_LEFT" layoutX="6.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleHogiadinh" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Hộ gia đình" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="6.0" layoutY="208.0" mnemonicParsing="false" onAction="#handleHoGiaDinh" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Hộ gia đình" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -29,7 +29,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="7.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleThongke" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Thống kê" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="7.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleThongKe" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Thống kê" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,7 +44,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" layoutX="7.0" layoutY="280.0" mnemonicParsing="false" onAction="#handlePhatqua" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Phát quà" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" layoutX="7.0" layoutY="280.0" mnemonicParsing="false" onAction="#handlePhatQua" prefHeight="62.0" prefWidth="250.0" styleClass="login" stylesheets="@../../static/css/main.css" text="Phát quà" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -67,7 +67,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="22.0" onMouseClicked="#hanldeCheckInfo" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="126.0" fitWidth="120.0" layoutX="72.0" layoutY="46.0" onMouseClicked="#hanldeCheckInfo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/logo.png" />
                      </image>

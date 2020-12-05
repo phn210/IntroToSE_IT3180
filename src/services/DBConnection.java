@@ -1,4 +1,4 @@
-package controllers;
+package services;
 
 import java.sql.*;
 
@@ -21,6 +21,12 @@ public class DBConnection {
         return connection;
     }
 
+    public static Connection getConnection(String hostName, String userName, String password, String dbName) throws SQLException {
+        connection = DriverManager.getConnection("jdbc:sqlserver://" + hostName + ";databaseName=" + dbName + ";");
+        System.out.println("Database successfully connected");
+
+        return connection;
+    }
     public static ResultSet getData(String stringSQL, Connection conn) throws SQLException {
         ResultSet rs = null;
         Statement st = conn.createStatement();

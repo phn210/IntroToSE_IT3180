@@ -19,6 +19,10 @@ public class NhanKhau {
         this.IDGiaDinh = IDGiaDinh;
     }
 
+    public NhanKhau() {
+
+    }
+
     public int getID() {
         return ID;
     }
