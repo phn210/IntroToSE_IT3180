@@ -87,7 +87,7 @@ public class MainController{
         }
     }
     public void hanldeCheckInfo(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("infomation/Infomation.fxml"));
+        Parent root = FXMLLoader.load(Main.class.getResource("main_board/Infomation.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.getIcons().add(new Image("/static/img/bieutuong.png"));

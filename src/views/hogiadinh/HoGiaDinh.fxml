@@ -25,31 +25,31 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                     <children>
-                        <TextField fx:id="textSearch" prefHeight="47.0" prefWidth="230.0" promptText="Tìm kiếm gia đình" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
-                        <ComboBox fx:id="comboBoxHoGiaDinh" onAction="#comboBoxSelect" prefHeight="47.0" prefWidth="114.0" promptText="ID" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
+                        <TextField fx:id="textSearchHGD" prefHeight="47.0" prefWidth="230.0" promptText="Tìm kiếm gia đình" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
+                        <ComboBox fx:id="comboBoxHoGiaDinh" onAction="#comboBoxSelect" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
                         <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tìm kiếm" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#search" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Undo" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
                     </children>
                 </HBox>
-            <TableView fx:id="hoGiaDinhTable" prefHeight="502.0" prefWidth="782.0" stylesheets="@../../static/css/main.css" GridPane.rowIndex="1">
+            <TableView fx:id="hoGiaDinhTable" onMouseClicked="#handleRow" prefHeight="502.0" prefWidth="782.0" stylesheets="@../../static/css/main.css" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="col_IDGiaDinh" prefWidth="155.99997234344482" text="ID Gia Đình" />
                 <TableColumn fx:id="col_DiaChi" prefWidth="231.99998474121094" text="Địa chỉ" />

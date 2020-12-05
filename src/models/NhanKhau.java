@@ -63,7 +63,11 @@ public class NhanKhau {
         this.ngheNghiep = ngheNghiep;
     }
 
-    public int getIDGiaDinh() { return IDGiaDinh; }
+    public int getIDGiaDinh() {
+        return IDGiaDinh;
+    }
 
-    public void setIDGiaDinh() { this.IDGiaDinh = IDGiaDinh; }
+    public void setIDGiaDinh(int IDGiaDinh) {
+        this.IDGiaDinh = IDGiaDinh;
+    }
 }

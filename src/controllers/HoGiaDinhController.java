@@ -4,15 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.HoGiaDinh;
 import services.HoGiaDinhService;
+import views.Main;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -33,12 +37,15 @@ public class HoGiaDinhController implements Initializable{
     @FXML
     private ComboBox<String> comboBoxHoGiaDinh;
     @FXML
-    private TextField textSearch;
+    private TextField textSearchHGD;
 
     private HoGiaDinhService hoGiaDinhService;
 
     private ObservableList<HoGiaDinh> tableOblist;
     private ObservableList<String> comboBoxOblist;
+
+    //Search thong tin
+    private String colIndex;
 
     public HoGiaDinhController() {
         this.hoGiaDinhService = new HoGiaDinhService();
@@ -51,17 +58,14 @@ public class HoGiaDinhController implements Initializable{
 
         //Hien bang HoGiaDinh
         col_IDGiaDinh.setCellValueFactory(new PropertyValueFactory<>("IDGiaDinh"));
-        col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("diaChi"));
-        col_TenChuHo.setCellValueFactory(new PropertyValueFactory<>("chuHo"));
+        col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("DiaChi"));
+        col_TenChuHo.setCellValueFactory(new PropertyValueFactory<>("ChuHo"));
         col_SDT.setCellValueFactory(new PropertyValueFactory<>("SDT"));
 
         List<HoGiaDinh> list = this.hoGiaDinhService.getListHoGiaDinh();
         tableOblist = FXCollections.observableList(list);
         hoGiaDinhTable.setItems(tableOblist);
     }
-
-    //Search thong tin
-    private String colIndex;
 
     @FXML
     private void comboBoxSelect(ActionEvent event) {
@@ -76,17 +80,27 @@ public class HoGiaDinhController implements Initializable{
 
     @FXML
     public void search(ActionEvent event) throws SQLException {
-        if(textSearch.getText() == null){
+        if(textSearchHGD.getText() == null){
             List<HoGiaDinh> list = this.hoGiaDinhService.getListHoGiaDinh();
             tableOblist = FXCollections.observableList(list);
             hoGiaDinhTable.setItems(tableOblist);
         }
 
         hoGiaDinhTable.getItems().clear();
-        String key = textSearch.getText();
+        String key = textSearchHGD.getText();
 
         List<HoGiaDinh> list = hoGiaDinhService.searchListHoGiaDinh(colIndex, key);
         this.tableOblist = FXCollections.observableList(list);
         hoGiaDinhTable.setItems(tableOblist);
+    }
+
+    @FXML
+    public void handleRow(MouseEvent mouseEvent) throws IOException {
+        if (mouseEvent.getClickCount() == 2 && this.hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("nhankhau/NhanKhau.fxml"))));
+            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+            stage.show();
+        }
     }
 }
