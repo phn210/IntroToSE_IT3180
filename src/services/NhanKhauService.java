@@ -10,12 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NhanKhauService {
+
+    public static int IDGiaDinhNK;
+
+    public  NhanKhauService(){
+    }
+
     public List<NhanKhau> getListNhanKhau() {
         List<NhanKhau> list = new ArrayList<>();
         try {
 
             Connection conn = DBConnection.getConnection();
-            ResultSet rs = DBConnection.getData("select * from NhanKhau", conn);
+            ResultSet rs = DBConnection.getData("select * from NhanKhau where IDGiaDinh = " + this.IDGiaDinhNK, conn);
 
             while(rs.next()){
                 NhanKhau nhanKhauModel = new NhanKhau();
@@ -32,4 +38,5 @@ public class NhanKhauService {
         }
         return list;
     }
+
 }

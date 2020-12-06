@@ -10,9 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import models.HoGiaDinh;
 import models.NhanKhau;
-import services.HoGiaDinhService;
 import services.NhanKhauService;
 
 import java.net.URL;
@@ -64,8 +62,7 @@ public class NhanKhauController implements Initializable {
         col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
         col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
         col_NgheNghiep.setCellValueFactory(new PropertyValueFactory<>("NgheNghiep"));
-        col_ID.setCellValueFactory(new PropertyValueFactory<>("CMND"));
-
+        col_ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
         List<NhanKhau> list = this.nhanKhauService.getListNhanKhau();
         tableOblist = FXCollections.observableList(list);
@@ -74,4 +71,5 @@ public class NhanKhauController implements Initializable {
 
     public void searchNhanKhau(ActionEvent event) {
     }
+
 }

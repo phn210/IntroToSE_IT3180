@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.HoGiaDinh;
 import services.HoGiaDinhService;
+import services.NhanKhauService;
 import views.Main;
 
 import java.io.IOException;
@@ -97,6 +98,9 @@ public class HoGiaDinhController implements Initializable{
     @FXML
     public void handleRow(MouseEvent mouseEvent) throws IOException {
         if (mouseEvent.getClickCount() == 2 && this.hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
+            int IDGD = this.hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+            NhanKhauService nhanKhauService = new NhanKhauService();
+            nhanKhauService.IDGiaDinhNK = IDGD;
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("nhankhau/NhanKhau.fxml"))));
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
