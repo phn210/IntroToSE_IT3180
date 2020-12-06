@@ -15,8 +15,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("login/Login.fxml"));
+        this.primaryStage.setTitle("Quan Ly Phat Qua - Nhom 17");
         this.primaryStage.setScene(new Scene(root));
         this.primaryStage.getIcons().add(new Image("/static/img/bieutuong.png"));
+        this.primaryStage.resizableProperty().setValue(false);
         this.primaryStage.show();
     }
 

@@ -57,6 +57,7 @@ public class MainController{
         Main.primaryStage.close();
         Parent root = FXMLLoader.load(Main.class.getResource("main_board/Main.fxml"));
         this.primaryStage.setScene(new Scene(root));
+        this.primaryStage.setTitle("Quan Ly Phat Qua - Nhom 17");
         this.primaryStage.show();
     }
     public void handleLinkToFB(MouseEvent mouseEvent) {
@@ -86,7 +87,7 @@ public class MainController{
             e.printStackTrace();
         }
     }
-    public void hanldeCheckInfo(MouseEvent mouseEvent) throws IOException {
+    public void handleCheckInfo(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(Main.class.getResource("main_board/Infomation.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -103,10 +104,9 @@ public class MainController{
             if(fileName == null){
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
-
             view = new FXMLLoader().load(fileUrl);
         } catch (Exception e) {
-            System.out.println("No page " +fileName+ " please check FxmlLoader");
+            System.out.println("No page " +fileName+ " please check controllers files");
         }
         return view;
     }

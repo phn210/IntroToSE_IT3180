@@ -67,7 +67,7 @@
                         <Insets left="50.0" />
                      </padding>
                   </Button>
-                  <ImageView fitHeight="126.0" fitWidth="120.0" layoutX="72.0" layoutY="46.0" onMouseClicked="#hanldeCheckInfo" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="126.0" fitWidth="120.0" layoutX="72.0" layoutY="46.0" onMouseClicked="#handleCheckInfo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../static/img/logo.png" />
                      </image>

@@ -4,10 +4,10 @@ import java.sql.*;
 
 public class DBConnection {
     private static Connection connection;
-    private static String connectionURL = "jdbc:sqlserver://localhost;" +
+    private static String connectionURL = "jdbc:sqlserver://localhost:1433;" +
             "databaseName=QuanLyCapPhanThuong;";
-    private static String user = "sa";
-    private static String password = "";
+    private static String user = "tan";
+    private static String password = "14235678";
 
     public static Connection getConnection() throws SQLException{
         try {
@@ -15,7 +15,7 @@ public class DBConnection {
             System.out.println("Database successfully connected!");
         }
         catch(SQLException e){
-            System.out.println("Some errors occurred!");
+            System.out.println("Connect to database failed, some errors occurred!");
             e.printStackTrace();
         }
         return connection;
