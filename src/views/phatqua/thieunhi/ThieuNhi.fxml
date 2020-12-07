@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,50 +14,65 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ThieuNhiController">
     <children>
-        <GridPane layoutX="10.0" layoutY="1.0" prefHeight="638.0" prefWidth="782.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <GridPane layoutX="10.0" layoutY="1.0" prefHeight="638.0" prefWidth="782.0" vgap="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="74.6" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="563.3999969482422" minHeight="10.0" prefHeight="556.2" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="51.999990081787104" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="180.0" minHeight="0.0" prefHeight="23.599996948242186" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="563.3999969482422" minHeight="10.0" prefHeight="536.6000030517578" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="782.0" spacing="10.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="782.0" spacing="20.0">
                     <children>
                   <ComboBox fx:id="namThieuNhi" prefHeight="42.0" prefWidth="94.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
                         <ComboBox fx:id="dipThieuNhi" prefHeight="42.0" prefWidth="198.0" promptText="Dịp đặc biệt" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                         <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thống kê" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Chi tiết" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
                     </children>
                 </HBox>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
               <columns>
-                <TableColumn prefWidth="189.59997844696045" text="Tên" />
-                <TableColumn minWidth="0.0" prefWidth="79.99998474121094" text="Giới tính" />
-                  <TableColumn prefWidth="146.4000244140625" text="Ngày sinh" />
-                  <TableColumn prefWidth="127.2000732421875" text="Con chủ hộ" />
-                  <TableColumn prefWidth="236.80002441406248" text="Địa chỉ" />
+                <TableColumn prefWidth="178.40002727508545" text="Tên" />
+                <TableColumn minWidth="0.0" prefWidth="87.19999694824219" text="Giới tính" />
+                  <TableColumn prefWidth="137.5999755859375" text="Ngày sinh" />
+                  <TableColumn prefWidth="68.79998779296875" text="Tuổi" />
+                  <TableColumn prefWidth="121.5999755859375" text="Con chủ hộ" />
+                  <TableColumn prefWidth="195.2000732421875" text="Địa chỉ" />
               </columns>
             </TableView>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="textSearchTen" prefHeight="47.0" prefWidth="210.0" promptText="Họ và tên" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textSearchGioiTinh" prefHeight="47.0" prefWidth="114.0" promptText="Giới tính" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textSearchTuoi" prefHeight="47.0" prefWidth="67.0" promptText="Tuổi" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textSearchChuHo" prefHeight="47.0" prefWidth="210.0" promptText="Tên chủ hộ" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
             </children>
         </GridPane>
     </children>
