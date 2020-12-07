@@ -6,8 +6,8 @@ public class DBConnection {
     private static Connection connection;
     private static String connectionURL = "jdbc:sqlserver://localhost:1433;" +
             "databaseName=QuanLyCapPhanThuong;";
-    private static String user = "tan";
-    private static String password = "14235678";
+    private static String user = "sa";
+    private static String password = "";
 
     public static Connection getConnection() throws SQLException{
         try {
