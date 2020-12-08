@@ -3,4 +3,4 @@
 out/
 
 # Connect to local DB Server
-controllers/DBConnection
+services/DBConnection
