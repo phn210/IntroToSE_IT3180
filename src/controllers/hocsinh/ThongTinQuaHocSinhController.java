@@ -1,4 +1,4 @@
-package controllers.HocSinh;
+package controllers.hocsinh;
 
 public class ThongTinQuaHocSinhController {
 }

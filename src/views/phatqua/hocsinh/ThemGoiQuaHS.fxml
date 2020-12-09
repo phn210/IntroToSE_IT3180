@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HocSinh.ThemQuaHocSinhController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.hocsinh.ThemQuaHocSinhController">
    <children>
       <ComboBox fx:id="enterNam" layoutX="466.0" layoutY="38.0" prefHeight="50.0" prefWidth="100.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
       <TextField fx:id="textEnterMoTa" alignment="TOP_LEFT" layoutX="137.0" layoutY="110.0" prefHeight="223.0" prefWidth="430.0" promptText="Mô tả" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />

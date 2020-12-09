@@ -1,5 +1,6 @@
-package controllers;
+package controllers.hogiadinh;
 
+import com.sun.javafx.charts.Legend;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ import java.util.ResourceBundle;
 public class HoGiaDinhController implements Initializable{
 
     @FXML
-    private TableView<HoGiaDinh> hoGiaDinhTable;
+    public TableView<HoGiaDinh> hoGiaDinhTable;
     @FXML
     private TableColumn<HoGiaDinh, Integer> col_IDGiaDinh;
     @FXML
@@ -44,6 +45,9 @@ public class HoGiaDinhController implements Initializable{
 
     private ObservableList<HoGiaDinh> tableOblist;
     private ObservableList<String> comboBoxOblist;
+
+    public static Stage themHGDStage = new Stage();
+
 
     //Search thong tin
     private String colIndex;
@@ -93,6 +97,13 @@ public class HoGiaDinhController implements Initializable{
         List<HoGiaDinh> list = hoGiaDinhService.searchListHoGiaDinh(colIndex, key);
         this.tableOblist = FXCollections.observableList(list);
         hoGiaDinhTable.setItems(tableOblist);
+    }
+
+    @FXML
+    public void add(ActionEvent event) throws IOException {
+        themHGDStage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("hogiadinh/ThemHGD.fxml"))));
+        themHGDStage.setTitle("Thêm mới hộ gia đình");
+        themHGDStage.show();
     }
 
     @FXML

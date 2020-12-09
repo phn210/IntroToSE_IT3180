@@ -1,8 +1,5 @@
-package controllers.ThieuNhi;
+package controllers.thieunhi;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;

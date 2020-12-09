@@ -1,4 +1,4 @@
-package controllers.ThieuNhi;
+package controllers.thieunhi;
 
 import javafx.fxml.Initializable;
 

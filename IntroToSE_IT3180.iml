@@ -28,5 +28,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mssql-jdbc-8.4.1.jre11" level="project" />
+    <orderEntry type="library" name="sqljdbc42" level="project" />
   </component>
 </module>

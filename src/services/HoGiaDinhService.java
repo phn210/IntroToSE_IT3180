@@ -3,6 +3,7 @@ package services;
 import models.HoGiaDinh;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class HoGiaDinhService {
                 hoGiaDinhModel.setIDGiaDinh(rs.getInt("IDGiaDinh"));
                 list.add(hoGiaDinhModel);
             }
+
+            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -46,9 +49,27 @@ public class HoGiaDinhService {
                 hoGiaDinhModel.setIDGiaDinh(rs.getInt("IDGiaDinh"));
                 list.add(hoGiaDinhModel);
             }
+
+            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return list;
+    }
+
+    public boolean addListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
+        Connection conn = DBConnection.getConnection();
+        String sql = "Insert into HoGiaDinh(IDGiaDinh, DiaChi, ChuHo, SDT) Values(?, ?, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setInt(1, hoGiaDinhModel.getIDGiaDinh());
+        pst.setString(2, hoGiaDinhModel.getDiaChi());
+        pst.setString(3, hoGiaDinhModel.getChuHo());
+        pst.setString(4, hoGiaDinhModel.getSDT());
+
+        pst.executeUpdate();
+
+        conn.close();
+        pst.close();
+        return true;
     }
 }

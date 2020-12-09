@@ -73,3 +73,9 @@
 #login_button.button:pressed{
     -fx-font-size: 24px;
 }
+
+.label{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: Helvetica, Arial, sans-serif;
+}

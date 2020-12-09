@@ -1,4 +1,4 @@
-package controllers;
+package controllers.thongke;
 
 public class ThongKeController {
 }
