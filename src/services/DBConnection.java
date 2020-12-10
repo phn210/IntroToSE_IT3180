@@ -3,7 +3,7 @@ package services;
 import java.sql.*;
 
 public class DBConnection {
-    private static Connection connection;
+    public static Connection connection;
     private static String connectionURL = "jdbc:sqlserver://localhost:1433;" +
             "databaseName=QuanLyCapPhanThuong;";
     private static String user = "sa";

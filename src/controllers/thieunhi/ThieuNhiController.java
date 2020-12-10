@@ -8,8 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.HoGiaDinh;
@@ -18,8 +18,11 @@ import services.HoGiaDinhService;
 import services.ThieuNhiService;
 import views.Main;
 
+import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ThieuNhiController implements Initializable {
@@ -29,6 +32,27 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     private ComboBox chonDip;
+
+    @FXML
+    private TableView<ThieuNhi> thieuNhiTable;
+
+    @FXML
+    private TableColumn<ThieuNhi, String> col_Ten;
+
+    @FXML
+    private TableColumn<ThieuNhi, String> col_GioiTinh;
+
+    @FXML
+    private TableColumn<ThieuNhi, Date> col_NgaySinh;
+
+    @FXML
+    private TableColumn<ThieuNhi, Integer> col_Tuoi;
+
+    @FXML
+    private TableColumn<ThieuNhi, String> col_ChuHo;
+
+    @FXML
+    private TableColumn<ThieuNhi, String> col_DiaChi;
 
     @FXML
     private TextField timTextTen;
@@ -41,6 +65,7 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     private TextField timTextChuHo;
+
 
     private ThieuNhiService thieuNhiService;
 
@@ -58,6 +83,17 @@ public class ThieuNhiController implements Initializable {
         chonNam.setItems(nam);
         ObservableList<String> dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu");
         chonDip.setItems(dip);
+
+    /*    col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
+        col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
+        col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
+        col_Tuoi.setCellValueFactory(new PropertyValueFactory<>("Tuoi"));
+        col_ChuHo.setCellValueFactory(new PropertyValueFactory<>("ChuHo"));
+        col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("DiaChi"));
+    */
+        List<ThieuNhi> list = this.thieuNhiService.getAll();
+        tableOblist = FXCollections.observableList(list);
+        thieuNhiTable.setItems(tableOblist);
     }
 
     public void phatQua(ActionEvent event){
