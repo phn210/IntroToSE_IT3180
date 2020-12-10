@@ -85,4 +85,20 @@ public class HoGiaDinhService {
         conn.close();
         pst.close();
     }
+
+    public void editListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
+        Connection conn = DBConnection.getConnection();
+        String sql = "Update HoGiaDinh set DiaChi = ?, ChuHo = ?, SDT = ? " +
+                    "where IDGiaDinh = ?";
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1, hoGiaDinhModel.getDiaChi());
+        pst.setString(2, hoGiaDinhModel.getChuHo());
+        pst.setString(3, hoGiaDinhModel.getSDT());
+        pst.setString(4, String.valueOf(hoGiaDinhModel.getIDGiaDinh()));
+
+        pst.executeUpdate();
+
+        conn.close();
+        pst.close();
+    }
 }

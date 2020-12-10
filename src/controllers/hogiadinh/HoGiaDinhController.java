@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -46,6 +47,7 @@ public class HoGiaDinhController implements Initializable{
     private ObservableList<String> comboBoxOblist;
 
     public static Stage themHGDStage = new Stage();
+    public static Stage suaHGDStage = new Stage();
 
 
     //Search thong tin
@@ -101,8 +103,12 @@ public class HoGiaDinhController implements Initializable{
     @FXML
     public void add(ActionEvent event) throws IOException {
         themHGDStage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("hogiadinh/ThemHGD.fxml"))));
-        themHGDStage.setTitle("Thêm mới hộ gia đình");
+        themHGDStage.setTitle("Thêm hộ gia đình");
         themHGDStage.show();
+
+        themHGDStage.setOnCloseRequest((e)->{
+            updateTable();
+        });
     }
 
     @FXML
@@ -126,8 +132,33 @@ public class HoGiaDinhController implements Initializable{
     }
 
     @FXML
-    void update(ActionEvent event) {
-        
+    void edit(ActionEvent event) throws IOException {
+        HoGiaDinh hoGiaDinhModel = hoGiaDinhTable.getSelectionModel().getSelectedItem();
+
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("hogiadinh/SuaHGD.fxml"));
+        Parent parent = loader.load();
+
+        SuaHGDController suaHGDController = (SuaHGDController) loader.getController();
+        suaHGDController.initializeTextField(hoGiaDinhModel);
+
+        suaHGDStage.setScene(new Scene(parent));
+        suaHGDStage.setTitle("Sửa hộ gia đình");
+        suaHGDStage.show();
+
+        suaHGDStage.setOnCloseRequest((e)->{
+            updateTable();
+        });
+    }
+
+    public void updateTable(){
+        col_IDGiaDinh.setCellValueFactory(new PropertyValueFactory<>("IDGiaDinh"));
+        col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("DiaChi"));
+        col_TenChuHo.setCellValueFactory(new PropertyValueFactory<>("ChuHo"));
+        col_SDT.setCellValueFactory(new PropertyValueFactory<>("SDT"));
+
+        List<HoGiaDinh> list = this.hoGiaDinhService.getListHoGiaDinh();
+        tableOblist = FXCollections.observableList(list);
+        hoGiaDinhTable.setItems(tableOblist);
     }
 
 }

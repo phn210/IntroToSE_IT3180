@@ -21,7 +21,7 @@ public class Main extends Application {
         this.primaryStage.getIcons().add(new Image("/static/img/bieutuong.png"));
         this.primaryStage.resizableProperty().setValue(false);
         this.primaryStage.show();
-    }
+        }
 
     public static void main(String[] args) {
         launch(args);

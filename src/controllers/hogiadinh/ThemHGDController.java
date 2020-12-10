@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -42,11 +43,13 @@ public class ThemHGDController {
                                                 textSDT.getText());
         HoGiaDinhService hoGiaDinhService = new HoGiaDinhService();
         hoGiaDinhService.addListHoGiaDinh(hoGiaDinhMoi);
-    }
 
-    @FXML
-    public void close(ActionEvent event) throws IOException {
-        HoGiaDinhController.themHGDStage.close();
+        //update bang ho gia dinh
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("hogiadinh/HoGiaDinh.fxml"));
+        Parent parent = loader.load();
+
+        HoGiaDinhController hoGiaDinhController = (HoGiaDinhController) loader.getController();
+        hoGiaDinhController.updateTable();
     }
 
     @FXML
@@ -56,6 +59,5 @@ public class ThemHGDController {
         textChuHo.clear();
         textSDT.clear();
     }
-
 
 }
