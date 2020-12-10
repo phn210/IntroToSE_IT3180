@@ -37,12 +37,12 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#delete" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#update" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Update" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>

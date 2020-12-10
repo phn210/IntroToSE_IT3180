@@ -33,7 +33,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="145.0" layoutY="349.0" mnemonicParsing="false" onAction="#add" prefHeight="47.0" prefWidth="99.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" />
+      <Button layoutX="145.0" layoutY="349.0" mnemonicParsing="false" onAction="#addHoGiaDinh" prefHeight="47.0" prefWidth="99.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" />
       <Button layoutX="280.0" layoutY="349.0" mnemonicParsing="false" onAction="#deleteText" prefHeight="47.0" prefWidth="99.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa text" />
    </children>
 </AnchorPane>

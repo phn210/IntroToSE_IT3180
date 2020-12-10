@@ -57,7 +57,7 @@ public class HoGiaDinhService {
         return list;
     }
 
-    public boolean addListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
+    public void addListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
         Connection conn = DBConnection.getConnection();
         String sql = "Insert into HoGiaDinh(IDGiaDinh, DiaChi, ChuHo, SDT) Values(?, ?, ?, ?)";
         PreparedStatement pst = conn.prepareStatement(sql);
@@ -70,6 +70,19 @@ public class HoGiaDinhService {
 
         conn.close();
         pst.close();
-        return true;
+    }
+
+    public void deleteListHoGiaDinh(int IDGiaDinh) throws SQLException {
+        Connection conn = DBConnection.getConnection();
+        String sql = "Delete from NhanKhau where IDGiaDinh = ?;" +
+                    "Delete from HoGiaDinh where IDGiaDinh = ?";
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1, String.valueOf(IDGiaDinh));
+        pst.setString(2, String.valueOf(IDGiaDinh));
+
+        pst.execute();
+
+        conn.close();
+        pst.close();
     }
 }

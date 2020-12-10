@@ -1,6 +1,5 @@
 package controllers.hogiadinh;
 
-import com.sun.javafx.charts.Legend;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,17 +28,17 @@ public class HoGiaDinhController implements Initializable{
     @FXML
     public TableView<HoGiaDinh> hoGiaDinhTable;
     @FXML
-    private TableColumn<HoGiaDinh, Integer> col_IDGiaDinh;
+    public TableColumn<HoGiaDinh, Integer> col_IDGiaDinh;
     @FXML
-    private TableColumn<HoGiaDinh, String> col_DiaChi;
+    public TableColumn<HoGiaDinh, String> col_DiaChi;
     @FXML
-    private TableColumn<HoGiaDinh, String> col_TenChuHo;
+    public TableColumn<HoGiaDinh, String> col_TenChuHo;
     @FXML
-    private TableColumn<HoGiaDinh, String> col_SDT;
+    public TableColumn<HoGiaDinh, String> col_SDT;
     @FXML
     private ComboBox<String> comboBoxHoGiaDinh;
     @FXML
-    private TextField textSearchHGD;
+    public TextField textSearchHGD;
 
     private HoGiaDinhService hoGiaDinhService;
 
@@ -107,6 +106,13 @@ public class HoGiaDinhController implements Initializable{
     }
 
     @FXML
+    void delete(ActionEvent event) throws SQLException {
+        int IDGiaDinh = hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+        hoGiaDinhService.deleteListHoGiaDinh(IDGiaDinh);
+        hoGiaDinhTable.getItems().removeAll(hoGiaDinhTable.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
     public void handleRow(MouseEvent mouseEvent) throws IOException {
         if (mouseEvent.getClickCount() == 2 && this.hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
             int IDGD = this.hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
@@ -118,4 +124,10 @@ public class HoGiaDinhController implements Initializable{
             stage.show();
         }
     }
+
+    @FXML
+    void update(ActionEvent event) {
+        
+    }
+
 }

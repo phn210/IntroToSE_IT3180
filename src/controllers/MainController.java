@@ -97,7 +97,7 @@ public class MainController{
     public void handleLogOut(ActionEvent event) {
         System.exit(0);
     }
-    public Pane getPage(String fileName){
+    public static Pane getPage(String fileName){
         Pane view = new Pane();
         try {
             URL fileUrl = Main.class.getResource("/views/"+ fileName + ".fxml");
