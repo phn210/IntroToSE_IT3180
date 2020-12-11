@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.hogiadinh.NhanKhauController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.nhankhau.NhanKhauController">
    <children>
       <GridPane layoutX="10.0" layoutY="1.0" prefHeight="640.0" prefWidth="782.0">
          <columnConstraints>
@@ -26,23 +26,23 @@
             <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="10.0">
                <children>
                   <TextField fx:id="textSearchNhanKhau" prefHeight="47.0" prefWidth="230.0" promptText="Tìm kiếm nhân khẩu" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
-                  <ComboBox fx:id="comboBoxNhanKhau" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
+                  <ComboBox fx:id="comboBoxNhanKhau" onAction="#comboBoxSelect" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #ffffff; -fx-border-color: black;" styleClass="search" stylesheets="@../../static/css/main.css" />
                   <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#searchNhanKhau" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tìm kiếm" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#addNhanKhau" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Thêm" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteNhanKhau" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xóa" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#editNhanKhau" prefHeight="47.0" prefWidth="95.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Sửa" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>

@@ -1,5 +1,6 @@
 package controllers.hogiadinh;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import controllers.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -42,14 +44,14 @@ public class ThemHGDController {
                                                 textChuHo.getText(),
                                                 textSDT.getText());
         HoGiaDinhService hoGiaDinhService = new HoGiaDinhService();
-        hoGiaDinhService.addListHoGiaDinh(hoGiaDinhMoi);
-
-        //update bang ho gia dinh
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("hogiadinh/HoGiaDinh.fxml"));
-        Parent parent = loader.load();
-
-        HoGiaDinhController hoGiaDinhController = (HoGiaDinhController) loader.getController();
-        hoGiaDinhController.updateTable();
+        try{
+            hoGiaDinhService.addListHoGiaDinh(hoGiaDinhMoi);
+        }catch(SQLServerException e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Trùng IDGiaDinh!");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+        }
     }
 
     @FXML

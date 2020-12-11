@@ -27,19 +27,19 @@ import java.util.ResourceBundle;
 public class HoGiaDinhController implements Initializable{
 
     @FXML
-    public TableView<HoGiaDinh> hoGiaDinhTable;
+    private TableView<HoGiaDinh> hoGiaDinhTable;
     @FXML
-    public TableColumn<HoGiaDinh, Integer> col_IDGiaDinh;
+    private TableColumn<HoGiaDinh, Integer> col_IDGiaDinh;
     @FXML
-    public TableColumn<HoGiaDinh, String> col_DiaChi;
+    private TableColumn<HoGiaDinh, String> col_DiaChi;
     @FXML
-    public TableColumn<HoGiaDinh, String> col_TenChuHo;
+    private TableColumn<HoGiaDinh, String> col_TenChuHo;
     @FXML
-    public TableColumn<HoGiaDinh, String> col_SDT;
+    private TableColumn<HoGiaDinh, String> col_SDT;
     @FXML
     private ComboBox<String> comboBoxHoGiaDinh;
     @FXML
-    public TextField textSearchHGD;
+    private TextField textSearchHGD;
 
     private HoGiaDinhService hoGiaDinhService;
 
@@ -113,27 +113,30 @@ public class HoGiaDinhController implements Initializable{
 
     @FXML
     void delete(ActionEvent event) throws SQLException {
-        int IDGiaDinh = hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+        HoGiaDinh hoGiaDinhModel = hoGiaDinhTable.getSelectionModel().getSelectedItem();
+        //canh bao
+        if(hoGiaDinhModel == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Chọn 1 hộ gia đình đi đã bạn  -_-");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+        }
+
+        int IDGiaDinh = hoGiaDinhModel.getIDGiaDinh();
         hoGiaDinhService.deleteListHoGiaDinh(IDGiaDinh);
         hoGiaDinhTable.getItems().removeAll(hoGiaDinhTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML
-    public void handleRow(MouseEvent mouseEvent) throws IOException {
-        if (mouseEvent.getClickCount() == 2 && this.hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
-            int IDGD = this.hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
-            NhanKhauService nhanKhauService = new NhanKhauService();
-            nhanKhauService.IDGiaDinhNK = IDGD;
-            Stage stage = new Stage();
-            stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("nhankhau/NhanKhau.fxml"))));
-            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
-            stage.show();
-        }
-    }
-
-    @FXML
     void edit(ActionEvent event) throws IOException {
         HoGiaDinh hoGiaDinhModel = hoGiaDinhTable.getSelectionModel().getSelectedItem();
+        //canh bao
+        if(hoGiaDinhModel == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Chọn 1 hộ gia đình đi đã bạn  -_-");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+        }
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("hogiadinh/SuaHGD.fxml"));
         Parent parent = loader.load();
@@ -150,7 +153,7 @@ public class HoGiaDinhController implements Initializable{
         });
     }
 
-    public void updateTable(){
+    private void updateTable(){
         col_IDGiaDinh.setCellValueFactory(new PropertyValueFactory<>("IDGiaDinh"));
         col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("DiaChi"));
         col_TenChuHo.setCellValueFactory(new PropertyValueFactory<>("ChuHo"));
@@ -159,6 +162,19 @@ public class HoGiaDinhController implements Initializable{
         List<HoGiaDinh> list = this.hoGiaDinhService.getListHoGiaDinh();
         tableOblist = FXCollections.observableList(list);
         hoGiaDinhTable.setItems(tableOblist);
+    }
+
+    @FXML
+    public void handleRow(MouseEvent mouseEvent) throws IOException {
+        if (mouseEvent.getClickCount() == 2 && this.hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
+            int IDGD = this.hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+            NhanKhauService nhanKhauService = new NhanKhauService();
+            nhanKhauService.IDGiaDinhNK = IDGD;
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("nhankhau/NhanKhau.fxml"))));
+            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+            stage.show();
+        }
     }
 
 }
