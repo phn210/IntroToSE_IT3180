@@ -8,7 +8,7 @@ public class ThieuNhi extends NhanKhau{
     public HoGiaDinh hoGiaDinh;
 
     public ThieuNhi(){
-
+        this.hoGiaDinh = new HoGiaDinh();
     }
 
     public ThieuNhi(int ID, String ten, String gioiTinh, Date ngaySinh, String ngheNghiep, int IDGiaDinh, int tuoi) {

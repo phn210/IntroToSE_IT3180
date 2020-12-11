@@ -1,5 +1,6 @@
 package controllers.thieunhi;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,17 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import models.HoGiaDinh;
 import models.ThieuNhi;
-import services.HoGiaDinhService;
 import services.ThieuNhiService;
 import views.Main;
 
-import javax.swing.text.TabableView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -84,13 +84,13 @@ public class ThieuNhiController implements Initializable {
         ObservableList<String> dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu");
         chonDip.setItems(dip);
 
-    /*    col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
+        col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
         col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
         col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
         col_Tuoi.setCellValueFactory(new PropertyValueFactory<>("Tuoi"));
-        col_ChuHo.setCellValueFactory(new PropertyValueFactory<>("ChuHo"));
-        col_DiaChi.setCellValueFactory(new PropertyValueFactory<>("DiaChi"));
-    */
+        col_ChuHo.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getChuHo()));
+        col_DiaChi.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getDiaChi()));
+
         List<ThieuNhi> list = this.thieuNhiService.getAll();
         tableOblist = FXCollections.observableList(list);
         thieuNhiTable.setItems(tableOblist);
@@ -119,6 +119,6 @@ public class ThieuNhiController implements Initializable {
     }
 
     public void timKiem(ActionEvent event){
-
+        
     }
 }

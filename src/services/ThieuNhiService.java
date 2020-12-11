@@ -17,7 +17,7 @@ public class ThieuNhiService {
         List<ThieuNhi> list = new ArrayList<>();
         String query = "select *, DATEDIFF(year, NgaySinh, GetDate()) Tuoi " +
                     "from NhanKhau, HoGiaDinh " +
-                    "where Tuoi <= 18" +
+                    "where DATEDIFF(year, NgaySinh, GetDate()) <= 18" +
                     "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
         Connection conn = DBConnection.connection;
         try (Statement statement = conn.createStatement()){
@@ -48,7 +48,7 @@ public class ThieuNhiService {
     public List<ThieuNhi> search(String ten, String gioiTinh, String tuoi, String chuHo){
         List<ThieuNhi> list = new ArrayList<>();
 
-        String query = "select *, DATEDIFF(year, NgaySinh, GetDate()) Tuoi from NhanKhau where Tuoi <= 18";
+        String query = "select *, DATEDIFF(year, NgaySinh, GetDate()) Tuoi from NhanKhau where DATEDIFF(year, NgaySinh, GetDate()) <= 18";
 
         if(ten != null)
             query = query + " and Ten = " + "'" + ten + "'";
