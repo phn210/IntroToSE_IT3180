@@ -15,7 +15,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import models.GoiQua;
 import models.ThieuNhi;
+import services.PhatQuaService;
 import services.ThieuNhiService;
 import views.Main;
 
@@ -66,14 +68,18 @@ public class ThieuNhiController implements Initializable {
     @FXML
     private TextField timTextChuHo;
 
+    private int nam;
+    private String dip;
 
     private ThieuNhiService thieuNhiService;
+    private PhatQuaService phatQuaService;
 
     private ObservableList<ThieuNhi> tableOblist;
     private ObservableList<String> comboBoxOblist;
 
     public ThieuNhiController(){
         this.thieuNhiService = new ThieuNhiService();
+        this.phatQuaService = new PhatQuaService();
         this.comboBoxOblist = FXCollections.observableArrayList("Tên", "Giới tính", "Ngày sinh", "Tuổi", "Tên chủ hộ");
     }
 
@@ -96,8 +102,40 @@ public class ThieuNhiController implements Initializable {
         thieuNhiTable.setItems(tableOblist);
     }
 
-    public void phatQua(ActionEvent event){
+    public void updateTable(){
+        col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
+        col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
+        col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
+        col_Tuoi.setCellValueFactory(new PropertyValueFactory<>("Tuoi"));
+        col_ChuHo.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getChuHo()));
+        col_DiaChi.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getDiaChi()));
 
+        List<ThieuNhi> list = this.thieuNhiService.getAll();
+        tableOblist = FXCollections.observableList(list);
+        thieuNhiTable.setItems(tableOblist);
+    }
+
+
+    @FXML
+    void chonDip(ActionEvent event) {
+        dip = chonDip.getSelectionModel().getSelectedItem().toString();
+    }
+
+    @FXML
+    void chonNam(ActionEvent event) {
+        nam = Integer.parseInt(chonNam.getSelectionModel().getSelectedItem().toString());
+    }
+
+    public void phatQua(ActionEvent event){
+        GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
+        if (goiQua.equals(null)){
+            //thong bao goi qua chua ton tai
+        } else {
+            List<ThieuNhi> list = thieuNhiService.getAll(nam);
+            for (ThieuNhi thieuNhi: list) {
+                phatQuaService.phatQuaTN(thieuNhi, goiQua);
+            }
+        }
     }
 
     public void hoanTac(ActionEvent event){
@@ -119,6 +157,12 @@ public class ThieuNhiController implements Initializable {
     }
 
     public void timKiem(ActionEvent event){
-        
+        String ten = timTextTen.getText();
+        String gioiTinh = timTextGioiTinh.getText();
+        String tuoi = timTextTuoi.getText();
+        String chuHo = timTextChuHo.getText();
+        List<ThieuNhi> list = thieuNhiService.search(ten, gioiTinh, tuoi, chuHo);
+        this.tableOblist = FXCollections.observableList(list);
+        thieuNhiTable.setItems(tableOblist);
     }
 }
