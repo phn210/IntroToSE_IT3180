@@ -26,24 +26,19 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="782.0" spacing="20.0">
                     <children>
-                  <ComboBox fx:id="chonNam" onAction="#chonNam" prefHeight="42.0" prefWidth="94.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                        <ComboBox fx:id="chonDip" onAction="#chonDip" prefHeight="42.0" prefWidth="198.0" promptText="Dịp đặc biệt" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                        <Button mnemonicParsing="false" onAction="#phatQua" prefHeight="42.0" prefWidth="106.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
+                  <ComboBox fx:id="chonNam" onAction="#chonNam" prefHeight="42.0" prefWidth="106.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                        <ComboBox fx:id="chonDip" onAction="#chonDip" prefHeight="42.0" prefWidth="230.0" promptText="Dịp đặc biệt" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                        <Button mnemonicParsing="false" onAction="#phatQua" prefHeight="42.0" prefWidth="126.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
                         </Button>
-                  <Button mnemonicParsing="false" onAction="#hoanTac" prefHeight="42.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#xemThongTin" prefHeight="42.0" prefWidth="120.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Chi tiết" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#xemThongTin" prefHeight="42.0" prefWidth="110.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Chi tiết" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#themGoiQua" prefHeight="42.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#themGoiQua" prefHeight="42.0" prefWidth="120.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -66,7 +61,7 @@
                   <TextField fx:id="timTextGioiTinh" prefHeight="47.0" prefWidth="114.0" promptText="Giới tính" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                   <TextField fx:id="timTextTuoi" prefHeight="47.0" prefWidth="67.0" promptText="Tuổi" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                   <TextField fx:id="timTextChuHo" prefHeight="47.0" prefWidth="210.0" promptText="Tên chủ hộ" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Button mnemonicParsing="false" onAction="#timKiem" prefHeight="42.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#timKiem" prefHeight="42.0" prefWidth="115.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>

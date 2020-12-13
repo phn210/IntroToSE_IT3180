@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -52,13 +51,13 @@
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1">
                <children>
-                  <TextField fx:id="textEnterTenDip" prefHeight="50.0" prefWidth="302.0" promptText="Dịp" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <ComboBox fx:id="enterNam" prefHeight="50.0" prefWidth="100.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textEnterDip" prefHeight="50.0" prefWidth="358.0" promptText="Dịp" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textEnterNam" prefHeight="50.0" prefWidth="136.0" promptText="Năm" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="454.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="textEnterTenDip1" prefHeight="50.0" prefWidth="146.0" promptText="Đơn giá" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textEnterDonGia" prefHeight="50.0" prefWidth="146.0" promptText="Đơn giá" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                   <Label prefHeight="50.0" prefWidth="114.0" text="/ 1 thiếu nhi" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />

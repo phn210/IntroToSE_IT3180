@@ -24,6 +24,7 @@ import views.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -73,6 +74,9 @@ public class ThieuNhiController implements Initializable {
 
     private ThieuNhiService thieuNhiService;
     private PhatQuaService phatQuaService;
+
+    private Stage thongTinStage;
+    private Stage themStage;
 
     private ObservableList<ThieuNhi> tableOblist;
     private ObservableList<String> comboBoxOblist;
@@ -127,19 +131,21 @@ public class ThieuNhiController implements Initializable {
     }
 
     public void phatQua(ActionEvent event){
+        List<ThieuNhi> error = new ArrayList<>();
         GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
         if (goiQua.equals(null)){
             //thong bao goi qua chua ton tai
         } else {
             List<ThieuNhi> list = thieuNhiService.getAll(nam);
             for (ThieuNhi thieuNhi: list) {
-                phatQuaService.phatQuaTN(thieuNhi, goiQua);
+                boolean check = phatQuaService.phatQuaTN(thieuNhi, goiQua);
+                if(!check)
+                    error.add(thieuNhi);
             }
         }
-    }
+        if(error.size() > 0){
 
-    public void hoanTac(ActionEvent event){
-
+        }
     }
 
     public void xemThongTin(ActionEvent event) throws IOException {
@@ -161,6 +167,7 @@ public class ThieuNhiController implements Initializable {
         String gioiTinh = timTextGioiTinh.getText();
         String tuoi = timTextTuoi.getText();
         String chuHo = timTextChuHo.getText();
+
         List<ThieuNhi> list = thieuNhiService.search(ten, gioiTinh, tuoi, chuHo);
         this.tableOblist = FXCollections.observableList(list);
         thieuNhiTable.setItems(tableOblist);
