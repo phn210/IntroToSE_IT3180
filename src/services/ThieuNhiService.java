@@ -89,13 +89,13 @@ public class ThieuNhiService {
                         "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
         System.out.println(ten + "-" + gioiTinh + "-" + tuoi + "-" + chuHo);
         if(!ten.equals(""))
-            query = query + " and Ten like " + "'%" + ten + "%'";
+            query = query + " and Ten like " + "N'%" + ten + "%'";
         if(!gioiTinh.equals(""))
-            query = query + " and GioiTinh = " + "'" + gioiTinh + "'";
+            query = query + " and GioiTinh = " + "N'" + gioiTinh + "'";
         if(!tuoi.equals(""))
             query = query + " and DATEDIFF(year, NgaySinh, GetDate()) = " + "'" + tuoi + "'";
         if(!chuHo.equals(""))
-            query = query + " and ChuHo like " + "'%" + chuHo + "%'";
+            query = query + " and ChuHo like " + "N'%" + chuHo + "%'";
         System.out.println(query);
 
         try {

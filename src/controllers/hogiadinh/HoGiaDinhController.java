@@ -173,6 +173,7 @@ public class HoGiaDinhController implements Initializable{
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("nhankhau/NhanKhau.fxml"))));
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+            stage.setTitle("Thành viên trong gia đình");
             stage.show();
         }
     }
