@@ -80,6 +80,8 @@ public class ThieuNhiController implements Initializable {
     private ObservableList<String> comboBoxOblist;
 
     public ThieuNhiController(){
+        this.nam = 0;
+        this.dip = "";
         this.thieuNhiService = new ThieuNhiService();
         this.phatQuaService = new PhatQuaService();
         this.comboBoxOblist = FXCollections.observableArrayList("Tên", "Giới tính", "Ngày sinh", "Tuổi", "Tên chủ hộ");
@@ -120,7 +122,7 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     void chonDip(ActionEvent event) {
-        dip = chonDip.getSelectionModel().getSelectedItem().toString();
+        this.dip = this.chonDip.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML
