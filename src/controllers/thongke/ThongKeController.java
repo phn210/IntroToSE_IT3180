@@ -68,7 +68,7 @@ public class ThongKeController implements Initializable {
         this.hoGiaDinhService = new HoGiaDinhService();
         this.thongKeService = new ThongKeService();
         this.namOblist = FXCollections.observableArrayList("Tất cả", "2017", "2018", "2019", "2020");
-        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
+        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
         this.dTOblist = FXCollections.observableArrayList("Tất cả", "Thiếu nhi", "Học sinh");
     }
 

@@ -59,7 +59,7 @@ public class CTThongKeController implements Initializable {
     public CTThongKeController(){
         this.thongKeService = new ThongKeService();
         this.namOblist = FXCollections.observableArrayList("Tất cả", "2017", "2018", "2019", "2020");
-        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
+        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
     }
 
     @Override
@@ -95,7 +95,7 @@ public class CTThongKeController implements Initializable {
         String temp = comboBoxDip.getSelectionModel().getSelectedItem().toString();
         switch(temp){
             case "Tất cả": this.dip = ""; break;
-            case "Tết dương lịch": this.dip = "Tết dương lịch"; break;
+            case "Tết dương lịch": this.dip = "Tết dương lịch"; break;
             case "Tết Nguyên Đán": this.dip = "Tết Nguyên Đán"; break;
             case "Quốc tế thiếu nhi": this.dip = "Quốc tế thiếu nhi"; break;
             case "Trung Thu": this.dip = "Trung Thu"; break;
