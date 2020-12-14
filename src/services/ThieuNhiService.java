@@ -50,8 +50,8 @@ public class ThieuNhiService {
         String date = nam + "-12-30";
         String query = "select *, DATEDIFF(year, NgaySinh, " + date + ") Tuoi " +
                 "from NhanKhau, HoGiaDinh " +
-                "where DATEDIFF(year, NgaySinh, " + date + ") <= 18 " +
-                "and DATEDIFF(year, NgaySinh, " + date + ") >= 0" +
+                "where DATEDIFF(year, NgaySinh, " + "'" + date + "'" + ") <= 18 " +
+                "and DATEDIFF(year, NgaySinh, " + "'" + date + "'" + ") >= 0 " +
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
         try {

@@ -146,6 +146,7 @@ public class ThieuNhiController implements Initializable {
                 if(!check)
                     error.add(thieuNhi);
             }
+            System.out.println(list.size() + "-" + error.size());
         }
         if(error.size() > 0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
