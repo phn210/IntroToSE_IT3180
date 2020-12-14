@@ -1,12 +1,14 @@
 package controllers.thongke;
 
 import com.microsoft.sqlserver.jdbc.SQLServerException;
+import controllers.hogiadinh.SuaHGDController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -147,9 +149,17 @@ public class ThongKeController implements Initializable {
     @FXML
     void handleRow(MouseEvent event) throws IOException {
         if (event.getClickCount() == 2 && hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
-            int IDGD = hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+            thongKeService.IDGiaDinh = hoGiaDinhTable.getSelectionModel().getSelectedItem().getIDGiaDinh();
+            String tenChuHo = hoGiaDinhTable.getSelectionModel().getSelectedItem().getChuHo();
+
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("thongke/ChiTietThongKe.fxml"));
+            Parent parent = loader.load();
+
+            CTThongKeController ctThongKeController = (CTThongKeController) loader.getController();
+            ctThongKeController.setTextChuHoLabel(tenChuHo);
+
             Stage stage = new Stage();
-            stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("thongke/ChiTietThongKe.fxml"))));
+            stage.setScene(new Scene(parent));
             stage.setTitle("Chi tiết thống kê");
             stage.show();
         }
