@@ -1,6 +1,7 @@
 package services;
 
 import models.GoiQua;
+import models.HocSinh;
 import models.ThieuNhi;
 
 import java.sql.Connection;
@@ -73,6 +74,10 @@ public class PhatQuaService {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return false;
+    }
+
+    public boolean phatQuaHS(HocSinh hocSinh, GoiQua goiQua){
         return false;
     }
 

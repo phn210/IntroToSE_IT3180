@@ -26,24 +26,19 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="779.0" spacing="20.0">
                     <children>
-                  <ComboBox fx:id="namHocSinh" prefHeight="42.0" prefWidth="94.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                        <ComboBox fx:id="dipHocSinh" prefHeight="42.0" prefWidth="198.0" promptText="Thành tích" style="-fx-border-color: black; -fx-background-color: #ffffff;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                        <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
+                  <ComboBox fx:id="chonNam" prefHeight="42.0" prefWidth="86.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                        <ComboBox fx:id="chonThanhTich" prefHeight="42.0" prefWidth="219.0" promptText="Thành tích" style="-fx-border-color: black; -fx-background-color: #ffffff;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                        <Button mnemonicParsing="false" onAction="#phatQua" prefHeight="42.0" prefWidth="140.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Phát quà" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="79.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Undo" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#xemThongTin" prefHeight="42.0" prefWidth="140.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Chi tiết" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="142.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Chi tiết" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#themGoiQua" prefHeight="42.0" prefWidth="140.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -52,26 +47,25 @@
                 </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="textSearchTen" prefHeight="47.0" prefWidth="239.0" promptText="Họ và tên" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <TextField fx:id="textSearchGioiTinh" prefHeight="47.0" prefWidth="116.0" promptText="Giới tính" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <TextField fx:id="textSearchTuoi" prefHeight="47.0" prefWidth="83.0" promptText="Tuổi" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <TextField fx:id="textSearchChuHo" prefHeight="47.0" prefWidth="202.0" promptText="Tên chủ hộ" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="113.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
+                  <TextField fx:id="timTextTen" prefHeight="47.0" prefWidth="239.0" promptText="Họ và tên" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="timTextGioiTinh" prefHeight="47.0" prefWidth="116.0" promptText="Giới tính" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="timTextTuoi" prefHeight="47.0" prefWidth="83.0" promptText="Tuổi" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="timTextChuHo" prefHeight="47.0" prefWidth="202.0" promptText="Tên chủ hộ" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <Button mnemonicParsing="false" onAction="#timKiem" prefHeight="42.0" prefWidth="120.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Tra cứu" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <TableView fx:id="hocSinhTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
               <columns>
-                <TableColumn prefWidth="75.0" text="Mã học sinh" />
-                <TableColumn prefWidth="131.20001220703125" text="Họ và tên" />
-                  <TableColumn prefWidth="64.79997253417969" text="Giới tính" />
-                  <TableColumn prefWidth="100.79998779296875" text="Ngày sinh" />
-                  <TableColumn minWidth="4.0" prefWidth="79.20001220703125" text="Con chủ hộ" />
-                  <TableColumn minWidth="0.0" prefWidth="226.39996337890625" text="Địa chỉ" />
-                  <TableColumn prefWidth="118.40006103515623" text="Số điện thoại" />
+                <TableColumn fx:id="col_Ten" prefWidth="152.00000286102295" text="Họ và tên" />
+                  <TableColumn fx:id="col_GioiTinh" prefWidth="64.79998779296875" text="Giới tính" />
+                  <TableColumn fx:id="col_NgaySinh" prefWidth="109.60002136230469" text="Ngày sinh" />
+                  <TableColumn fx:id="col_ChuHo" minWidth="4.0" prefWidth="134.39996337890625" text="Con chủ hộ" />
+                  <TableColumn fx:id="col_DiaChi" minWidth="0.0" prefWidth="206.39996337890625" text="Địa chỉ" />
+                  <TableColumn fx:id="col_SDT" prefWidth="136.00006103515625" text="Số điện thoại" />
               </columns>
             </TableView>
             </children>
