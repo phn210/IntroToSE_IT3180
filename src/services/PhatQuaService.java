@@ -20,7 +20,7 @@ public class PhatQuaService {
 
         String query = "select * " +
                         "from GoiQua " +
-                        "where Dip = " + "'" + dip + "'" +
+                        "where Dip = " + "N'" + dip + "'" +
                         "and Nam = " + nam;
         try{
             Connection conn = DBConnection.getConnection();
@@ -64,10 +64,51 @@ public class PhatQuaService {
                 String insert = "insert into PhatQua(ID, MaGoiQua) " +
                                 "value (" + IDNguoiNhan + "," + IDGoiQua + ")";
                 statement = conn.createStatement();
-                rs = statement.executeQuery(insert);
-                return true;
+                int n = statement.executeUpdate(insert);
+                if (n == 0)
+                    return false;
+                else return true;
             }
 
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean suaGoiQua(GoiQua goiQua){
+        String update = "update GoiQua " +
+                        "set MoTa = " + "'" + goiQua.getMoTa() + "', " +
+                        "GiaTien = " + "'" + goiQua.getGiaTien() + "' " +
+                        "where Dip = " + "N'" + goiQua.getDip() + "' " +
+                        "and Nam = " + "'" + goiQua.getNam() + "'";
+        try {
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            int n = statement.executeUpdate(update);
+
+            if (n == 0)
+                return false;
+            else return true;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean themGoiQua(GoiQua goiQua){
+        String insert = "insert into GoiQua(Dip, Nam, GiaTien, MoTa) " +
+                        "value (" + "'" + goiQua.getDip() + "', " +
+                        goiQua.getNam() + ", " + goiQua.getGiaTien() +
+                        ", '" + goiQua.getMoTa() + "'";
+        try {
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            int n = statement.executeUpdate(insert);
+
+            if (n == 0)
+                return false;
+            else return true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

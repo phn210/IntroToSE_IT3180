@@ -12,12 +12,12 @@
 
 <AnchorPane prefHeight="355.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thieunhi.ThemQuaThieuNhiController">
    <children>
-      <Button layoutX="454.0" layoutY="300.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
+      <Button layoutX="454.0" layoutY="300.0" mnemonicParsing="false" onAction="#add" prefHeight="34.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="361.0" layoutY="300.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Hủy" textFill="WHITE">
+      <Button layoutX="361.0" layoutY="300.0" mnemonicParsing="false" onAction="#close" prefHeight="34.0" prefWidth="78.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Hủy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

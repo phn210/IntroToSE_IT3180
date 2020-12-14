@@ -1,6 +1,5 @@
 package services;
 
-import models.HoGiaDinh;
 import models.ThieuNhi;
 
 import java.sql.*;
@@ -49,9 +48,9 @@ public class ThieuNhiService {
     public List<ThieuNhi> getAll(int nam) {
         List<ThieuNhi> list = new ArrayList<>();
         String date = nam + "-12-30";
-        String query = "select *, DATEDIFF(year, NgaySinh, date) Tuoi " +
+        String query = "select *, DATEDIFF(year, NgaySinh, " + date + ") Tuoi " +
                 "from NhanKhau, HoGiaDinh " +
-                "where DATEDIFF(year, NgaySinh, date) <= 18" +
+                "where DATEDIFF(year, NgaySinh, " + date + ") <= 18" +
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
         try {
@@ -85,9 +84,8 @@ public class ThieuNhiService {
 
         String query = "select *, DATEDIFF(year, NgaySinh, GetDate()) Tuoi " +
                         "from NhanKhau, HoGiaDinh " +
-                        "where DATEDIFF(year, NgaySinh, GetDate()) <= 18" +
+                        "where DATEDIFF(year, NgaySinh, GetDate()) <= 18 " +
                         "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
-        System.out.println(ten + "-" + gioiTinh + "-" + tuoi + "-" + chuHo);
         if(!ten.equals(""))
             query = query + " and Ten like " + "N'%" + ten + "%'";
         if(!gioiTinh.equals(""))
@@ -96,7 +94,10 @@ public class ThieuNhiService {
             query = query + " and DATEDIFF(year, NgaySinh, GetDate()) = " + "'" + tuoi + "'";
         if(!chuHo.equals(""))
             query = query + " and ChuHo like " + "N'%" + chuHo + "%'";
+<<<<<<< Updated upstream
         System.out.println(query);
+=======
+>>>>>>> Stashed changes
 
         try {
             Connection conn = DBConnection.getConnection();

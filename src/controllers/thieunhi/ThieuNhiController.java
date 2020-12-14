@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.GoiQua;
@@ -91,7 +88,7 @@ public class ThieuNhiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020");
         chonNam.setItems(nam);
-        ObservableList<String> dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu");
+        ObservableList<String> dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Tết thiếu nhi", "Trung Thu");
         chonDip.setItems(dip);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
@@ -144,22 +141,60 @@ public class ThieuNhiController implements Initializable {
             }
         }
         if(error.size() > 0){
-
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Có " + error.size() + " không thể phát quà!");
+            alert.setHeaderText("Warning!");
+            alert.show();
         }
     }
 
     public void xemThongTin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThongTinQuaTN.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (nam == 0 || dip.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Chọn năm và dịp!");
+            alert.setHeaderText("Warning!");
+            alert.showAndWait();
+        } else {
+            GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
+            if (goiQua == null) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Gói quà chưa tồn tại, vui lòng thêm mới!");
+                alert.setHeaderText("Warning!");
+                alert.show();
+            } else {
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/ThongTinQuaTN.fxml"));
+                Parent root = loader.load();
+
+                ThongTinQuaThieuNhiController thongTinQuaThieuNhiController = (ThongTinQuaThieuNhiController) loader.getController();
+                thongTinQuaThieuNhiController.initialize(goiQua);
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        }
     }
 
     public void themGoiQua(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if (nam == 0 || dip.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Chọn năm và dịp!");
+            alert.setHeaderText("Warning!");
+            alert.showAndWait();
+        } else {
+            GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
+            if (!(goiQua == null)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Gói quà đã tồn tại!");
+                alert.setHeaderText("Warning!");
+                alert.show();
+            } else {
+                Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        }
     }
 
     public void timKiem(ActionEvent event){
