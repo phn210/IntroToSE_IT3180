@@ -7,7 +7,7 @@ public class HocSinh extends ThieuNhi{
     private ArrayList<ThanhTich> dsThanhTich;
 
     public HocSinh(){
-
+        super();
     }
 
     public HocSinh(int ID, String ten, String gioiTinh, Date ngaySinh, String ngheNghiep, int IDGiaDinh, int tuoi, ArrayList<ThanhTich> dsThanhTich) {

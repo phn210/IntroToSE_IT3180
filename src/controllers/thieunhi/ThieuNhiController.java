@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import models.GoiQua;
 import models.ThieuNhi;
@@ -79,6 +80,8 @@ public class ThieuNhiController implements Initializable {
     private ObservableList<String> comboBoxOblist;
 
     public ThieuNhiController(){
+        this.nam = 0;
+        this.dip = "";
         this.thieuNhiService = new ThieuNhiService();
         this.phatQuaService = new PhatQuaService();
         this.comboBoxOblist = FXCollections.observableArrayList("Tên", "Giới tính", "Ngày sinh", "Tuổi", "Tên chủ hộ");
@@ -119,7 +122,7 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     void chonDip(ActionEvent event) {
-        dip = chonDip.getSelectionModel().getSelectedItem().toString();
+        this.dip = this.chonDip.getSelectionModel().getSelectedItem().toString();
     }
 
     @FXML
@@ -176,24 +179,18 @@ public class ThieuNhiController implements Initializable {
     }
 
     public void themGoiQua(ActionEvent event) throws IOException {
-        if (nam == 0 || dip.equals("")) {
+        GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
+        if (!(goiQua == null)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Chọn năm và dịp!");
+            alert.setContentText("Gói quà đã tồn tại!");
             alert.setHeaderText("Warning!");
-            alert.showAndWait();
+            alert.show();
         } else {
-            GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
-            if (!(goiQua == null)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Gói quà đã tồn tại!");
-                alert.setHeaderText("Warning!");
-                alert.show();
-            } else {
-                Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
+            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+            stage.setScene(new Scene(root));
+            stage.show();
         }
     }
 

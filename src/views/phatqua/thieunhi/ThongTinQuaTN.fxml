@@ -58,7 +58,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="454.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <TextField fx:id="textDonGia" prefHeight="50.0" prefWidth="146.0" promptText="Đơn giá" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Label prefHeight="50.0" prefWidth="114.0" text="/ 1 thiếu nhi" wrapText="true">
+                  <Label prefHeight="50.0" prefWidth="150.0" text="vnđ / 1 thiếu nhi" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
