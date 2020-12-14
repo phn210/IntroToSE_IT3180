@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="549.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thongke.CTThongKeController">
+   <children>
+      <TableView fx:id="thongTinQuaTable" layoutX="15.0" layoutY="103.0" prefHeight="432.0" prefWidth="847.0" stylesheets="@../../static/css/main.css">
+        <columns>
+            <TableColumn minWidth="0.0" prefWidth="0.0" />
+          <TableColumn fx:id="col_ID" prefWidth="90.85714912414551" text="Số CMND" />
+          <TableColumn fx:id="col_Ten" prefWidth="150.2856903076172" text="Tên" />
+            <TableColumn fx:id="col_GoiQua" prefWidth="277.1429138183594" text="Gói quà" />
+            <TableColumn fx:id="col_GiaTien" prefWidth="100.5714111328125" text="Giá tiền" />
+            <TableColumn fx:id="col_Dip" prefWidth="159.99993896484375" text="Dịp" />
+            <TableColumn fx:id="col_Nam" prefWidth="75.4285888671875" text="Năm" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="15.0" layoutY="25.0" prefHeight="47.0" prefWidth="70.0" stylesheets="@../../static/css/main.css" text="Chủ hộ:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="chuHoLabel" alignment="CENTER" layoutX="85.0" layoutY="25.0" prefHeight="47.0" prefWidth="168.0" stylesheets="@../../static/css/main.css">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxNam" layoutX="318.0" layoutY="25.0" onAction="#selectComboBoxNam" prefHeight="47.0" prefWidth="98.0" promptText="Năm" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <ComboBox fx:id="comboBoxDip" layoutX="467.0" layoutY="25.0" onAction="#selectComboBoxDip" prefHeight="47.0" prefWidth="174.0" promptText="Dịp" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <Button layoutX="691.0" layoutY="25.0" mnemonicParsing="false" onAction="#filter" prefHeight="47.0" prefWidth="98.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Lọc">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

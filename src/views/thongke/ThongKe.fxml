@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thongke.ThongKeController">
    <children>
-      <TableView layoutX="25.0" layoutY="118.0" prefHeight="429.0" prefWidth="753.0" stylesheets="@../../static/css/main.css">
+      <TableView fx:id="hoGiaDinhTable" layoutX="25.0" layoutY="118.0" onMouseClicked="#handleRow" prefHeight="429.0" prefWidth="753.0" stylesheets="@../../static/css/main.css">
         <columns>
-          <TableColumn prefWidth="163.99996376037598" text="ID Gia Đình" />
-          <TableColumn prefWidth="215.42860412597656" text="Địa chỉ" />
-            <TableColumn prefWidth="189.71429443359375" text="Tên chủ hộ" />
-            <TableColumn prefWidth="185.142822265625" text="SĐT" />
+          <TableColumn fx:id="col_IDGiaDinh" prefWidth="163.99996376037598" text="ID Gia Đình" />
+          <TableColumn fx:id="col_DiaChi" prefWidth="215.42860412597656" text="Địa chỉ" />
+            <TableColumn fx:id="col_TenChuHo" prefWidth="189.71429443359375" text="Tên chủ hộ" />
+            <TableColumn fx:id="col_SDT" prefWidth="185.142822265625" text="SĐT" />
         </columns>
       </TableView>
-      <ComboBox layoutX="67.0" layoutY="44.0" prefHeight="47.0" prefWidth="98.0" styleClass="search" stylesheets="@../../static/css/main.css" />
-      <ComboBox layoutX="220.0" layoutY="44.0" prefHeight="47.0" prefWidth="174.0" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <ComboBox fx:id="comboBoxNam" layoutX="67.0" layoutY="44.0" onAction="#selectComboBoxNam" prefHeight="47.0" prefWidth="98.0" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <ComboBox fx:id="comboBoxDip" layoutX="220.0" layoutY="44.0" onAction="#selectComboBoxDip" prefHeight="47.0" prefWidth="174.0" styleClass="search" stylesheets="@../../static/css/main.css" />
       <Label alignment="CENTER" layoutX="7.0" layoutY="44.0" prefHeight="47.0" prefWidth="85.0" stylesheets="@../../static/css/main.css" text="Năm ">
          <font>
             <Font size="14.0" />
@@ -35,8 +35,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="495.0" layoutY="44.0" prefHeight="47.0" prefWidth="143.0" styleClass="search" stylesheets="@../../static/css/main.css" />
-      <Button layoutX="680.0" layoutY="44.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tính">
+      <ComboBox fx:id="comboBoxDT" layoutX="495.0" layoutY="44.0" onAction="#selectComboBoxDT" prefHeight="47.0" prefWidth="143.0" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <Button layoutX="680.0" layoutY="44.0" mnemonicParsing="false" onAction="#countMoney" prefHeight="47.0" prefWidth="98.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tính">
          <font>
             <Font size="14.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="627.0" layoutY="573.0" prefHeight="47.0" prefWidth="151.0" stylesheets="@../../static/css/main.css">
+      <Label fx:id="labelMoney" alignment="CENTER" layoutX="627.0" layoutY="573.0" prefHeight="47.0" prefWidth="151.0" stylesheets="@../../static/css/main.css">
          <font>
             <Font size="14.0" />
          </font>
