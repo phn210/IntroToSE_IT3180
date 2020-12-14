@@ -188,6 +188,7 @@ public class ThieuNhiController implements Initializable {
         } else {
             Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));
             stage.show();
         }
