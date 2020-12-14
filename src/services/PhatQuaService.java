@@ -57,13 +57,13 @@ public class PhatQuaService {
             Connection conn = DBConnection.getConnection();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
-
+            rs.next();
             if(rs.next()){
                 return false;
             }
             else {
                 String insert = "insert into PhatQua(ID, MaGoiQua) " +
-                                "value (" + IDNguoiNhan + "," + IDGoiQua + ")";
+                                "values (" + IDNguoiNhan + "," + IDGoiQua + ")";
                 statement = conn.createStatement();
                 int n = statement.executeUpdate(insert);
                 if (n == 0)
@@ -78,6 +78,34 @@ public class PhatQuaService {
     }
 
     public boolean phatQuaHS(HocSinh hocSinh, GoiQua goiQua){
+        int IDNguoiNhan = hocSinh.getID();
+        int IDGoiQua = goiQua.getID();
+
+        String checkExist = "select count(*) " +
+                "from PhatQua " +
+                "where ID = " + "'" + IDNguoiNhan + "'" +
+                "and MaGoiQua = " + "'" + IDGoiQua + "'";
+        try {
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(checkExist);
+
+            if(rs.next()){
+                return false;
+            }
+            else {
+                String insert = "insert into PhatQua(ID, MaGoiQua) " +
+                        "values (" + IDNguoiNhan + "," + IDGoiQua + ")";
+                statement = conn.createStatement();
+                int n = statement.executeUpdate(insert);
+                if (n == 0)
+                    return false;
+                else return true;
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return false;
     }
 
@@ -103,7 +131,7 @@ public class PhatQuaService {
 
     public boolean themGoiQua(GoiQua goiQua){
         String insert = "insert into GoiQua(Dip, Nam, GiaTien, MoTa) " +
-                        "value (" + "'" + goiQua.getDip() + "', " +
+                        "values (" + "'" + goiQua.getDip() + "', " +
                         goiQua.getNam() + ", " + goiQua.getGiaTien() +
                         ", '" + goiQua.getMoTa() + "'";
         try {

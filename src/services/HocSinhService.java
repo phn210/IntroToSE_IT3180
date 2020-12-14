@@ -44,7 +44,7 @@ public class HocSinhService {
         return list;
     }
 
-    public List<HocSinh> getAll(int nam, String thanhTich){
+    public List<HocSinh> getAll(int nam, String tenThanhTich){
         List<HocSinh> list = new ArrayList<>();
         String query = "select *" +
                 "from NhanKhau, HoGiaDinh, ThanhTich " +
@@ -52,7 +52,7 @@ public class HocSinhService {
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh " +
                 "and NhanKhau.ID = ThanhTich.ID " +
                 "and NamHoc = " + "'" + nam + "' " +
-                "and ThanhTich = " + "'" + thanhTich + "'";
+                "and ThanhTich = " + "'" + tenThanhTich + "'";
 
         try {
             Connection conn = DBConnection.getConnection();
@@ -79,7 +79,6 @@ public class HocSinhService {
 
         return list;
     }
-
 
     public List<HocSinh> search(String ten, String gioiTinh, String tuoi, String chuHo){
         List<HocSinh> list = new ArrayList<>();
@@ -120,6 +119,36 @@ public class HocSinhService {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return list;
+    }
+
+    public List<ThanhTich> getListThanhTich(HocSinh hocSinh){
+        List<ThanhTich> list = new ArrayList<>();
+
+        String query = "select *" +
+                "from NhanKhau, ThanhTich " +
+                "where NgheNghiep = N'Học sinh' " +
+                "and NhanKhau.ID = ThanhTich.ID";
+
+        try {
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+                ThanhTich thanhTich = new ThanhTich();
+                thanhTich.setID(rs.getInt("ID"));
+                thanhTich.setNamHoc(rs.getInt("NamHoc"));
+                thanhTich.setThanhTich(rs.getNString("ThanhTich"));
+                thanhTich.setTruong(rs.getNString("Truong"));
+                list.add(thanhTich);
+            }
+
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         return list;
     }
 
