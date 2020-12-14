@@ -18,29 +18,32 @@ public class ThongKeService {
         ResultSet rs;
         int result = 0;
         if(doiTuong == "Tất cả") {
-            rs = DBConnection.getData("select SUM(GiaTien) as SUM " +
-                    "from GoiQua, PhatQua, HocSinh, ThieuNhi, NhanKhau " +
-                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua " +
-                    "and PhatQua.ID = ThieuNhi.ID and ThieuNhi.ID = NhanKhau.ID " +
-                    "and PhatQua.ID = HocSinh.ID and HocSinh.ID = NhanKhau.ID "+
+            rs = DBConnection.getData("select SUM(GiaTien) as SUM\n" +
+                    "from GoiQua, PhatQua, NhanKhau\n" +
+                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua\n" +
+                    "and PhatQua.ID = NhanKhau.ID\n"+
                     "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
-            result = rs.getInt("SUM");
+            while(rs.next())
+                result = rs.getInt("SUM");
         }else if(doiTuong == "Học sinh"){
-            rs = DBConnection.getData("select SUM(GiaTien) as SUM" +
-                    "from GoiQua, PhatQua, HocSinh, NhanKhau " +
-                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua " +
-                    "and PhatQua.ID = HocSinh.ID and HocSinh.ID = NhanKhau.ID "+
-                    "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
-            result = rs.getInt("SUM");
+            rs = DBConnection.getData("select SUM(GiaTien) as SUM\n" +
+                    "from GoiQua, PhatQua, NhanKhau\n" +
+                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua\n" +
+                    "and PhatQua.ID = NhanKhau.ID\n"+
+                    "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'Khen thưởng hsg' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
+            while(rs.next())
+                result = rs.getInt("SUM");
         }else if(doiTuong == "Thiếu nhi"){
-            rs = DBConnection.getData("select SUM(GiaTien) as SUM " +
-                    "from GoiQua, PhatQua, ThieuNhi, NhanKhau " +
-                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua " +
-                    "and PhatQua.ID = ThieuNhi.ID and ThieuNhi.ID = NhanKhau.ID and " +
-                    "CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
-            result = rs.getInt("SUM");
+            rs = DBConnection.getData("select SUM(GiaTien) as SUM\n" +
+                    "from GoiQua, PhatQua, NhanKhau\n" +
+                    "where GoiQua.MaGoiQua = PhatQua.MaGoiQua\n" +
+                    "and PhatQua.ID = NhanKhau.ID\n" +
+                    "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and Dip<>N'Khen thưởng hsg' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
+            while(rs.next())
+                result = rs.getInt("SUM");
         }
 
+        conn.close();
         return result;
     }
 
@@ -50,11 +53,10 @@ public class ThongKeService {
 
             Connection conn = DBConnection.getConnection();
             ResultSet rs = DBConnection.getData("select NhanKhau.ID, NhanKhau.Ten, MoTa, GiaTien, Dip, Nam\n" +
-                                                        "from GoiQua, PhatQua, HocSinh, ThieuNhi, NhanKhau\n" +
+                                                        "from GoiQua, PhatQua, NhanKhau\n" +
                                                         "where GoiQua.MaGoiQua = PhatQua.MaGoiQua \n" +
-                                                        "and PhatQua.ID = HocSinh.ID and PhatQua.ID = ThieuNhi.ID\n" +
-                                                        "and HocSinh.ID = NhanKhau.ID and ThieuNhi.ID = NhanKhau.ID\n" +
-                                                        "and NhanKhau.IDGiaDinh = "+ this.IDGiaDinh, conn);
+                                                        "and PhatQua.ID = NhanKhau.ID\n" +
+                                                        "and NhanKhau.IDGiaDinh                                                                                                                   = "+ this.IDGiaDinh, conn);
 
             while(rs.next()){
                 ChiTietThongKe chiTietThongKe = new ChiTietThongKe();
@@ -80,12 +82,11 @@ public class ThongKeService {
 
             Connection conn = DBConnection.getConnection();
             ResultSet rs = DBConnection.getData("select NhanKhau.ID, NhanKhau.Ten, MoTa, GiaTien, Dip, Nam\n" +
-                                                        "from GoiQua, PhatQua, HocSinh, ThieuNhi, NhanKhau\n" +
+                                                        "from GoiQua, PhatQua, NhanKhau\n" +
                                                         "where GoiQua.MaGoiQua = PhatQua.MaGoiQua \n" +
-                                                        "and PhatQua.ID = HocSinh.ID and PhatQua.ID = ThieuNhi.ID\n" +
-                                                        "and HocSinh.ID = NhanKhau.ID and ThieuNhi.ID = NhanKhau.ID\n" +
+                                                        "and PhatQua.ID = NhanKhau.ID\n" +
                                                         "and NhanKhau.IDGiaDinh = "+ this.IDGiaDinh +
-                                                        " and CAST(Nam as nvarchar) like '%"+nam+"%' and "+"Dip like N'%"+dip+"%'" , conn);
+                                                        " and CAST(Nam as nvarchar) like '%"+nam+"%' and "+"Dip like N'%"+dip+"%'", conn);
 
             while(rs.next()){
                 ChiTietThongKe chiTietThongKe = new ChiTietThongKe();

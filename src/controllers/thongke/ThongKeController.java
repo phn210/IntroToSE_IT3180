@@ -105,7 +105,7 @@ public class ThongKeController implements Initializable {
         switch(temp){
             case "Tất cả": this.dip = ""; break;
             case "Tết dương lịch": this.dip = "Tết dương lịch"; break;
-            case "Tết Nguyên Đán": this.dip = "Quốc tế thiếu nhi"; break;
+            case "Tết Nguyên Đán": this.dip = "Tết Nguyên Đán"; break;
             case "Quốc tế thiếu nhi": this.dip = "Quốc tế thiếu nhi"; break;
             case "Trung Thu": this.dip = "Trung Thu"; break;
             case "Khen thưởng hsg": this.dip = "Khen thưởng hsg"; break;
@@ -143,6 +143,7 @@ public class ThongKeController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Thiếu thông tin trong database");
             alert.showAndWait();
+            e.printStackTrace();
         }
     }
 
