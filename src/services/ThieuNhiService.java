@@ -94,10 +94,6 @@ public class ThieuNhiService {
             query = query + " and DATEDIFF(year, NgaySinh, GetDate()) = " + "'" + tuoi + "'";
         if(!chuHo.equals(""))
             query = query + " and ChuHo like " + "N'%" + chuHo + "%'";
-<<<<<<< Updated upstream
-        System.out.println(query);
-=======
->>>>>>> Stashed changes
 
         try {
             Connection conn = DBConnection.getConnection();
