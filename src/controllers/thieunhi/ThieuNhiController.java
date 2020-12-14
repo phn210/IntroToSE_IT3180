@@ -133,8 +133,12 @@ public class ThieuNhiController implements Initializable {
     public void phatQua(ActionEvent event){
         List<ThieuNhi> error = new ArrayList<>();
         GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
-        if (goiQua.equals(null)){
+        if (goiQua == null){
             //thong bao goi qua chua ton tai
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Gói quà chưa tồn tại!");
+            alert.setHeaderText("Warning!");
+            alert.show();
         } else {
             List<ThieuNhi> list = thieuNhiService.getAll(nam);
             for (ThieuNhi thieuNhi: list) {

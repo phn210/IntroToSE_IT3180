@@ -87,6 +87,7 @@ public class HocSinhController implements Initializable {
         col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
         col_ChuHo.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getChuHo()));
         col_DiaChi.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getDiaChi()));
+        col_SDT.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getSDT()));
 
         List<HocSinh> list = this.hocSinhService.getAll();
         tableOblist = FXCollections.observableList(list);
