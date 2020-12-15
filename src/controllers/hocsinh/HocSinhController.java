@@ -14,6 +14,7 @@ import services.PhatQuaService;
 
 import java.net.URL;
 import java.sql.Date;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -77,9 +78,9 @@ public class HocSinhController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Học sinh Trung Bình");
+        ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Khác");
         chonThanhTich.setItems(thanhTich);
-        ObservableList<String> nam = FXCollections.observableArrayList("2018", "2019", "2020");
+        ObservableList<String> nam = FXCollections.observableArrayList(Arrays.toString(phatQuaService.getAllThanhTich().stream().toArray()));
         chonNam.setItems(nam);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
@@ -92,6 +93,10 @@ public class HocSinhController implements Initializable {
         List<HocSinh> list = this.hocSinhService.getAll();
         tableOblist = FXCollections.observableList(list);
         hocSinhTable.setItems(tableOblist);
+    }
+
+    public void update(){
+
     }
 
     @FXML
@@ -111,7 +116,14 @@ public class HocSinhController implements Initializable {
 
     @FXML
     void timKiem(ActionEvent event) {
+        String ten = timTextTen.getText();
+        String gioiTinh = timTextGioiTinh.getText();
+        String tuoi = timTextTuoi.getText();
+        String chuHo = timTextChuHo.getText();
 
+        List<HocSinh> list = hocSinhService.search(ten, gioiTinh, tuoi, chuHo);
+        this.tableOblist = FXCollections.observableList(list);
+        hocSinhTable.setItems(tableOblist);
     }
 
 

@@ -170,7 +170,7 @@ public class ThieuNhiController implements Initializable {
                 alert.setHeaderText("Warning!");
                 alert.show();
             } else {
-                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/ThongTinQuaTN.fxml"));
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/ThongTinQuaHS.fxml"));
                 Parent root = loader.load();
 
                 ThongTinQuaThieuNhiController thongTinQuaThieuNhiController = (ThongTinQuaThieuNhiController) loader.getController();
@@ -191,7 +191,7 @@ public class ThieuNhiController implements Initializable {
             alert.setHeaderText("Warning!");
             alert.show();
         } else {
-            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaHS.fxml"));
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));

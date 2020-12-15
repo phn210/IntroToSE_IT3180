@@ -2,6 +2,7 @@ package services;
 
 import models.GoiQua;
 import models.HocSinh;
+import models.ThanhTich;
 import models.ThieuNhi;
 
 import java.sql.Connection;
@@ -89,7 +90,7 @@ public class PhatQuaService {
             Connection conn = DBConnection.getConnection();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
-
+            rs.next();
             if(rs.next()){
                 return false;
             }
@@ -146,5 +147,30 @@ public class PhatQuaService {
             throwables.printStackTrace();
         }
         return false;
+    }
+
+    public List<ThanhTich> getAllThanhTich(){
+        List<ThanhTich> list = new ArrayList<>();
+        String query = "select distinct ThanhTich " +
+                        "from ThanhTich";
+
+        try{
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            if(rs.next()){
+                ThanhTich thanhTich = new ThanhTich();
+                thanhTich.setID(rs.getInt("ID"));
+                thanhTich.setNamHoc(rs.getInt("Nam"));
+                thanhTich.setThanhTich(rs.getNString("ThanhTich"));
+                thanhTich.setTruong(rs.getNString("Truong"));
+                list.add(thanhTich);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return list;
     }
 }
