@@ -30,13 +30,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="410.0" layoutY="44.0" prefHeight="47.0" prefWidth="85.0" stylesheets="@../../static/css/main.css" text="Đối tượng">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboBoxDT" layoutX="495.0" layoutY="44.0" onAction="#selectComboBoxDT" prefHeight="47.0" prefWidth="143.0" styleClass="search" stylesheets="@../../static/css/main.css" />
-      <Button layoutX="680.0" layoutY="44.0" mnemonicParsing="false" onAction="#countMoney" prefHeight="47.0" prefWidth="98.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tính">
+      <Button layoutX="679.0" layoutY="44.0" mnemonicParsing="false" onAction="#countMoney" prefHeight="47.0" prefWidth="98.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Tính">
          <font>
             <Font size="14.0" />
          </font>

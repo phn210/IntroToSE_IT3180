@@ -59,7 +59,7 @@ public class CTThongKeController implements Initializable {
     public CTThongKeController(){
         this.thongKeService = new ThongKeService();
         this.namOblist = FXCollections.observableArrayList("Tất cả", "2017", "2018", "2019", "2020");
-        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
+        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg", "Noel");
     }
 
     @Override
@@ -100,6 +100,7 @@ public class CTThongKeController implements Initializable {
             case "Quốc tế thiếu nhi": this.dip = "Quốc tế thiếu nhi"; break;
             case "Trung Thu": this.dip = "Trung Thu"; break;
             case "Khen thưởng hsg": this.dip = "Khen thưởng hsg"; break;
+            case "Noel": this.dip = "Noel"; break;
         }
     }
 
