@@ -51,16 +51,13 @@ public class ThongKeController implements Initializable {
     private ComboBox<String> comboBoxDip;
 
     @FXML
-    private ComboBox<String> comboBoxDT;
-
-    @FXML
     private Label labelMoney;
 
     private HoGiaDinhService hoGiaDinhService;
     private ThongKeService thongKeService;
 
     private ObservableList<HoGiaDinh> tableOblist;
-    private ObservableList<String> namOblist, dipOblist, dTOblist;
+    private ObservableList<String> namOblist, dipOblist;
 
     private String nam, dip, doiTuong; //Gia tri chon tu combobox
 
@@ -68,15 +65,13 @@ public class ThongKeController implements Initializable {
         this.hoGiaDinhService = new HoGiaDinhService();
         this.thongKeService = new ThongKeService();
         this.namOblist = FXCollections.observableArrayList("Tất cả", "2017", "2018", "2019", "2020");
-        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg");
-        this.dTOblist = FXCollections.observableArrayList("Tất cả", "Thiếu nhi", "Học sinh");
+        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg", "Noel");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBoxNam.setItems(namOblist);
         comboBoxDip.setItems(dipOblist);
-        comboBoxDT.setItems(dTOblist);
 
         //Hien bang HoGiaDinh
         col_IDGiaDinh.setCellValueFactory(new PropertyValueFactory<>("IDGiaDinh"));
@@ -90,16 +85,6 @@ public class ThongKeController implements Initializable {
     }
 
     @FXML
-    void selectComboBoxDT(ActionEvent event) {
-        String temp = comboBoxDT.getSelectionModel().getSelectedItem().toString();
-        switch(temp){
-            case "Tất cả": this.doiTuong = "Tất cả"; break;
-            case "Thiếu nhi": this.doiTuong = "Thiếu nhi"; break;
-            case "Học sinh": this.nam = "Học sinh"; break;
-        }
-    }
-
-    @FXML
     void selectComboBoxDip(ActionEvent event) {
         String temp = comboBoxDip.getSelectionModel().getSelectedItem().toString();
         switch(temp){
@@ -109,6 +94,7 @@ public class ThongKeController implements Initializable {
             case "Quốc tế thiếu nhi": this.dip = "Quốc tế thiếu nhi"; break;
             case "Trung Thu": this.dip = "Trung Thu"; break;
             case "Khen thưởng hsg": this.dip = "Khen thưởng hsg"; break;
+            case "Noel": this.dip = "Noel"; break;
         }
     }
 
@@ -137,7 +123,7 @@ public class ThongKeController implements Initializable {
 
         int IDGiaDinh = hoGiaDinhModel.getIDGiaDinh();
         try {
-            labelMoney.setText(String.valueOf(thongKeService.countMoney(nam, dip, doiTuong, IDGiaDinh) + " vnđ"));
+            labelMoney.setText(String.valueOf(thongKeService.countMoney(nam, dip, IDGiaDinh) + " vnđ"));
         }catch(SQLServerException e){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
