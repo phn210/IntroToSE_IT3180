@@ -13,7 +13,7 @@ public class ThongKeService {
 
     public static int IDGiaDinh;
 
-    public int countMoney(String nam, String dip,int IDGiaDinh) throws SQLException {
+    public int countMoney(String nam, String dip,String IDGiaDinh) throws SQLException {
         Connection conn = DBConnection.getConnection();
         ResultSet rs;
         int result = 0;
@@ -21,7 +21,7 @@ public class ThongKeService {
                 "from GoiQua, PhatQua, NhanKhau\n" +
                 "where GoiQua.MaGoiQua = PhatQua.MaGoiQua\n" +
                 "and PhatQua.ID = NhanKhau.ID\n"+
-                "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and NhanKhau.IDGiaDinh = "+IDGiaDinh, conn);
+                "and CAST(Nam as nvarchar) like '%"+nam+"%' and Dip like N'%"+dip+"%' and NhanKhau.IDGiaDinh like N'%"+IDGiaDinh+"%'", conn);
         while(rs.next())
             result = rs.getInt("SUM");
 

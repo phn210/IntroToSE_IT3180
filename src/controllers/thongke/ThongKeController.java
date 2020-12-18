@@ -59,7 +59,7 @@ public class ThongKeController implements Initializable {
     private ObservableList<HoGiaDinh> tableOblist;
     private ObservableList<String> namOblist, dipOblist;
 
-    private String nam, dip, doiTuong; //Gia tri chon tu combobox
+    private String nam, dip; //Gia tri chon tu combobox
 
     public ThongKeController(){
         this.hoGiaDinhService = new HoGiaDinhService();
@@ -112,24 +112,23 @@ public class ThongKeController implements Initializable {
 
     @FXML
     void countMoney(ActionEvent event) throws SQLException {
-        HoGiaDinh hoGiaDinhModel = hoGiaDinhTable.getSelectionModel().getSelectedItem();
-        //canh bao
-        if(hoGiaDinhModel == null){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Chọn 1 hộ gia đình đã bạn -_-");
-            alert.showAndWait();
-        }
+        HoGiaDinh hoGiaDinhModel;
+        String IDGiaDinh;
 
-        int IDGiaDinh = hoGiaDinhModel.getIDGiaDinh();
-        try {
-            labelMoney.setText(String.valueOf(thongKeService.countMoney(nam, dip, IDGiaDinh) + " vnđ"));
-        }catch(SQLServerException e){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu thông tin trong database");
-            alert.showAndWait();
-            e.printStackTrace();
+        labelMoney.setText(String.valueOf(thongKeService.countMoney(nam, dip, "") + " vnđ"));
+
+        if(hoGiaDinhTable.getSelectionModel().getSelectedItem() != null) {
+            hoGiaDinhModel = hoGiaDinhTable.getSelectionModel().getSelectedItem();
+            IDGiaDinh = String.valueOf(hoGiaDinhModel.getIDGiaDinh());
+            try {
+                labelMoney.setText(String.valueOf(thongKeService.countMoney(nam, dip, IDGiaDinh) + " vnđ"));
+            } catch (SQLServerException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Thiếu thông tin trong database");
+                alert.showAndWait();
+                e.printStackTrace();
+            }
         }
     }
 
