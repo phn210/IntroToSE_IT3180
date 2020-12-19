@@ -29,7 +29,7 @@ public class PhatQuaService {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            if(rs.next()){
+            while (rs.next()){
                 GoiQua goiQua = new GoiQua();
                 goiQua.setID(rs.getInt("MaGoiQua"));
                 goiQua.setDip(rs.getNString("Dip"));
@@ -159,10 +159,10 @@ public class PhatQuaService {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            if(rs.next()){
+            while(rs.next()){
                 ThanhTich thanhTich = new ThanhTich();
                 thanhTich.setID(rs.getInt("ID"));
-                thanhTich.setNamHoc(rs.getInt("Nam"));
+                thanhTich.setNamHoc(rs.getInt("NamHoc"));
                 thanhTich.setThanhTich(rs.getNString("ThanhTich"));
                 thanhTich.setTruong(rs.getNString("Truong"));
                 list.add(thanhTich);

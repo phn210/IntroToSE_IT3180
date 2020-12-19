@@ -6,7 +6,7 @@ public class ThanhTich {
     private String truong;
     private String thanhTich;
 
-    public ThanhTich(){
+    public ThanhTich() {
 
     }
     public ThanhTich(int namHoc, int ID, String truong, String thanhTich) {

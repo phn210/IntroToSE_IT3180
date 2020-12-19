@@ -80,7 +80,7 @@ public class HocSinhController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Khác");
         chonThanhTich.setItems(thanhTich);
-        ObservableList<String> nam = FXCollections.observableArrayList(Arrays.toString(phatQuaService.getAllThanhTich().stream().toArray()));
+        ObservableList<String> nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020");
         chonNam.setItems(nam);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
