@@ -139,8 +139,8 @@ public class HocSinhService {
                 ThanhTich thanhTich = new ThanhTich();
                 thanhTich.setID(rs.getInt("ID"));
                 thanhTich.setNamHoc(rs.getInt("NamHoc"));
-                thanhTich.setThanhTich(rs.getNString("ThanhTich"));
                 thanhTich.setTruong(rs.getNString("Truong"));
+                thanhTich.setThanhTich(rs.getNString("ThanhTich"));
                 list.add(thanhTich);
             }
 

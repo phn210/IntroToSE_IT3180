@@ -36,6 +36,7 @@ public class ThemQuaThieuNhiController implements Initializable {
 
     private String dipThieuNhi;
     private int namThieuNhi;
+
     public static ObservableList<String> nam;
     public static ObservableList<String> dip;
 

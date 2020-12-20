@@ -149,8 +149,8 @@ public class PhatQuaService {
         return false;
     }
 
-    public List<ThanhTich> getAllThanhTich(){
-        List<ThanhTich> list = new ArrayList<>();
+    public List<String> getAllThanhTich(){
+        List<String> list = new ArrayList<>();
         String query = "select distinct ThanhTich " +
                         "from ThanhTich";
 
@@ -161,16 +161,81 @@ public class PhatQuaService {
 
             while(rs.next()){
                 ThanhTich thanhTich = new ThanhTich();
-                thanhTich.setID(rs.getInt("ID"));
-                thanhTich.setNamHoc(rs.getInt("NamHoc"));
                 thanhTich.setThanhTich(rs.getNString("ThanhTich"));
-                thanhTich.setTruong(rs.getNString("Truong"));
-                list.add(thanhTich);
+                list.add(thanhTich.getThanhTich());
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
         return list;
+    }
+
+    public List<Integer> getAllNamHoc(){
+        List<Integer> list = new ArrayList<>();
+        String query = "select distinct NamHoc " +
+                        "from ThanhTich";
+        try{
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+                ThanhTich thanhTich = new ThanhTich();
+                thanhTich.setNamHoc(rs.getInt("NamHoc"));
+                list.add(thanhTich.getNamHoc());
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<String> getAllDip(){
+        List<String> list = new ArrayList<>();
+        String query = "select distinct Dip " +
+                "from GoiQua where Dip not like N'%Học Sinh%'";
+
+        try{
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+                GoiQua goiQua = new GoiQua();
+                goiQua.setDip(rs.getNString("Dip"));
+                list.add(goiQua.getDip());
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<Integer> getAllNamDip(){
+        List<Integer> list = new ArrayList<>();
+        String query = "select distinct Nam " +
+                "from GoiQua";
+        try{
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+                GoiQua goiQua = new GoiQua();
+                goiQua.setNam(rs.getInt("Nam"));
+                list.add(goiQua.getNam());
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public void addNewNamTN(int NamHoc){
+//        String query = "insert into GoiQua"
     }
 }

@@ -30,40 +30,28 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     private ComboBox chonNam;
-
     @FXML
     private ComboBox chonDip;
-
     @FXML
     private TableView<ThieuNhi> thieuNhiTable;
-
     @FXML
     private TableColumn<ThieuNhi, String> col_Ten;
-
     @FXML
     private TableColumn<ThieuNhi, String> col_GioiTinh;
-
     @FXML
     private TableColumn<ThieuNhi, Date> col_NgaySinh;
-
     @FXML
     private TableColumn<ThieuNhi, Integer> col_Tuoi;
-
     @FXML
     private TableColumn<ThieuNhi, String> col_ChuHo;
-
     @FXML
     private TableColumn<ThieuNhi, String> col_DiaChi;
-
     @FXML
     private TextField timTextTen;
-
     @FXML
     private TextField timTextGioiTinh;
-
     @FXML
     private TextField timTextTuoi;
-
     @FXML
     private TextField timTextChuHo;
 
@@ -79,6 +67,9 @@ public class ThieuNhiController implements Initializable {
     private ObservableList<ThieuNhi> tableOblist;
     private ObservableList<String> comboBoxOblist;
 
+    public static ObservableList<Integer> namComboBox;
+    public static ObservableList<String> dipComboBox;
+
     public ThieuNhiController(){
         this.nam = 0;
         this.dip = "";
@@ -89,10 +80,10 @@ public class ThieuNhiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020");
-        chonNam.setItems(nam);
-        ObservableList<String> dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Tết thiếu nhi", "Trung Thu");
-        chonDip.setItems(dip);
+        namComboBox = FXCollections.observableArrayList(phatQuaService.getAllNamDip());
+        chonNam.setItems(namComboBox);
+        dipComboBox = FXCollections.observableArrayList(phatQuaService.getAllDip());
+        chonDip.setItems(dipComboBox);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
         col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
@@ -106,18 +97,18 @@ public class ThieuNhiController implements Initializable {
         thieuNhiTable.setItems(tableOblist);
     }
 
-    public void updateTable(){
-        col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
-        col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
-        col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
-        col_Tuoi.setCellValueFactory(new PropertyValueFactory<>("Tuoi"));
-        col_ChuHo.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getChuHo()));
-        col_DiaChi.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getDiaChi()));
-
-        List<ThieuNhi> list = this.thieuNhiService.getAll();
-        tableOblist = FXCollections.observableList(list);
-        thieuNhiTable.setItems(tableOblist);
-    }
+//    public void updateTable(){
+//        col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
+//        col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
+//        col_NgaySinh.setCellValueFactory(new PropertyValueFactory<>("NgaySinh"));
+//        col_Tuoi.setCellValueFactory(new PropertyValueFactory<>("Tuoi"));
+//        col_ChuHo.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getChuHo()));
+//        col_DiaChi.setCellValueFactory(t -> new ReadOnlyObjectWrapper<>(t.getValue().hoGiaDinh.getDiaChi()));
+//
+//        List<ThieuNhi> list = this.thieuNhiService.getAll();
+//        tableOblist = FXCollections.observableList(list);
+//        thieuNhiTable.setItems(tableOblist);
+//    }
 
 
     @FXML
@@ -127,7 +118,7 @@ public class ThieuNhiController implements Initializable {
 
     @FXML
     void chonNam(ActionEvent event) {
-        nam = Integer.parseInt(chonNam.getSelectionModel().getSelectedItem().toString());
+        nam = (int) chonNam.getSelectionModel().getSelectedItem();
     }
 
     public void phatQua(ActionEvent event){
@@ -146,31 +137,30 @@ public class ThieuNhiController implements Initializable {
                 if(!check)
                     error.add(thieuNhi);
             }
-            System.out.println(list.size() + "-" + error.size());
         }
         if(error.size() > 0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Có " + error.size() + " không thể phát quà!");
+            alert.setContentText("Có " + error.size() + " người không thể phát quà!");
             alert.setHeaderText("Warning!");
             alert.show();
         }
     }
 
     public void xemThongTin(ActionEvent event) throws IOException {
-        if (nam == 0 || dip.equals("")) {
+        if (this.nam == 0 || this.dip.equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Chọn năm và dịp!");
             alert.setHeaderText("Warning!");
             alert.showAndWait();
         } else {
-            GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
+            GoiQua goiQua = phatQuaService.getGoiQua(this.nam, this.dip);
             if (goiQua == null) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Gói quà chưa tồn tại, vui lòng thêm mới!");
                 alert.setHeaderText("Warning!");
                 alert.show();
             } else {
-                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/ThongTinQuaHS.fxml"));
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/ThongTinQuaTN.fxml"));
                 Parent root = loader.load();
 
                 ThongTinQuaThieuNhiController thongTinQuaThieuNhiController = (ThongTinQuaThieuNhiController) loader.getController();
@@ -191,7 +181,7 @@ public class ThieuNhiController implements Initializable {
             alert.setHeaderText("Warning!");
             alert.show();
         } else {
-            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaHS.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));

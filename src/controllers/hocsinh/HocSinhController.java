@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class HocSinhController implements Initializable {
 
     @FXML
-    private ComboBox<String> chonNam;
+    private ComboBox<Integer> chonNam;
 
     @FXML
     private ComboBox<String> chonThanhTich;
@@ -78,9 +78,9 @@ public class HocSinhController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Khác");
+        ObservableList<String> thanhTich = FXCollections.observableArrayList(phatQuaService.getAllThanhTich());
         chonThanhTich.setItems(thanhTich);
-        ObservableList<String> nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020");
+        ObservableList<Integer> nam = FXCollections.observableArrayList(phatQuaService.getAllNamHoc());
         chonNam.setItems(nam);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
