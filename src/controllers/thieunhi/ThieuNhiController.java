@@ -110,7 +110,6 @@ public class ThieuNhiController implements Initializable {
 //        thieuNhiTable.setItems(tableOblist);
 //    }
 
-
     @FXML
     void chonDip(ActionEvent event) {
         this.dip = this.chonDip.getSelectionModel().getSelectedItem().toString();
