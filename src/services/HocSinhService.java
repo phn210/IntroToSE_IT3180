@@ -128,7 +128,8 @@ public class HocSinhService {
         String query = "select *" +
                 "from NhanKhau, ThanhTich " +
                 "where NgheNghiep = N'Học sinh' " +
-                "and NhanKhau.ID = ThanhTich.ID";
+                "and NhanKhau.ID = ThanhTich.ID " +
+                "and NhanKhai.ID = " + "'" + hocSinh.getID() + "'";
 
         try {
             Connection conn = DBConnection.getConnection();
@@ -151,5 +152,39 @@ public class HocSinhService {
 
         return list;
     }
+
+    public boolean themThanhTich(HocSinh hocSinh, ThanhTich thanhTich){
+
+        String checkExist = "select count(*) " +
+                "from ThanhTich " +
+                "where ID = " + hocSinh.getID() +
+                "and NamHoc = " + thanhTich.getNamHoc();
+        try {
+            Connection conn = DBConnection.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(checkExist);
+            rs.next();
+            if(rs.next()){
+                return false;
+            }
+            else {
+                String insert = "insert into ThanhTich(ID, NamHoc, ThanhTich, Truong) " +
+                        "values (" + hocSinh.getID() + ", " +
+                        thanhTich.getNamHoc() + ", '" + thanhTich.getThanhTich() + "'" +
+                        ", '" + thanhTich.getTruong() + "'";
+                statement = conn.createStatement();
+                int n = statement.executeUpdate(insert);
+                if (n == 0)
+                    return false;
+                else return true;
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+
 
 }
