@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="355.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thieunhi.ThongTinQuaThieuNhiController">
+<AnchorPane prefHeight="355.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.hocsinh.ThongTinQuaHocSinhController">
    <children>
       <Button layoutX="454.0" layoutY="300.0" mnemonicParsing="false" onAction="#update" prefHeight="34.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Cập nhật" textFill="WHITE">
          <font>

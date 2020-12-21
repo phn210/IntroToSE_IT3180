@@ -120,7 +120,8 @@ public class ThieuNhiController implements Initializable {
         nam = (int) chonNam.getSelectionModel().getSelectedItem();
     }
 
-    public void phatQua(ActionEvent event){
+    @FXML
+    void phatQua(ActionEvent event){
         List<ThieuNhi> error = new ArrayList<>();
         GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
         if (goiQua == null){
@@ -145,7 +146,8 @@ public class ThieuNhiController implements Initializable {
         }
     }
 
-    public void xemThongTin(ActionEvent event) throws IOException {
+    @FXML
+    void xemThongTin(ActionEvent event) throws IOException {
         if (this.nam == 0 || this.dip.equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Chọn năm và dịp!");
@@ -172,7 +174,8 @@ public class ThieuNhiController implements Initializable {
         }
     }
 
-    public void themGoiQua(ActionEvent event) throws IOException {
+    @FXML
+    void themGoiQua(ActionEvent event) throws IOException {
         GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
         if (!(goiQua == null)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -188,7 +191,8 @@ public class ThieuNhiController implements Initializable {
         }
     }
 
-    public void timKiem(ActionEvent event){
+    @FXML
+    void timKiem(ActionEvent event){
         String ten = timTextTen.getText();
         String gioiTinh = timTextGioiTinh.getText();
         String tuoi = timTextTuoi.getText();
