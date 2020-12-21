@@ -139,7 +139,7 @@ public class ThieuNhiController implements Initializable {
         }
         if(error.size() > 0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Có " + error.size() + " người không thể phát quà!");
+            alert.setContentText("Có " + error.size() + " em đã được phát quà từ trước!");
             alert.setHeaderText("Warning!");
             alert.show();
         }
@@ -173,19 +173,18 @@ public class ThieuNhiController implements Initializable {
     }
 
     public void themGoiQua(ActionEvent event) throws IOException {
-        GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
-        if (!(goiQua == null)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Gói quà đã tồn tại!");
-            alert.setHeaderText("Warning!");
-            alert.show();
-        } else {
-            Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/thieunhi/ThemGoiQuaTN.fxml"));
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        stage.setOnCloseRequest((e)->{
+            namComboBox = FXCollections.observableArrayList(phatQuaService.getAllNamDip());
+            chonNam.setItems(namComboBox);
+            dipComboBox = FXCollections.observableArrayList(phatQuaService.getAllDip());
+            chonDip.setItems(dipComboBox);
+        });
     }
 
     public void timKiem(ActionEvent event){

@@ -5,10 +5,7 @@ import models.HocSinh;
 import models.ThanhTich;
 import models.ThieuNhi;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,9 +69,7 @@ public class PhatQuaService {
                 else return true;
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        } catch (SQLException throwables) { }
         return false;
     }
 
@@ -112,14 +107,18 @@ public class PhatQuaService {
 
     public boolean suaGoiQua(GoiQua goiQua){
         String update = "update GoiQua " +
-                        "set MoTa = " + "'" + goiQua.getMoTa() + "', " +
-                        "GiaTien = " + "'" + goiQua.getGiaTien() + "' " +
-                        "where Dip = " + "N'" + goiQua.getDip() + "' " +
-                        "and Nam = " + "'" + goiQua.getNam() + "'";
+                        "set MoTa = ?, " +
+                        "GiaTien = ? " +
+                        "where Dip = ? " +
+                        "and Nam = ?";
         try {
             Connection conn = DBConnection.getConnection();
-            Statement statement = conn.createStatement();
-            int n = statement.executeUpdate(update);
+            PreparedStatement pst = conn.prepareStatement(update);
+            pst.setString(1, goiQua.getMoTa());
+            pst.setDouble(2, goiQua.getGiaTien());
+            pst.setString(3, goiQua.getDip());
+            pst.setInt(4, goiQua.getNam());
+            int n = pst.executeUpdate();
 
             if (n == 0)
                 return false;
@@ -131,14 +130,16 @@ public class PhatQuaService {
     }
 
     public boolean themGoiQua(GoiQua goiQua){
-        String insert = "insert into GoiQua(Dip, Nam, GiaTien, MoTa) " +
-                        "values (" + "'" + goiQua.getDip() + "', " +
-                        goiQua.getNam() + ", " + goiQua.getGiaTien() +
-                        ", '" + goiQua.getMoTa() + "'";
+        String insert = "insert into GoiQua(Dip, GiaTien, Nam, MoTa) " +
+                        "values (?, ?, ?, ?)";
         try {
             Connection conn = DBConnection.getConnection();
-            Statement statement = conn.createStatement();
-            int n = statement.executeUpdate(insert);
+            PreparedStatement pst = conn.prepareStatement(insert);
+            pst.setString(1, goiQua.getDip());
+            pst.setDouble(2, goiQua.getGiaTien());
+            pst.setInt(3, goiQua.getNam());
+            pst.setString(4, goiQua.getMoTa());
+            int n = pst.executeUpdate();
 
             if (n == 0)
                 return false;

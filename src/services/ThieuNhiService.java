@@ -16,7 +16,7 @@ public class ThieuNhiService {
         List<ThieuNhi> list = new ArrayList<>();
         String query = "select *, DATEDIFF(year, NgaySinh, GetDate()) Tuoi " +
                     "from NhanKhau, HoGiaDinh " +
-                    "where DATEDIFF(year, NgaySinh, GetDate()) < 6" +
+                    "where DATEDIFF(year, NgaySinh, GetDate()) <= 18" +
                     "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
         try {

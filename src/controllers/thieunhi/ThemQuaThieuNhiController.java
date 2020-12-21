@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import models.GoiQua;
 import services.PhatQuaService;
+import services.ThongKeService;
 import views.Main;
 
 import java.io.IOException;
@@ -48,38 +49,46 @@ public class ThemQuaThieuNhiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.nam = FXCollections.observableArrayList("2017", "2018", "2019", "2020", "Khác");
         this.themNamThieuNhi.setItems(nam);
-        this.dip = FXCollections.observableArrayList("Tết dương lịch", "Tết Nguyên Đán", "Tết thiếu nhi", "Trung Thu", "Noel", "Khác");
+        this.dip = FXCollections.observableArrayList("Tết dương lịch", "Tết nguyên đán", "Tết thiếu nhi", "Trung Thu", "Noel", "Khác");
         this.themDipThieuNhi.setItems(dip);
     }
 
     public void add(ActionEvent event){
-        GoiQua goiQua = new GoiQua();
-        goiQua.setDip(this.dipThieuNhi);
-        goiQua.setNam(this.namThieuNhi);
-        goiQua.setMoTa(textEnterMoTa.getText());
-        
-        if(this.textEnterMoTa.getText().trim().isEmpty()
-                || goiQua.getNam() == 0
-                || this.textEnterDonGia.getText().trim().isEmpty()
-                || this.textEnterMoTa.getText().trim().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Vui lòng điền đủ thông tin gói quà!");
-            alert.setHeaderText("Warning!");
+        if(phatQuaService.getAllDip().contains(themDipThieuNhi.getSelectionModel().getSelectedItem().toString())
+                && phatQuaService.getAllNamDip().contains(Integer.valueOf(themNamThieuNhi.getSelectionModel().getSelectedItem().toString()))){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Gói quà này đã tồn tại");
+            alert.setContentText("Chọn lại");
             alert.showAndWait();
-        } else {
-            goiQua.setGiaTien(Double.parseDouble(textEnterDonGia.getText()));
-            boolean success = phatQuaService.themGoiQua(goiQua);
-            if (success) {
-                ((Stage)((Node) event.getSource()).getScene().getWindow()).close();
+        }else {
+
+            GoiQua goiQua = new GoiQua();
+            goiQua.setDip(this.dipThieuNhi);
+            goiQua.setNam(this.namThieuNhi);
+            goiQua.setMoTa(textEnterMoTa.getText());
+
+            if (this.textEnterMoTa.getText().trim().isEmpty()
+                    || goiQua.getNam() == 0
+                    || this.textEnterDonGia.getText().trim().isEmpty()
+                    || this.textEnterMoTa.getText().trim().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Đã cập nhật gói quà!");
-                alert.setHeaderText("Completed!");
-                alert.show();
+                alert.setContentText("Vui lòng điền đủ thông tin gói quà!");
+                alert.setHeaderText("Warning!");
+                alert.showAndWait();
             } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Không thể sửa gói quà, có lỗi xảy ra!");
-                alert.setHeaderText("Error!");
-                alert.show();
+                goiQua.setGiaTien(Double.parseDouble(textEnterDonGia.getText()));
+                boolean success = phatQuaService.themGoiQua(goiQua);
+                if (success) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Đã thêm 1 gói quà!");
+                    alert.setHeaderText("Completed!");
+                    alert.show();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Không thể sửa gói quà, có lỗi xảy ra!");
+                    alert.setHeaderText("Error!");
+                    alert.show();
+                }
             }
         }
     }

@@ -65,8 +65,7 @@ public class ThongKeController implements Initializable {
     public ThongKeController(){
         this.hoGiaDinhService = new HoGiaDinhService();
         this.thongKeService = new ThongKeService();
-//        this.namOblist = FXCollections.observableArrayList("Tất cả", "2017", "2018", "2019", "2020");
-//        this.dipOblist = FXCollections.observableArrayList("Tất cả", "Tết dương lịch", "Tết Nguyên Đán", "Quốc tế thiếu nhi", "Trung Thu", "Khen thưởng hsg", "Noel");
+
         this.namOblist = FXCollections.observableArrayList("Tất cả");
         namOblist.addAll(thongKeService.getAllNam());
         this.dipOblist = FXCollections.observableArrayList("Tất cả");
@@ -95,15 +94,6 @@ public class ThongKeController implements Initializable {
         if(dip == "Tất cả"){
             dip = "";
         }
-//        switch(temp){
-//            case "Tất cả": this.dip = ""; break;
-//            case "Tết dương lịch": this.dip = "Tết dương lịch"; break;
-//            case "Tết Nguyên Đán": this.dip = "Tết Nguyên Đán"; break;
-//            case "Quốc tế thiếu nhi": this.dip = "Quốc tế thiếu nhi"; break;
-//            case "Trung Thu": this.dip = "Trung Thu"; break;
-//            case "Khen thưởng hsg": this.dip = "Khen thưởng hsg"; break;
-//            case "Noel": this.dip = "Noel"; break;
-//        }
     }
 
     @FXML
@@ -112,13 +102,6 @@ public class ThongKeController implements Initializable {
         if(nam == "Tất cả"){
             nam = "";
         }
-//        switch(temp){
-//            case "Tất cả": this.nam = ""; break;
-//            case "2017": this.nam = "2017"; break;
-//            case "2018": this.nam = "2018"; break;
-//            case "2019": this.nam = "2019"; break;
-//            case "2020": this.nam = "2020"; break;
-//        }
     }
 
     @FXML
