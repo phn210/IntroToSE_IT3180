@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="355.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.hocsinh.ThemQuaHocSinhController">
+<AnchorPane prefHeight="355.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.hocsinh.ThemThanhTichController">
    <children>
       <Button layoutX="454.0" layoutY="300.0" mnemonicParsing="false" onAction="#add" prefHeight="34.0" prefWidth="116.0" styleClass="small_button" stylesheets="@../../../static/css/main.css" text="Thêm mới" textFill="WHITE">
          <font>
@@ -34,36 +33,30 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="50.0" prefWidth="106.0" text="Thành tích:">
+            <Label prefHeight="50.0" prefWidth="106.0" text="Năm học:">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="114.0" text="Mô tả gói quà:" wrapText="true" GridPane.rowIndex="1">
+            <Label prefHeight="50.0" prefWidth="114.0" text="Thành tích:" wrapText="true" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="textEnterMoTa" prefHeight="50.0" prefWidth="447.0" promptText="Mô tả" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="50.0" prefWidth="114.0" text="Đơn giá:" wrapText="true" GridPane.rowIndex="2">
+            <TextField fx:id="textEnterThanhTich" prefHeight="50.0" prefWidth="447.0" promptText="Mô tả" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="50.0" prefWidth="114.0" text="Trường:" wrapText="true" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1">
                <children>
-                  <ComboBox fx:id="themThanhTich" onAction="#themThanhTich" prefHeight="50.0" prefWidth="278.0" promptText="Thành tích" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <ComboBox fx:id="themNam" onAction="#themNam" prefHeight="50.0" prefWidth="131.0" promptText="Năm" styleClass="search" stylesheets="@../../../static/css/main.css" />
+                  <TextField fx:id="textEnterNamHoc" prefHeight="50.0" prefWidth="211.0" promptText="Năm học" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="454.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="textEnterDonGia" prefHeight="50.0" prefWidth="146.0" promptText="Đơn giá" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
-                  <Label prefHeight="50.0" prefWidth="153.0" text="vnđ / 1 học sinh" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
+                  <TextField fx:id="textEnterTruong" prefHeight="50.0" prefWidth="458.0" promptText="Trường" style="-fx-border-color: black;" styleClass="search" stylesheets="@../../../static/css/main.css" />
                </children>
             </HBox>
          </children>

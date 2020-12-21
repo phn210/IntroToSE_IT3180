@@ -19,6 +19,7 @@ import services.PhatQuaService;
 import services.ThieuNhiService;
 import views.Main;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -70,7 +71,7 @@ public class ThieuNhiController implements Initializable {
     public static ObservableList<Integer> namComboBox;
     public static ObservableList<String> dipComboBox;
 
-    public ThieuNhiController(){
+    public ThieuNhiController() {
         this.nam = 0;
         this.dip = "";
         this.thieuNhiService = new ThieuNhiService();
@@ -120,10 +121,11 @@ public class ThieuNhiController implements Initializable {
         nam = (int) chonNam.getSelectionModel().getSelectedItem();
     }
 
-    public void phatQua(ActionEvent event){
+    @FXML
+    void phatQua(ActionEvent event) {
         List<ThieuNhi> error = new ArrayList<>();
         GoiQua goiQua = phatQuaService.getGoiQua(nam, dip);
-        if (goiQua == null){
+        if (goiQua == null) {
             //thong bao goi qua chua ton tai
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Gói quà chưa tồn tại!");
@@ -131,13 +133,13 @@ public class ThieuNhiController implements Initializable {
             alert.show();
         } else {
             List<ThieuNhi> list = thieuNhiService.getAll(nam);
-            for (ThieuNhi thieuNhi: list) {
+            for (ThieuNhi thieuNhi : list) {
                 boolean check = phatQuaService.phatQuaTN(thieuNhi, goiQua);
-                if(!check)
+                if (!check)
                     error.add(thieuNhi);
             }
         }
-        if(error.size() > 0){
+        if (error.size() > 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Có " + error.size() + " em đã được phát quà từ trước!");
             alert.setHeaderText("Warning!");
@@ -145,7 +147,8 @@ public class ThieuNhiController implements Initializable {
         }
     }
 
-    public void xemThongTin(ActionEvent event) throws IOException {
+    @FXML
+    void xemThongTin(ActionEvent event) throws IOException {
         if (this.nam == 0 || this.dip.equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Chọn năm và dịp!");
@@ -179,7 +182,7 @@ public class ThieuNhiController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
 
-        stage.setOnCloseRequest((e)->{
+        stage.setOnCloseRequest((e) -> {
             namComboBox = FXCollections.observableArrayList(phatQuaService.getAllNamDip());
             chonNam.setItems(namComboBox);
             dipComboBox = FXCollections.observableArrayList(phatQuaService.getAllDip());
@@ -187,7 +190,7 @@ public class ThieuNhiController implements Initializable {
         });
     }
 
-    public void timKiem(ActionEvent event){
+    void timKiem(ActionEvent event){
         String ten = timTextTen.getText();
         String gioiTinh = timTextGioiTinh.getText();
         String tuoi = timTextTuoi.getText();
@@ -197,4 +200,5 @@ public class ThieuNhiController implements Initializable {
         this.tableOblist = FXCollections.observableList(list);
         thieuNhiTable.setItems(tableOblist);
     }
+
 }
