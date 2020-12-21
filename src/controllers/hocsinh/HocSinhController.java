@@ -1,28 +1,17 @@
 package controllers.hocsinh;
 
-import controllers.thieunhi.ThongTinQuaThieuNhiController;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import models.GoiQua;
 import models.HocSinh;
 import services.HocSinhService;
-import services.NhanKhauService;
 import services.PhatQuaService;
-import views.Main;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.Arrays;
@@ -106,37 +95,17 @@ public class HocSinhController implements Initializable {
         hocSinhTable.setItems(tableOblist);
     }
 
+    public void update(){
+
+    }
+
     @FXML
     void phatQua(ActionEvent event) {
 
     }
 
     @FXML
-    void xemThongTin(ActionEvent event) throws IOException {
-        if (this.nam == 0 || this.thanhTich.equals("")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Chọn năm học và thành tích!");
-            alert.setHeaderText("Warning!");
-            alert.showAndWait();
-        } else {
-            GoiQua goiQua = phatQuaService.getGoiQua(this.nam, this.thanhTich);
-            if (goiQua == null) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Gói quà chưa tồn tại, vui lòng thêm mới!");
-                alert.setHeaderText("Warning!");
-                alert.show();
-            } else {
-                FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/hocsinh/ThongTinQuaHS.fxml"));
-                Parent root = loader.load();
-
-                ThongTinQuaHocSinhController thongTinQuaHocSinhController = (ThongTinQuaHocSinhController) loader.getController();
-                thongTinQuaHocSinhController.initialize(goiQua);
-
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
-        }
+    void xemThongTin(ActionEvent event) {
 
     }
 
@@ -157,20 +126,5 @@ public class HocSinhController implements Initializable {
         hocSinhTable.setItems(tableOblist);
     }
 
-    @FXML
-    void handleRow(MouseEvent mouseEvent) throws IOException {
-        if (mouseEvent.getClickCount() == 2 && this.hocSinhTable.getSelectionModel().getSelectedItem() != null) {
-            HocSinh hocSinh = this.hocSinhTable.getSelectionModel().getSelectedItem();
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/hocsinh/ThanhTich.fxml"));
-            Parent root = loader.load();
-            ThanhTichController thanhTichController = loader.getController();
-            thanhTichController.initialize(hocSinh);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.getIcons().add(new Image("/static/img/bieutuong.png"));
-            stage.setTitle("Thành tích học tập");
-            stage.show();
-        }
-    }
 
 }

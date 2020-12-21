@@ -58,7 +58,7 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="hocSinhTable" onMouseClicked="#handleRow" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <TableView fx:id="hocSinhTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
               <columns>
                 <TableColumn fx:id="col_Ten" prefWidth="152.00000286102295" text="Họ và tên" />
                   <TableColumn fx:id="col_GioiTinh" prefWidth="64.79998779296875" text="Giới tính" />
