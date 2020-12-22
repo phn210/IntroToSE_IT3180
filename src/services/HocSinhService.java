@@ -170,18 +170,19 @@ public class HocSinhService {
                 pstmt.setString(1, thanhTich.getThanhTich());
                 pstmt.setInt(2, thanhTich.getID());
                 pstmt.setInt(3, thanhTich.getNamHoc());
-                n = pstmt.executeUpdate();
+                if(pstmt.executeUpdate()==0)
+                    return 0;
                 return 1;
             } else {
                 String insert = "insert into ThanhTich(ID, NamHoc, ThanhTich, Truong) " +
-                        "values (?, ? , ? ,?)";
+                        "values (?, ? ,? ,?)";
                 PreparedStatement pstmt = conn.prepareStatement(insert);
                 pstmt.setInt(1, thanhTich.getID());
                 pstmt.setInt(2, thanhTich.getNamHoc());
                 pstmt.setString(3, thanhTich.getThanhTich());
                 pstmt.setString(4, thanhTich.getTruong());
-                pstmt.executeUpdate();
-                n = statement.executeUpdate(insert);
+                if(pstmt.executeUpdate()==0)
+                    return 0;
                 return 2;
             }
         } catch (SQLException throwables) {

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.thieunhi;
 
 import controllers.thieunhi.ThemQuaThieuNhiController;
 import javafx.event.ActionEvent;
@@ -11,14 +11,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 
-public class ThemLuaChonController {
+public class ThemNamDipController {
 
     @FXML
     private TextField themDipMoi;
     @FXML
     private TextField themNamMoi;
 
-    public ThemLuaChonController(){
+    public ThemNamDipController(){
     }
 
     @FXML

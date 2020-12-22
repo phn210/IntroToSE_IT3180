@@ -1,6 +1,5 @@
 package controllers.thieunhi;
 
-import controllers.ThemLuaChonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -101,7 +100,7 @@ public class ThemQuaThieuNhiController implements Initializable {
         if (this.themDipThieuNhi.getSelectionModel().getSelectedItem().toString().equals("Khác")) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/Dip.fxml"));
             Parent root = loader.load();
-            ThemLuaChonController themLuaChonController = (ThemLuaChonController) loader.getController();
+            ThemNamDipController themNamDipController = (ThemNamDipController) loader.getController();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));
@@ -114,7 +113,7 @@ public class ThemQuaThieuNhiController implements Initializable {
         if (this.themNamThieuNhi.getSelectionModel().getSelectedItem().toString().equals("Khác")) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/Nam.fxml"));
             Parent root = loader.load();
-            ThemLuaChonController themLuaChonController = (ThemLuaChonController) loader.getController();
+            ThemNamDipController themNamDipController = (ThemNamDipController) loader.getController();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));

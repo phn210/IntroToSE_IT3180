@@ -89,7 +89,7 @@ public class HocSinhController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> thanhTich = FXCollections.observableArrayList(phatQuaService.getAllThanhTich());
+        ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Học sinh Còn lại", "Học sinh Thành tích Đặc biệt");
         chonThanhTich.setItems(thanhTich);
         ObservableList<Integer> nam = FXCollections.observableArrayList(phatQuaService.getAllNamHoc());
         chonNam.setItems(nam);
