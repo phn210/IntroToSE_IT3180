@@ -190,6 +190,7 @@ public class ThieuNhiController implements Initializable {
         });
     }
 
+    @FXML
     void timKiem(ActionEvent event){
         String ten = timTextTen.getText();
         String gioiTinh = timTextGioiTinh.getText();

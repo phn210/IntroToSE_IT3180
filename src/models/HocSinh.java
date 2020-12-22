@@ -20,6 +20,7 @@ public class HocSinh extends ThieuNhi{
     }
 
     public void addDsThanhTich(ArrayList<ThanhTich> dsThanhTich) {
-        this.dsThanhTich.addAll(dsThanhTich);
+        if(!dsThanhTich.isEmpty())
+            this.dsThanhTich.addAll(dsThanhTich);
     }
 }

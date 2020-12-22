@@ -47,6 +47,9 @@ public class ThanhTichController {
 
     public void initialize(HocSinh hocSinh) {
         this.hocSinh = hocSinh;
+        this.hocSinhService = new HocSinhService();
+        this.phatQuaService = new PhatQuaService();
+
         this.textTen.setText(hocSinh.getTen());
         this.textNgaySinh.setText(hocSinh.getNgaySinh().toString());
 
@@ -54,8 +57,7 @@ public class ThanhTichController {
         col_ThanhTich.setCellValueFactory(new PropertyValueFactory<>("ThanhTich"));
         col_Truong.setCellValueFactory(new PropertyValueFactory<>("Truong"));
 
-        List<ThanhTich> list = this.hocSinhService.getListThanhTich(hocSinh);
-        hocSinh.addDsThanhTich((ArrayList<ThanhTich>) list);
+        List<ThanhTich> list = this.hocSinhService.getListThanhTich(this.hocSinh);
         tableObList = FXCollections.observableList(list);
         tableThanhTich.setItems(tableObList);
     }
@@ -66,7 +68,6 @@ public class ThanhTichController {
         col_Truong.setCellValueFactory(new PropertyValueFactory<>("Truong"));
 
         List<ThanhTich> list = this.hocSinhService.getListThanhTich(hocSinh);
-        hocSinh.addDsThanhTich((ArrayList<ThanhTich>) list);
         tableObList = FXCollections.observableList(list);
         tableThanhTich.setItems(tableObList);
     }

@@ -1,5 +1,6 @@
 package controllers.thieunhi;
 
+import controllers.ThemLuaChonController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,7 +17,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import models.GoiQua;
 import services.PhatQuaService;
-import services.ThongKeService;
 import views.Main;
 
 import java.io.IOException;
@@ -101,8 +101,7 @@ public class ThemQuaThieuNhiController implements Initializable {
         if (this.themDipThieuNhi.getSelectionModel().getSelectedItem().toString().equals("Khác")) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/Dip.fxml"));
             Parent root = loader.load();
-            ThemNamSuKienController themNamController = (ThemNamSuKienController) loader.getController();
-            themNamController.initialize();
+            ThemLuaChonController themLuaChonController = (ThemLuaChonController) loader.getController();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));
@@ -115,8 +114,7 @@ public class ThemQuaThieuNhiController implements Initializable {
         if (this.themNamThieuNhi.getSelectionModel().getSelectedItem().toString().equals("Khác")) {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/thieunhi/Nam.fxml"));
             Parent root = loader.load();
-            ThemNamSuKienController themNamController = (ThemNamSuKienController) loader.getController();
-            themNamController.initialize();
+            ThemLuaChonController themLuaChonController = (ThemLuaChonController) loader.getController();
             Stage stage = new Stage();
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setScene(new Scene(root));

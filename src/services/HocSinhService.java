@@ -3,10 +3,7 @@ package services;
 import models.HocSinh;
 import models.ThanhTich;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,13 +121,11 @@ public class HocSinhService {
 
     public List<ThanhTich> getListThanhTich(HocSinh hocSinh){
         List<ThanhTich> list = new ArrayList<>();
-
         String query = "select *" +
                 "from NhanKhau, ThanhTich " +
                 "where NgheNghiep = N'Học sinh' " +
                 "and NhanKhau.ID = ThanhTich.ID " +
-                "and NhanKhai.ID = " + "'" + hocSinh.getID() + "'";
-
+                "and NhanKhau.ID = " + "'" + hocSinh.getID() + "'";
         try {
             Connection conn = DBConnection.getConnection();
             Statement statement = conn.createStatement();
@@ -153,36 +148,46 @@ public class HocSinhService {
         return list;
     }
 
-    public boolean themThanhTich(HocSinh hocSinh, ThanhTich thanhTich){
+    public int themThanhTich(ThanhTich thanhTich){
 
         String checkExist = "select count(*) " +
                 "from ThanhTich " +
-                "where ID = " + hocSinh.getID() +
+                "where ID = " + thanhTich.getID() +
                 "and NamHoc = " + thanhTich.getNamHoc();
         try {
             Connection conn = DBConnection.getConnection();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
             rs.next();
+            int n = 0;
             if(rs.next()){
-                return false;
-            }
-            else {
-                String insert = "insert into ThanhTich(ID, NamHoc, ThanhTich, Truong) " +
-                        "values (" + hocSinh.getID() + ", " +
-                        thanhTich.getNamHoc() + ", '" + thanhTich.getThanhTich() + "'" +
-                        ", '" + thanhTich.getTruong() + "'";
-                statement = conn.createStatement();
-                int n = statement.executeUpdate(insert);
-                if (n == 0)
-                    return false;
-                else return true;
-            }
+                String update = "update ThanhTich " +
+                                "set ThanhTich = ?" +
+                                "where ID = ?" +
+                                "and NamHoc = ?";
 
+                PreparedStatement pstmt = conn.prepareStatement(update);
+                pstmt.setString(1, thanhTich.getThanhTich());
+                pstmt.setInt(2, thanhTich.getID());
+                pstmt.setInt(3, thanhTich.getNamHoc());
+                n = pstmt.executeUpdate();
+                return 1;
+            } else {
+                String insert = "insert into ThanhTich(ID, NamHoc, ThanhTich, Truong) " +
+                        "values (?, ? , ? ,?)";
+                PreparedStatement pstmt = conn.prepareStatement(insert);
+                pstmt.setInt(1, thanhTich.getID());
+                pstmt.setInt(2, thanhTich.getNamHoc());
+                pstmt.setString(3, thanhTich.getThanhTich());
+                pstmt.setString(4, thanhTich.getTruong());
+                pstmt.executeUpdate();
+                n = statement.executeUpdate(insert);
+                return 2;
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return false;
+        return 0;
     }
 
 

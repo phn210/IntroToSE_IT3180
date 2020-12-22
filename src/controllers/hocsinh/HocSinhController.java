@@ -160,11 +160,10 @@ public class HocSinhController implements Initializable {
     @FXML
     void handleRow(MouseEvent mouseEvent) throws IOException {
         if (mouseEvent.getClickCount() == 2 && this.hocSinhTable.getSelectionModel().getSelectedItem() != null) {
-            HocSinh hocSinh = this.hocSinhTable.getSelectionModel().getSelectedItem();
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/hocsinh/ThanhTich.fxml"));
             Parent root = loader.load();
             ThanhTichController thanhTichController = loader.getController();
-            thanhTichController.initialize(hocSinh);
+            thanhTichController.initialize(this.hocSinhTable.getSelectionModel().getSelectedItem());
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));

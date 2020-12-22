@@ -44,9 +44,9 @@
             </HBox>
             <GridPane>
               <columnConstraints>
-                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="145.199951171875" minWidth="10.0" prefWidth="58.39998779296875" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="258.80002212524414" minWidth="10.0" prefWidth="122.40001220703124" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.99998779296874" minWidth="10.0" prefWidth="357.6000366210937" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="145.199951171875" minWidth="10.0" prefWidth="109.6" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="258.80002212524414" minWidth="10.0" prefWidth="107.20000000000002" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.99998779296874" minWidth="10.0" prefWidth="330.599951171875" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.79998779296875" minWidth="10.0" prefWidth="53.20001220703125" />
               </columnConstraints>
               <rowConstraints>
@@ -61,17 +61,20 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textTen" prefHeight="38.0" prefWidth="414.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <padding>
-                        <Insets bottom="3.0" top="3.0" />
-                     </padding>
+                  <TextField fx:id="textTen" editable="false" prefHeight="38.0" prefWidth="414.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
                   </TextField>
                   <Label prefHeight="50.0" prefWidth="114.0" text="Họ và tên:" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textNgaySinh" prefHeight="50.0" prefWidth="447.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="textNgaySinh" editable="false" prefHeight="50.0" prefWidth="447.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></TextField>
                </children>
             </GridPane>
             <TableView fx:id="tableThanhTich" prefHeight="200.0" prefWidth="600.0" stylesheets="@../../../static/css/main.css" GridPane.rowIndex="1">
