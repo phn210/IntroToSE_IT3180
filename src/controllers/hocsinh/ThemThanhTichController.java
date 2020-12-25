@@ -98,9 +98,4 @@ public class ThemThanhTichController{
         this.thanhTich = this.comboBoxThanhTich.getSelectionModel().getSelectedItem().toString();
     }
 
-    @FXML
-    void close(ActionEvent event) {
-        ((Stage)((Node) event.getSource()).getScene().getWindow()).close();
-    }
-
 }

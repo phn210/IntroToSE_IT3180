@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.GoiQua;
 import models.HocSinh;
+import models.ThieuNhi;
 import services.HocSinhService;
 import services.NhanKhauService;
 import services.PhatQuaService;
@@ -25,6 +26,7 @@ import views.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -108,7 +110,38 @@ public class HocSinhController implements Initializable {
 
     @FXML
     void phatQua(ActionEvent event) {
+        List<HocSinh> error = new ArrayList<>();
+        GoiQua goiQua = phatQuaService.getGoiQua(nam, thanhTich);
+        if (goiQua == null) {
+            //thong bao goi qua chua ton tai
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Gói quà chưa tồn tại!");
+            alert.setHeaderText("Warning!");
+            alert.show();
+        } else {
+            List<HocSinh> list = hocSinhService.getAll(nam, thanhTich);
+            for (HocSinh hocSinh: list) {
+                boolean check = phatQuaService.phatQuaHS(hocSinh, goiQua);
+                if (!check)
+                    error.add(hocSinh);
+            }
+        }
+        if (error.size() > 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Có " + error.size() + " em đã được phát quà từ trước!");
+            alert.setHeaderText("Warning!");
+            alert.show();
+        }
+    }
 
+    @FXML
+    void chonNam(ActionEvent event){
+        this.nam = this.chonNam.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    void chonThanhTich(ActionEvent event){
+        this.thanhTich = this.chonThanhTich.getSelectionModel().getSelectedItem();
     }
 
     @FXML
@@ -141,8 +174,12 @@ public class HocSinhController implements Initializable {
     }
 
     @FXML
-    void themGoiQua(ActionEvent event) {
-
+    void themGoiQua(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Main.class.getResource("phatqua/hocsinh/ThemGoiQuaHS.fxml"));
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image("/static/img/bieutuong.png"));
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

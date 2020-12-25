@@ -42,6 +42,8 @@ public class ThemQuaThieuNhiController implements Initializable {
 
     public ThemQuaThieuNhiController(){
         this.phatQuaService = new PhatQuaService();
+        this.dipThieuNhi = "";
+        this.namThieuNhi = 0;
     }
 
     @Override
@@ -59,22 +61,19 @@ public class ThemQuaThieuNhiController implements Initializable {
             alert.setHeaderText("Gói quà này đã tồn tại");
             alert.setContentText("Chọn lại");
             alert.showAndWait();
-        }else {
-
-            GoiQua goiQua = new GoiQua();
-            goiQua.setDip(this.dipThieuNhi);
-            goiQua.setNam(this.namThieuNhi);
-            goiQua.setMoTa(textEnterMoTa.getText());
-
-            if (this.textEnterMoTa.getText().trim().isEmpty()
-                    || goiQua.getNam() == 0
-                    || this.textEnterDonGia.getText().trim().isEmpty()
-                    || this.textEnterMoTa.getText().trim().isEmpty()) {
+        } else {
+            if (this.dipThieuNhi.equals("") || this.namThieuNhi == 0
+                    || this.textEnterMoTa.getText().trim().isEmpty()
+                    || this.textEnterDonGia.getText().trim().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Vui lòng điền đủ thông tin gói quà!");
                 alert.setHeaderText("Warning!");
                 alert.showAndWait();
             } else {
+                GoiQua goiQua = new GoiQua();
+                goiQua.setDip(this.dipThieuNhi);
+                goiQua.setNam(this.namThieuNhi);
+                goiQua.setMoTa(textEnterMoTa.getText());
                 goiQua.setGiaTien(Double.parseDouble(textEnterDonGia.getText()));
                 boolean success = phatQuaService.themGoiQua(goiQua);
                 if (success) {

@@ -61,9 +61,11 @@ public class PhatQuaService {
             }
             else {
                 String insert = "insert into PhatQua(ID, MaGoiQua) " +
-                                "values (" + IDNguoiNhan + "," + IDGoiQua + ")";
-                statement = conn.createStatement();
-                int n = statement.executeUpdate(insert);
+                                "values (?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(insert);
+                pstmt.setInt(1, thieuNhi.getID());
+                pstmt.setInt(2, goiQua.getID());
+                int n = pstmt.executeUpdate();
                 if (n == 0)
                     return false;
                 else return true;
@@ -76,6 +78,7 @@ public class PhatQuaService {
     public boolean phatQuaHS(HocSinh hocSinh, GoiQua goiQua){
         int IDNguoiNhan = hocSinh.getID();
         int IDGoiQua = goiQua.getID();
+        int res = 0;
 
         String checkExist = "select count(*) " +
                 "from PhatQua " +
@@ -91,9 +94,12 @@ public class PhatQuaService {
             }
             else {
                 String insert = "insert into PhatQua(ID, MaGoiQua) " +
-                        "values (" + IDNguoiNhan + "," + IDGoiQua + ")";
-                statement = conn.createStatement();
-                int n = statement.executeUpdate(insert);
+                                "values (?, ?)";
+                PreparedStatement pstmt = conn.prepareStatement(insert);
+                pstmt.setInt(1, hocSinh.getID());
+                pstmt.setInt(2, goiQua.getID());
+
+                int n = pstmt.executeUpdate();
                 if (n == 0)
                     return false;
                 else return true;
@@ -140,6 +146,7 @@ public class PhatQuaService {
             pst.setInt(3, goiQua.getNam());
             pst.setString(4, goiQua.getMoTa());
             int n = pst.executeUpdate();
+            conn.close();
 
             if (n == 0)
                 return false;
@@ -236,7 +243,4 @@ public class PhatQuaService {
         return list;
     }
 
-    public void addNewNamTN(int NamHoc){
-//        String query = "insert into GoiQua"
-    }
 }
