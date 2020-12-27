@@ -13,6 +13,6 @@ Project for Introduction to Software Engineering course (IT3180)
 * Tab Hộ Gia Đình: Thông tin chi tiết các hộ gia đình
 * Tab Phát quà: 
                 - Thông tin chi tiết về các gói quà để phát \
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Thông tin chi tiết về học sinh, thiếu nhi \
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tìm kiếm gói quà, học sinh, thiếu nhi theo thuộc tính
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Thông tin chi tiết về học sinh, thiếu nhi \
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Tìm kiếm gói quà, học sinh, thiếu nhi theo thuộc tính
 * Tab Thống kê:    Thống kê tiền đã chi cho từng dịp và thành tích của học sinh (theo các năm hoặc tất cả các năm)
