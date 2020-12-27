@@ -11,7 +11,7 @@ Project for Introduction to Software Engineering course (IT3180)
 ## Lưu ý
 * Để cho thuận tiện, tài khoản đăng nhập sẽ mặc định tên và mật khẩu là 'sa' và '' (Authentication Mode SQL Server)
 * Tab Hộ Gia Đình: Thông tin chi tiết các hộ gia đình
-* Tab Phát quà:  - Thông tin chi tiết về các gói quà để phát \
+* Tab Phát quà:  \ - Thông tin chi tiết về các gói quà để phát \
                  - Thông tin chi tiết về học sinh, thiếu nhi \
                  - Tạo mới gói quà nếu chưa có \
                  - Tìm kiếm gói quà, học sinh, thiếu nhi theo thuộc tính
