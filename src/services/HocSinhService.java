@@ -48,13 +48,14 @@ public class HocSinhService {
                 "where NgheNghiep = N'Học sinh' " +
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh " +
                 "and NhanKhau.ID = ThanhTich.ID " +
-                "and NamHoc = " + "'" + nam + "' " +
-                "and ThanhTich = " + "'" + tenThanhTich + "'";
+                "and NamHoc = ? " +
+                "and ThanhTich = ? ";
 
-        try {
-            Connection conn = DBConnection.getConnection();
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+        try (Connection conn = DBConnection.getConnection()) {
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, nam);
+            pstmt.setNString(2, tenThanhTich);
+            ResultSet rs = pstmt.executeQuery();
 
             while(rs.next()){
                 HocSinh hocSinh = new HocSinh();

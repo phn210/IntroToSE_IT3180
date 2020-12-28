@@ -123,17 +123,23 @@ public class HocSinhController implements Initializable {
             alert.show();
         } else {
             List<HocSinh> list = hocSinhService.getAll(nam, thanhTich);
+            System.out.println(list.size());
             for (HocSinh hocSinh: list) {
                 boolean check = phatQuaService.phatQuaHS(hocSinh, goiQua);
                 if (!check)
                     error.add(hocSinh);
             }
-        }
-        if (error.size() > 0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Có " + error.size() + " em đã được phát quà từ trước!");
-            alert.setHeaderText("Warning!");
-            alert.show();
+            if (error.size() > 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Có " + error.size() + " em đã được phát quà từ trước!");
+                alert.setHeaderText("Warning!");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Phát quà thành công!");
+                alert.setHeaderText("Completed!");
+                alert.show();
+            }
         }
     }
 

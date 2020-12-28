@@ -78,7 +78,6 @@ public class PhatQuaService {
     public boolean phatQuaHS(HocSinh hocSinh, GoiQua goiQua){
         int IDNguoiNhan = hocSinh.getID();
         int IDGoiQua = goiQua.getID();
-        int res = 0;
 
         String checkExist = "select count(*) " +
                 "from PhatQua " +
@@ -89,15 +88,16 @@ public class PhatQuaService {
             ResultSet rs = statement.executeQuery(checkExist);
             rs.next();
             if(rs.next()){
+                System.out.println(1);
                 return false;
             }
             else {
+                System.out.println(2);
                 String insert = "insert into PhatQua(ID, MaGoiQua) " +
                                 "values (?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(insert);
                 pstmt.setInt(1, hocSinh.getID());
                 pstmt.setInt(2, goiQua.getID());
-
                 int n = pstmt.executeUpdate();
                 if (n == 0)
                     return false;

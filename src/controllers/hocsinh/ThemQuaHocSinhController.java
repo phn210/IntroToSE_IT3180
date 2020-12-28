@@ -83,7 +83,7 @@ public class ThemQuaHocSinhController implements Initializable {
                 alert.show();
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Không thể sửa gói quà, có lỗi xảy ra!");
+                alert.setContentText("Không thể thêm gói quà, có lỗi xảy ra!");
                 alert.setHeaderText("Error!");
                 alert.show();
             }
