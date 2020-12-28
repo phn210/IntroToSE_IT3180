@@ -81,6 +81,9 @@ public class HocSinhController implements Initializable {
     private ObservableList<HocSinh> tableOblist;
     private ObservableList<String> comboBoxOblist;
 
+    private ObservableList<String> listThanhTich;
+    private ObservableList<Integer> listNam;
+
     public HocSinhController(){
         this.nam = 0;
         this.thanhTich = "";
@@ -91,10 +94,10 @@ public class HocSinhController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        ObservableList<String> thanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Học sinh Còn lại", "Học sinh Thành tích Đặc biệt");
-        chonThanhTich.setItems(thanhTich);
-        ObservableList<Integer> nam = FXCollections.observableArrayList(phatQuaService.getAllNamHoc());
-        chonNam.setItems(nam);
+        listThanhTich = FXCollections.observableArrayList("Học sinh Giỏi", "Học sinh Khá", "Học sinh Còn lại", "Học sinh Thành tích Đặc biệt");
+        chonThanhTich.setItems(listThanhTich);
+        listNam = FXCollections.observableArrayList(phatQuaService.getAllNamHoc());
+        chonNam.setItems(listNam);
 
         col_Ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
         col_GioiTinh.setCellValueFactory(new PropertyValueFactory<>("GioiTinh"));
@@ -162,7 +165,7 @@ public class HocSinhController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(Main.class.getResource("phatqua/hocsinh/ThongTinQuaHS.fxml"));
                 Parent root = loader.load();
 
-                ThongTinQuaHocSinhController thongTinQuaHocSinhController = (ThongTinQuaHocSinhController) loader.getController();
+                ThongTinQuaHocSinhController thongTinQuaHocSinhController = loader.getController();
                 thongTinQuaHocSinhController.initialize(goiQua);
 
                 Stage stage = new Stage();
@@ -206,6 +209,10 @@ public class HocSinhController implements Initializable {
             stage.getIcons().add(new Image("/static/img/bieutuong.png"));
             stage.setTitle("Thành tích học tập");
             stage.show();
+            stage.setOnCloseRequest((e) -> {
+                listNam = FXCollections.observableArrayList(phatQuaService.getAllNamHoc());
+                chonNam.setItems(listNam);
+            });
         }
     }
 

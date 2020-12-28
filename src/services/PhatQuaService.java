@@ -21,8 +21,7 @@ public class PhatQuaService {
                         "from GoiQua " +
                         "where Dip = " + "N'" + dip + "'" +
                         "and Nam = " + nam;
-        try{
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -51,8 +50,7 @@ public class PhatQuaService {
                             "from PhatQua " +
                             "where ID = " + "'" + IDNguoiNhan + "'" +
                             "and MaGoiQua = " + "'" + IDGoiQua + "'";
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
             rs.next();
@@ -71,7 +69,9 @@ public class PhatQuaService {
                 else return true;
             }
 
-        } catch (SQLException throwables) { }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return false;
     }
 
@@ -84,8 +84,7 @@ public class PhatQuaService {
                 "from PhatQua " +
                 "where ID = " + "'" + IDNguoiNhan + "'" +
                 "and MaGoiQua = " + "'" + IDGoiQua + "'";
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
             rs.next();
@@ -117,8 +116,7 @@ public class PhatQuaService {
                         "GiaTien = ? " +
                         "where Dip = ? " +
                         "and Nam = ?";
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             PreparedStatement pst = conn.prepareStatement(update);
             pst.setString(1, goiQua.getMoTa());
             pst.setDouble(2, goiQua.getGiaTien());
@@ -136,17 +134,17 @@ public class PhatQuaService {
     }
 
     public boolean themGoiQua(GoiQua goiQua){
+        if(!(getGoiQua(goiQua.getNam(), goiQua.getDip()) == null))
+            return false;
         String insert = "insert into GoiQua(Dip, GiaTien, Nam, MoTa) " +
                         "values (?, ?, ?, ?)";
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             PreparedStatement pst = conn.prepareStatement(insert);
             pst.setString(1, goiQua.getDip());
             pst.setDouble(2, goiQua.getGiaTien());
             pst.setInt(3, goiQua.getNam());
             pst.setString(4, goiQua.getMoTa());
             int n = pst.executeUpdate();
-            conn.close();
 
             if (n == 0)
                 return false;

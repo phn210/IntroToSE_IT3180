@@ -62,38 +62,30 @@ public class ThemQuaHocSinhController implements Initializable {
 
     @FXML
     void add(ActionEvent event){
-        if(phatQuaService.getAllThanhTich().contains(themThanhTich.getSelectionModel().getSelectedItem())
-                && phatQuaService.getAllNamHoc().contains(Integer.valueOf(themNam.getSelectionModel().getSelectedItem().toString()))){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText("Gói quà này đã tồn tại");
-            alert.setContentText("Chọn lại");
+        if (this.thanhTich.equals("") || this.nam == 0
+                || this.textEnterMoTa.getText().trim().isEmpty()
+                || this.textEnterDonGia.getText().trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Vui lòng điền đủ thông tin gói quà!");
+            alert.setHeaderText("Warning!");
             alert.showAndWait();
         } else {
-            if (this.thanhTich.equals("") || this.nam == 0
-                    || this.textEnterMoTa.getText().trim().isEmpty()
-                    || this.textEnterDonGia.getText().trim().isEmpty()) {
+            GoiQua goiQua = new GoiQua();
+            goiQua.setDip(this.thanhTich);
+            goiQua.setNam(this.nam);
+            goiQua.setMoTa(textEnterMoTa.getText());
+            goiQua.setGiaTien(Double.parseDouble(textEnterDonGia.getText()));
+            boolean success = phatQuaService.themGoiQua(goiQua);
+            if (success) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Vui lòng điền đủ thông tin gói quà!");
-                alert.setHeaderText("Warning!");
-                alert.showAndWait();
+                alert.setContentText("Đã thêm 1 gói quà!");
+                alert.setHeaderText("Completed!");
+                alert.show();
             } else {
-                GoiQua goiQua = new GoiQua();
-                goiQua.setDip(this.thanhTich);
-                goiQua.setNam(this.nam);
-                goiQua.setMoTa(textEnterMoTa.getText());
-                goiQua.setGiaTien(Double.parseDouble(textEnterDonGia.getText()));
-                boolean success = phatQuaService.themGoiQua(goiQua);
-                if (success) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Đã thêm 1 gói quà!");
-                    alert.setHeaderText("Completed!");
-                    alert.show();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Không thể sửa gói quà, có lỗi xảy ra!");
-                    alert.setHeaderText("Error!");
-                    alert.show();
-                }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Không thể sửa gói quà, có lỗi xảy ra!");
+                alert.setHeaderText("Error!");
+                alert.show();
             }
         }
     }
