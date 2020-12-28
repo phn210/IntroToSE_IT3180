@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
@@ -56,6 +57,9 @@
                   <TableColumn fx:id="col_TenChuHo" prefWidth="204.0" text="Tên chủ hộ" />
                   <TableColumn fx:id="col_SDT" prefWidth="191.199951171875" text="SĐT" />
               </columns>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
             </TableView>
             </children>
         </GridPane>

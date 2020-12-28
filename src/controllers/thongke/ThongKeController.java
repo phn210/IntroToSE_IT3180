@@ -62,6 +62,11 @@ public class ThongKeController implements Initializable {
 
     private String nam, dip; //Gia tri chon tu combobox
 
+    private ObservableList<String> bangOblist = FXCollections.observableArrayList("HoGiaDinh", "ThanhTich", "NhanKhau", "PhatQua", "GoiQua");
+
+    @FXML
+    private ComboBox<String> comboBoxBang;
+
     public ThongKeController(){
         this.hoGiaDinhService = new HoGiaDinhService();
         this.thongKeService = new ThongKeService();
@@ -76,6 +81,7 @@ public class ThongKeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBoxNam.setItems(namOblist);
         comboBoxDip.setItems(dipOblist);
+        comboBoxBang.setItems(bangOblist);
 
         //Hien bang HoGiaDinh
         col_IDGiaDinh.setCellValueFactory(new PropertyValueFactory<>("IDGiaDinh"));
@@ -142,6 +148,46 @@ public class ThongKeController implements Initializable {
             stage.setScene(new Scene(parent));
             stage.setTitle("Chi tiết thống kê");
             stage.show();
+        }
+    }
+
+    //Excel
+
+    @FXML
+    void nhapExcel(ActionEvent event) throws IOException, SQLException {
+        if(comboBoxBang.getSelectionModel().getSelectedItem() == "HoGiaDinh"){
+            thongKeService.importExcelHGD();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "NhanKhau"){
+            thongKeService.importExcelNhanKhau();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "GoiQua"){
+            thongKeService.importExcelGoiQua();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "ThanhTich"){
+            thongKeService.importExcelThanhTich();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "PhatQua"){
+            thongKeService.importExcelPhatQua();
+        }
+    }
+
+    @FXML
+    void xuatExcel(ActionEvent event) throws IOException, SQLException {
+        if(comboBoxBang.getSelectionModel().getSelectedItem() == "HoGiaDinh"){
+            thongKeService.exportExcelHGD();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "NhanKhau"){
+            thongKeService.exportExcelNhanKhau();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "GoiQua"){
+            thongKeService.exportExcelGoiQua();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "ThanhTich"){
+            thongKeService.exportExcelThanhTich();
+        }
+        else if(comboBoxBang.getSelectionModel().getSelectedItem() == "PhatQua"){
+            thongKeService.exportExcelPhatQua();
         }
     }
 

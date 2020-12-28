@@ -30,5 +30,6 @@
     <orderEntry type="library" name="mssql-jdbc-8.4.1.jre11" level="project" />
     <orderEntry type="library" name="sqljdbc42" level="project" />
     <orderEntry type="library" name="mssql-jdbc-8.4.1.jre142" level="project" />
+    <orderEntry type="library" name="xmlbeans-3.1.0" level="project" />
   </component>
 </module>

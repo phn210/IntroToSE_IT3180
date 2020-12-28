@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.thongke.ThongKeController">
    <children>
-      <TableView fx:id="hoGiaDinhTable" layoutX="25.0" layoutY="118.0" onMouseClicked="#handleRow" prefHeight="429.0" prefWidth="753.0" stylesheets="@../../static/css/main.css">
+      <TableView fx:id="hoGiaDinhTable" layoutX="25.0" layoutY="118.0" onMouseClicked="#handleRow" prefHeight="302.0" prefWidth="753.0" stylesheets="@../../static/css/main.css">
         <columns>
           <TableColumn fx:id="col_IDGiaDinh" prefWidth="163.99996376037598" text="ID Gia Đình" />
           <TableColumn fx:id="col_DiaChi" prefWidth="215.42860412597656" text="Địa chỉ" />
@@ -35,15 +36,24 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="453.0" layoutY="573.0" prefHeight="47.0" prefWidth="174.0" stylesheets="@../../static/css/main.css" text="Tổng tiền hộ gia đình:">
+      <Label alignment="CENTER" layoutX="451.0" layoutY="441.0" prefHeight="47.0" prefWidth="174.0" stylesheets="@../../static/css/main.css" text="Tổng tiền hộ gia đình:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="labelMoney" alignment="CENTER" layoutX="627.0" layoutY="573.0" prefHeight="47.0" prefWidth="151.0" stylesheets="@../../static/css/main.css">
+      <Label fx:id="labelMoney" alignment="CENTER" layoutX="626.0" layoutY="441.0" prefHeight="47.0" prefWidth="151.0" stylesheets="@../../static/css/main.css">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Separator layoutY="496.0" prefHeight="17.0" prefWidth="802.0" />
+      <ComboBox fx:id="comboBoxBang" layoutX="183.0" layoutY="541.0" prefHeight="54.0" prefWidth="183.0" styleClass="search" stylesheets="@../../static/css/main.css" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="544.0" prefHeight="47.0" prefWidth="164.0" stylesheets="@../../static/css/main.css" text="Bảng trong Database">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="416.0" layoutY="541.0" mnemonicParsing="false" onAction="#xuatExcel" prefHeight="54.0" prefWidth="142.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Xuất Excel" />
+      <Button layoutX="598.0" layoutY="540.0" mnemonicParsing="false" onAction="#nhapExcel" prefHeight="54.0" prefWidth="142.0" styleClass="small_button" stylesheets="@../../static/css/main.css" text="Nhập Excel" />
    </children>
 </AnchorPane>

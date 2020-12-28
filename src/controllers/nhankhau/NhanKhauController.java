@@ -123,9 +123,13 @@ public class NhanKhauController implements Initializable {
             alert.showAndWait();
         }
 
-        int ID = nhanKhauModel.getID();
-        nhanKhauService.deleteListNhanKhau(ID);
-        nhanKhauTable.getItems().removeAll(nhanKhauTable.getSelectionModel().getSelectedItem());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn chắc muốn xóa?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.YES) {
+            int ID = nhanKhauModel.getID();
+            nhanKhauService.deleteListNhanKhau(ID);
+            nhanKhauTable.getItems().removeAll(nhanKhauTable.getSelectionModel().getSelectedItem());
+        }
     }
 
     @FXML

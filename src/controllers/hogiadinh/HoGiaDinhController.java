@@ -122,9 +122,13 @@ public class HoGiaDinhController implements Initializable{
             alert.showAndWait();
         }
 
-        int IDGiaDinh = hoGiaDinhModel.getIDGiaDinh();
-        hoGiaDinhService.deleteListHoGiaDinh(IDGiaDinh);
-        hoGiaDinhTable.getItems().removeAll(hoGiaDinhTable.getSelectionModel().getSelectedItem());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn chắc muốn xóa?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.YES) {
+            int IDGiaDinh = hoGiaDinhModel.getIDGiaDinh();
+            hoGiaDinhService.deleteListHoGiaDinh(IDGiaDinh);
+            hoGiaDinhTable.getItems().removeAll(hoGiaDinhTable.getSelectionModel().getSelectedItem());
+        }
     }
 
     @FXML

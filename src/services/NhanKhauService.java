@@ -1,5 +1,6 @@
 package services;
 
+import javafx.scene.control.Alert;
 import models.HoGiaDinh;
 import models.NhanKhau;
 
@@ -67,20 +68,30 @@ public class NhanKhauService {
     }
 
     public void addListNhanKhau(NhanKhau nhanKhauModel) throws SQLException {
-        Connection conn = DBConnection.getConnection();
-        String sql = "Insert into NhanKhau(ID, Ten, GioiTinh, NgaySinh, NgheNghiep, IDGiaDinh) Values(?, ?, ?, ?, ?, ?)";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setInt(1, nhanKhauModel.getID());
-        pst.setString(2, nhanKhauModel.getTen());
-        pst.setString(3, nhanKhauModel.getGioiTinh());
-        pst.setDate(4, nhanKhauModel.getNgaySinh());
-        pst.setString(5, nhanKhauModel.getNgheNghiep());
-        pst.setInt(6, nhanKhauModel.getIDGiaDinh());
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "Insert into NhanKhau(ID, Ten, GioiTinh, NgaySinh, NgheNghiep, IDGiaDinh) Values(?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, nhanKhauModel.getID());
+            pst.setString(2, nhanKhauModel.getTen());
+            pst.setString(3, nhanKhauModel.getGioiTinh());
+            pst.setDate(4, nhanKhauModel.getNgaySinh());
+            pst.setString(5, nhanKhauModel.getNgheNghiep());
+            pst.setInt(6, nhanKhauModel.getIDGiaDinh());
 
-        pst.executeUpdate();
+            pst.executeUpdate();
 
-        conn.close();
-        pst.close();
+            conn.close();
+            pst.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Thêm thành công!");
+            alert.showAndWait();
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Thêm thất bại!");
+            alert.showAndWait();
+        }
     }
 
     public void deleteListNhanKhau(int ID) throws SQLException {
@@ -96,21 +107,31 @@ public class NhanKhauService {
     }
 
     public void editListNhanKhau(NhanKhau nhanKhauModel) throws SQLException {
-        Connection conn = DBConnection.getConnection();
-        String sql = "Update NhanKhau set Ten = ?, GioiTinh = ?, NgaySinh = ?, NgheNghiep = ?, IDGiaDinh = ? " +
-                "where ID = ?";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1, nhanKhauModel.getTen());
-        pst.setString(2, nhanKhauModel.getGioiTinh());
-        pst.setDate(3, nhanKhauModel.getNgaySinh());
-        pst.setString(4, nhanKhauModel.getNgheNghiep());
-        pst.setInt(5, nhanKhauModel.getIDGiaDinh());
-        pst.setInt(6, nhanKhauModel.getID());
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "Update NhanKhau set Ten = ?, GioiTinh = ?, NgaySinh = ?, NgheNghiep = ?, IDGiaDinh = ? " +
+                    "where ID = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, nhanKhauModel.getTen());
+            pst.setString(2, nhanKhauModel.getGioiTinh());
+            pst.setDate(3, nhanKhauModel.getNgaySinh());
+            pst.setString(4, nhanKhauModel.getNgheNghiep());
+            pst.setInt(5, nhanKhauModel.getIDGiaDinh());
+            pst.setInt(6, nhanKhauModel.getID());
 
-        pst.executeUpdate();
+            pst.executeUpdate();
 
-        conn.close();
-        pst.close();
+            conn.close();
+            pst.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sửa thành công!");
+            alert.showAndWait();
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Sửa thất bại!");
+            alert.showAndWait();
+        }
     }
 
 }

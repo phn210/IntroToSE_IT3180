@@ -1,7 +1,9 @@
 package services;
 
+import javafx.scene.control.Alert;
 import models.HoGiaDinh;
 
+import java.nio.file.Watchable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,18 +60,28 @@ public class HoGiaDinhService {
     }
 
     public void addListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
-        Connection conn = DBConnection.getConnection();
-        String sql = "Insert into HoGiaDinh(IDGiaDinh, DiaChi, ChuHo, SDT) Values(?, ?, ?, ?)";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setInt(1, hoGiaDinhModel.getIDGiaDinh());
-        pst.setString(2, hoGiaDinhModel.getDiaChi());
-        pst.setString(3, hoGiaDinhModel.getChuHo());
-        pst.setString(4, hoGiaDinhModel.getSDT());
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "Insert into HoGiaDinh(IDGiaDinh, DiaChi, ChuHo, SDT) Values(?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, hoGiaDinhModel.getIDGiaDinh());
+            pst.setString(2, hoGiaDinhModel.getDiaChi());
+            pst.setString(3, hoGiaDinhModel.getChuHo());
+            pst.setString(4, hoGiaDinhModel.getSDT());
 
-        pst.executeUpdate();
+            pst.executeUpdate();
 
-        conn.close();
-        pst.close();
+            conn.close();
+            pst.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Thêm thành công!");
+            alert.showAndWait();
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Thêm thất bại!");
+            alert.showAndWait();
+        }
     }
 
     public void deleteListHoGiaDinh(int IDGiaDinh) throws SQLException {
@@ -87,18 +99,28 @@ public class HoGiaDinhService {
     }
 
     public void editListHoGiaDinh(HoGiaDinh hoGiaDinhModel) throws SQLException {
-        Connection conn = DBConnection.getConnection();
-        String sql = "Update HoGiaDinh set DiaChi = ?, ChuHo = ?, SDT = ? " +
+        try {
+            Connection conn = DBConnection.getConnection();
+            String sql = "Update HoGiaDinh set DiaChi = ?, ChuHo = ?, SDT = ? " +
                     "where IDGiaDinh = ?";
-        PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1, hoGiaDinhModel.getDiaChi());
-        pst.setString(2, hoGiaDinhModel.getChuHo());
-        pst.setString(3, hoGiaDinhModel.getSDT());
-        pst.setString(4, String.valueOf(hoGiaDinhModel.getIDGiaDinh()));
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, hoGiaDinhModel.getDiaChi());
+            pst.setString(2, hoGiaDinhModel.getChuHo());
+            pst.setString(3, hoGiaDinhModel.getSDT());
+            pst.setString(4, String.valueOf(hoGiaDinhModel.getIDGiaDinh()));
 
-        pst.executeUpdate();
+            pst.executeUpdate();
 
-        conn.close();
-        pst.close();
+            conn.close();
+            pst.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sửa thành công!");
+            alert.showAndWait();
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Sửa thất bại!");
+            alert.showAndWait();
+        }
     }
 }
