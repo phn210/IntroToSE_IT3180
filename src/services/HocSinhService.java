@@ -15,8 +15,7 @@ public class HocSinhService {
                 "where NgheNghiep = N'Học sinh' " +
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -69,8 +68,6 @@ public class HocSinhService {
                 hocSinh.hoGiaDinh.setSDT(rs.getNString("SDT"));
                 list.add(hocSinh);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -95,12 +92,11 @@ public class HocSinhService {
         if(!chuHo.equals(""))
             query = query + " and ChuHo like " + "N'%" + chuHo + "%'";
 
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            while(rs.next()){
+            while(rs.next()) {
                 HocSinh hocSinh = new HocSinh();
                 hocSinh.setID(rs.getInt("ID"));
                 hocSinh.setTen(rs.getNString("Ten"));
@@ -112,8 +108,6 @@ public class HocSinhService {
                 hocSinh.hoGiaDinh.setSDT(rs.getNString("SDT"));
                 list.add(hocSinh);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -127,8 +121,7 @@ public class HocSinhService {
                 "where NgheNghiep = N'Học sinh' " +
                 "and NhanKhau.ID = ThanhTich.ID " +
                 "and NhanKhau.ID = " + "'" + hocSinh.getID() + "'";
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -140,23 +133,18 @@ public class HocSinhService {
                 thanhTich.setThanhTich(rs.getNString("ThanhTich"));
                 list.add(thanhTich);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return list;
     }
 
     public int themThanhTich(ThanhTich thanhTich){
-
         String checkExist = "select count(*) " +
                 "from ThanhTich " +
                 "where ID = " + thanhTich.getID() +
                 "and NamHoc = " + thanhTich.getNamHoc();
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(checkExist);
             rs.next();

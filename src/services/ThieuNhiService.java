@@ -19,8 +19,7 @@ public class ThieuNhiService {
                     "where DATEDIFF(year, NgaySinh, GetDate()) <= 18" +
                     "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -36,12 +35,9 @@ public class ThieuNhiService {
                 thieuNhi.hoGiaDinh.setDiaChi(rs.getNString("DiaChi"));
                 list.add(thieuNhi);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return list;
     }
 
@@ -54,8 +50,7 @@ public class ThieuNhiService {
                 "and DATEDIFF(year, NgaySinh, " + "'" + date + "'" + ") >= 0 " +
                 "and NhanKhau.IDGiaDinh = HoGiaDinh.IDGiaDinh";
 
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -71,8 +66,6 @@ public class ThieuNhiService {
                 thieuNhi.hoGiaDinh.setDiaChi(rs.getNString("DiaChi"));
                 list.add(thieuNhi);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -96,8 +89,7 @@ public class ThieuNhiService {
         if(!chuHo.equals(""))
             query = query + " and ChuHo like " + "N'%" + chuHo + "%'";
 
-        try {
-            Connection conn = DBConnection.getConnection();
+        try (Connection conn = DBConnection.getConnection()){
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -113,8 +105,6 @@ public class ThieuNhiService {
                 thieuNhi.hoGiaDinh.setDiaChi(rs.getNString("DiaChi"));
                 list.add(thieuNhi);
             }
-
-            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -160,8 +160,7 @@ public class PhatQuaService {
         String query = "select distinct ThanhTich " +
                         "from ThanhTich";
 
-        try{
-            Connection conn = DBConnection.getConnection();
+        try(Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -181,8 +180,7 @@ public class PhatQuaService {
         List<Integer> list = new ArrayList<>();
         String query = "select distinct NamHoc " +
                         "from ThanhTich";
-        try{
-            Connection conn = DBConnection.getConnection();
+        try(Connection conn = DBConnection.getConnection()){
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -203,8 +201,7 @@ public class PhatQuaService {
         String query = "select distinct Dip " +
                 "from GoiQua where Dip not like N'%Học Sinh%'";
 
-        try{
-            Connection conn = DBConnection.getConnection();
+        try(Connection conn = DBConnection.getConnection()) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -224,8 +221,7 @@ public class PhatQuaService {
         List<Integer> list = new ArrayList<>();
         String query = "select distinct Nam " +
                 "from GoiQua";
-        try{
-            Connection conn = DBConnection.getConnection();
+        try(Connection conn = DBConnection.getConnection()){
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
